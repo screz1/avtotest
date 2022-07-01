@@ -186,3 +186,4 @@ def test_email_notifications_kyc_rejected():
     time.sleep(2)
     message = browser.find_element_by_xpath("//h3[@class='readmsg__subject']").text
     assert message == 'KYC rejected'
+    browser.close()
