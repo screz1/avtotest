@@ -10,10 +10,12 @@ EMAIL_FOR_REGISTRATION = 'chronicletest5@ukr.net'
 URL = 'https://stage.xnl.zpoken.io/login'
 PROD_URL = 'https://app.chronicle.io/login'
 
+
 def test_log_in_valid_data():
     browser = webdriver.Chrome()
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
+
     input_chronicle_login.send_keys(EMAIL_FOR_REGISTRATION)
     time.sleep(1)
     input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
