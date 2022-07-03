@@ -83,6 +83,7 @@ def test_log_in_email_not_registered():
     time.sleep(5)
     login_error = browser.find_element_by_xpath("//div[@class='LoginForm_input__ZZfRr']//div[@class='LoginForm_tipError__pmHEw']").text
     assert login_error == 'Oops...We struggle to find anyone registered with this Email...Please check your data or sign up.'
+
     time.sleep(1)
 
 

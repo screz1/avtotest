@@ -12,7 +12,7 @@ DEV_URL = 'https://dev.xnl.zpoken.io/login'
 URL = 'https://dev.xnl.zpoken.io/store'
 
 
-def test_clean_onfido_before():
+def test_email_notif_kyc_rejected():
     browser = webdriver.Chrome()
     browser.get('https://dev-admin.xnl.zpoken.io/')
     time.sleep(5)
@@ -51,11 +51,12 @@ def test_clean_onfido_before():
     time.sleep(2)
     password.send_keys(Keys.RETURN)
     time.sleep(2)
-    mail = browser.find_elements_by_xpath("//tr[@class='msglist__row unread icon0  ui-draggable']")
+    mail = browser.find_elements_by_xpath("//tr[@class='msglist__row unread unseen icon0  ui-draggable']")
     mail[0].click()
     time.sleep(2)
     message = browser.find_element_by_xpath("//h3[@class='readmsg__subject']").text
     assert message == 'KYC rejected'
+    print(message)
     browser.close()
 
 
@@ -81,7 +82,7 @@ def test_email_notif_kyc_approwed():
     opt_button.click()
     time.sleep(3)
     drop_user = browser.find_elements_by_xpath("//button[@class='UsersTable_dropDown__MKRiP']")
-    drop_user[4].click()
+    drop_user[2].click()
     time.sleep(2)
     confirm = browser.find_element_by_xpath("//div[@class='Toastify__toast-body']").text
     assert confirm == 'EDIT SUCCESSFUL'
@@ -98,9 +99,10 @@ def test_email_notif_kyc_approwed():
     time.sleep(2)
     password.send_keys(Keys.RETURN)
     time.sleep(2)
-    mail = browser.find_elements_by_xpath("//tr[@class='msglist__row unread icon0  ui-draggable']")
+    mail = browser.find_elements_by_xpath("//tr[@class='msglist__row unread unseen icon0  ui-draggable']")
     mail[0].click()
     time.sleep(2)
     message = browser.find_element_by_xpath("//h3[@class='readmsg__subject']").text
-    assert message == 'KYC rejected'
+    assert message == 'KYC approved'
+    print(message)
     browser.close()
