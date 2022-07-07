@@ -2,9 +2,9 @@ from selenium import webdriver
 from selenium.webdriver import Keys
 import time
 from selenium.webdriver.chrome.options import Options #as chrome_options
-from fake_useragent import UserAgent
+#from fake_useragent import UserAgent
 from selenium.common.exceptions import NoSuchElementException
-
+from driver import *
 EMAIL_FOR_REGISTRATION = 'chronicletest5@ukr.net'
 
 URL = 'https://stage.xnl.zpoken.io/login'
@@ -12,7 +12,7 @@ PROD_URL = 'https://app.chronicle.io/login'
 
 
 def test_log_in_valid_data():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
 
@@ -37,7 +37,7 @@ def test_log_in_valid_data():
 
 
 def test_log_in_email_field_empty():
-    browser = webdriver.Chrome()
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys("")

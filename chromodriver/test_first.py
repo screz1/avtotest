@@ -4,7 +4,7 @@ from selenium.webdriver import Keys
 import time
 import random
 from selenium.webdriver.chrome.options import Options #as chrome_options
-from fake_useragent import UserAgent
+#from fake_useragent import UserAgent
 from selenium.common.exceptions import NoSuchElementException
 
 
@@ -13,10 +13,6 @@ DEV_URL = 'https://dev.xnl.zpoken.io/login'
 URL = 'https://stage.xnl.zpoken.io/login'
 USER_WITH_EMAIL_VERIFICATION = 'chronicletest2@ukr.net'
 USER_WITH_EMAIL_AND_KYC_VERIFICATION = 'chronicletest4@ukr.net'
-
-
-
-
 
 
 def test_first():
@@ -45,6 +41,7 @@ def test_second_sign_in_on_chronicle1():
     input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
     time.sleep(1)
+
     check_box = browser.find_element_by_xpath(
         "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
     check_box.click()
