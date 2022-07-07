@@ -4,6 +4,7 @@ import time
 from selenium.webdriver.chrome.options import Options #as chrome_options
 from fake_useragent import UserAgent
 from selenium.common.exceptions import NoSuchElementException
+from driver import driver
 
 STAGE_URL = 'https://stage.xnl.zpoken.io/login'
 DEV_URL = 'https://dev.xnl.zpoken.io/login'
@@ -14,7 +15,7 @@ USER_WITH_EMAIL_AND_KYC_VERIFICATION_WITHOUT_MONEY = 'chronicletest1@ukr.net'
 
 
 def test_check_album_screen():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)

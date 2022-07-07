@@ -4,10 +4,10 @@ import time
 from selenium.webdriver.chrome.options import Options #as chrome_options
 #from fake_useragent import UserAgent
 from selenium.common.exceptions import NoSuchElementException
-from driver import *
+from driver import driver
 EMAIL_FOR_REGISTRATION = 'chronicletest5@ukr.net'
 
-URL = 'https://stage.xnl.zpoken.io/login'
+URL = 'https://dev.xnl.zpoken.io/login'
 PROD_URL = 'https://app.chronicle.io/login'
 
 
@@ -37,7 +37,7 @@ def test_log_in_valid_data():
 
 
 def test_log_in_email_field_empty():
-    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys("")
@@ -61,7 +61,7 @@ def test_log_in_email_field_empty():
 
 
 def test_log_in_email_not_registered():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys("chronicletest999@gmail.com")
@@ -88,7 +88,7 @@ def test_log_in_email_not_registered():
 
 
 def test_log_in_email_not_verified():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys("chronicletest120@gmail.com")
@@ -116,7 +116,7 @@ def test_log_in_email_not_verified():
 
 
 def test_log_in_password_field_empty():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys("chronicletest102@gmail.com")
@@ -140,7 +140,7 @@ def test_log_in_password_field_empty():
 
 
 def test_log_in_password_field_invalid_data():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys("chronicletest102@gmail.com")
@@ -164,7 +164,7 @@ def test_log_in_password_field_invalid_data():
 
 
 def test_log_in_password_field_low_register():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys("chronicletest102@gmail.com")
@@ -190,7 +190,7 @@ def test_log_in_password_field_low_register():
 
 
 def test_log_in_password_field_high_register():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys("chronicletest102@gmail.com")
@@ -216,7 +216,7 @@ def test_log_in_password_field_high_register():
 
 
 def test_check_reset_password_proces_valid_data():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(PROD_URL)
     forgot_pass_button = browser.find_element_by_xpath("//a[@class='Input_forgotLink__Fuh_N']").click()
     time.sleep(3)
@@ -245,10 +245,6 @@ def test_check_reset_password_proces_valid_data():
     browser.switch_to.window(browser.window_handles[1])
     time.sleep(3)
 
-    check_ukr = browser.find_element_by_name('whitelist').click()
-    time.sleep(2)
-    conf_zpok = browser.find_element_by_xpath("//form[@method='GET']//button[@type='submit']").click()
-    time.sleep(2)
     new_pass_input = browser.find_element_by_name('password')
     new_pass_input.send_keys('213456qaZ')
     submit_button = browser.find_element_by_xpath("//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")
@@ -266,7 +262,7 @@ def test_check_reset_password_proces_valid_data():
 
 
 def test_check_reset_password_proces_invalid_email_user_not_found():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     forgot_pass_button = browser.find_element_by_xpath("//a[@class='Input_forgotLink__Fuh_N']").click()
     time.sleep(2)
@@ -284,7 +280,7 @@ def test_check_reset_password_proces_invalid_email_user_not_found():
 
 
 def test_check_reset_password_proces_invalid_email_leave_field_empty():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     forgot_pass_button = browser.find_element_by_xpath("//a[@class='Input_forgotLink__Fuh_N']").click()
     time.sleep(2)
@@ -302,7 +298,7 @@ def test_check_reset_password_proces_invalid_email_leave_field_empty():
 
 
 def test_check_reset_password_proces_invalid_data_password_field_empty():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     forgot_pass_button = browser.find_element_by_xpath("//a[@class='Input_forgotLink__Fuh_N']").click()
     time.sleep(2)
@@ -343,7 +339,7 @@ def test_check_reset_password_proces_invalid_data_password_field_empty():
 
 
 def test_check_reset_password_proces_invalid_data_password_field_7_symbols():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     forgot_pass_button = browser.find_element_by_xpath("//a[@class='Input_forgotLink__Fuh_N']").click()
     time.sleep(2)
@@ -384,7 +380,7 @@ def test_check_reset_password_proces_invalid_data_password_field_7_symbols():
 
 
 def test_check_reset_password_proces_invalid_data_password_field_only_digits():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     forgot_pass_button = browser.find_element_by_xpath("//a[@class='Input_forgotLink__Fuh_N']").click()
     time.sleep(2)
@@ -425,7 +421,7 @@ def test_check_reset_password_proces_invalid_data_password_field_only_digits():
 
 
 def test_check_reset_password_proces_invalid_data_password_field_only_symbols():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     forgot_pass_button = browser.find_element_by_xpath("//a[@class='Input_forgotLink__Fuh_N']").click()
     time.sleep(2)
@@ -466,7 +462,7 @@ def test_check_reset_password_proces_invalid_data_password_field_only_symbols():
 
 
 def test_check_reset_password_proces_invalid_data_password_field_low_register():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     forgot_pass_button = browser.find_element_by_xpath("//a[@class='Input_forgotLink__Fuh_N']").click()
     time.sleep(2)
@@ -507,7 +503,7 @@ def test_check_reset_password_proces_invalid_data_password_field_low_register():
 
 
 def test_check_reset_password_proces_invalid_data_password_field_high_register():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     forgot_pass_button = browser.find_element_by_xpath("//a[@class='Input_forgotLink__Fuh_N']").click()
     time.sleep(2)

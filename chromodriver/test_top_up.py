@@ -5,6 +5,7 @@ import time
 from selenium.webdriver.chrome.options import Options #as chrome_options
 from fake_useragent import UserAgent
 from selenium.common.exceptions import NoSuchElementException
+from driver import driver
 
 STAGE_URL = 'https://stage.xnl.zpoken.io/login'
 DEV_URL = 'https://dev.xnl.zpoken.io/login'
@@ -14,7 +15,7 @@ USER_WITH_EMAIL_AND_KYC_VERIFICATION = 'chronicletest5@ukr.net'
 
 
 def test_top_up_usdc_use_valid_data_with_fiat():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -96,7 +97,7 @@ def test_top_up_usdc_use_valid_data_with_fiat():
 
 
 def test_top_up_usdc_use_valid_data_with_fiat_check_nevermind_button():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -162,7 +163,7 @@ def test_top_up_usdc_use_valid_data_with_fiat_check_nevermind_button():
 
 
 def test_top_up_usdc_use_valid_data_with_fiat_user_lost_address_line2_empty():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -230,7 +231,7 @@ def test_top_up_usdc_use_valid_data_with_fiat_user_lost_address_line2_empty():
 
 
 def test_top_up_usdc_use_valid_data_min_deposit_with_fiat():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -298,7 +299,7 @@ def test_top_up_usdc_use_valid_data_min_deposit_with_fiat():
 
 
 def test_top_up_usdc_use_valid_data_max_deposit_with_fiat():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -366,7 +367,7 @@ def test_top_up_usdc_use_valid_data_max_deposit_with_fiat():
 
 
 def test_top_up_usdc_use_invalid_data_more_than_max_deposit_with_fiat():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -431,7 +432,7 @@ def test_top_up_usdc_use_invalid_data_more_than_max_deposit_with_fiat():
 
 
 def test_top_up_usdc_use_invalid_data_less_than_min_deposit_with_fiat():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -496,7 +497,7 @@ def test_top_up_usdc_use_invalid_data_less_than_min_deposit_with_fiat():
 
 
 def test_top_up_usdc_use_invalid_data_lost_deposit_field_empty():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -561,7 +562,7 @@ def test_top_up_usdc_use_invalid_data_lost_deposit_field_empty():
 
 
 def test_top_up_usdc_use_invalid_data_deposit_field_not_correct():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -598,7 +599,7 @@ def test_top_up_usdc_use_invalid_data_deposit_field_not_correct():
 
 
 def test_top_up_usdc_use_invalid_data_deposit_field_using_symbols():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -635,7 +636,7 @@ def test_top_up_usdc_use_invalid_data_deposit_field_using_symbols():
 
 
 def test_top_up_usdc_use_invalid_data_lost_card_holder_field_empty():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -700,7 +701,7 @@ def test_top_up_usdc_use_invalid_data_lost_card_holder_field_empty():
 
 
 def test_top_up_usdc_use_invalid_data_lost_card_number_field_empty():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -765,7 +766,7 @@ def test_top_up_usdc_use_invalid_data_lost_card_number_field_empty():
 
 
 def test_top_up_usdc_use_invalid_data_fill_card_number_field_not_full():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -830,7 +831,7 @@ def test_top_up_usdc_use_invalid_data_fill_card_number_field_not_full():
 
 
 def test_top_up_usdc_use_invalid_data_card_number_field_using_symbols():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -867,7 +868,7 @@ def test_top_up_usdc_use_invalid_data_card_number_field_using_symbols():
 
 
 def test_top_up_usdc_use_invalid_data_lost_mm_yy_empty():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -932,7 +933,7 @@ def test_top_up_usdc_use_invalid_data_lost_mm_yy_empty():
 
 
 def test_top_up_usdc_use_invalid_data_fill_mm_yy_field_not_full():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -997,7 +998,7 @@ def test_top_up_usdc_use_invalid_data_fill_mm_yy_field_not_full():
 
 
 def test_top_up_usdc_use_invalid_data_mm_yy_field_using_symbols():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -1034,7 +1035,7 @@ def test_top_up_usdc_use_invalid_data_mm_yy_field_using_symbols():
 
 
 def test_top_up_usdc_use_invalid_data_lost_cvc_field_empty():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -1099,7 +1100,7 @@ def test_top_up_usdc_use_invalid_data_lost_cvc_field_empty():
 
 
 def test_top_up_usdc_use_invalid_data_cvc_field_using_symbols():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -1136,7 +1137,7 @@ def test_top_up_usdc_use_invalid_data_cvc_field_using_symbols():
 
 
 def test_top_up_usdc_use_invalid_data_country_not_selected():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -1196,7 +1197,7 @@ def test_top_up_usdc_use_invalid_data_country_not_selected():
 
 
 def test_top_up_usdc_use_invalid_data_lost_city_field_empty():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -1261,7 +1262,7 @@ def test_top_up_usdc_use_invalid_data_lost_city_field_empty():
 
 
 def test_top_up_usdc_use_invalid_data_lost_address_field_empty():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -1326,7 +1327,7 @@ def test_top_up_usdc_use_invalid_data_lost_address_field_empty():
 
 
 def test_top_up_usdc_use_invalid_data_lost_province_field_empty():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -1391,7 +1392,7 @@ def test_top_up_usdc_use_invalid_data_lost_province_field_empty():
 
 
 def test_top_up_usdc_use_invalid_data_lost_postal_field_empty():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)

@@ -4,6 +4,7 @@ import time
 from selenium.webdriver.chrome.options import Options #as chrome_options
 from fake_useragent import UserAgent
 from selenium.common.exceptions import NoSuchElementException
+from driver import driver
 
 STAGE_URL = 'https://stage.xnl.zpoken.io/login'
 DEV_URL = 'https://dev.xnl.zpoken.io/login'
@@ -18,7 +19,7 @@ INVALID_CARD = '  4200 0000 0000 0000  12 24  123  58000 '
 
 
 def test_buy_usdc_mystery_box_with_wallet():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -69,7 +70,7 @@ def test_buy_usdc_mystery_box_with_wallet():
 
 
 def test_buy_usdc_mystery_box_with_stripe():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -113,7 +114,7 @@ def test_buy_usdc_mystery_box_with_stripe():
 
 
 def test_buy_usdc_mystery_box_with_stripe_saved_card():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -153,7 +154,7 @@ def test_buy_usdc_mystery_box_with_stripe_saved_card():
 
 
 def test_buy_xnl_mystery_box_with_wallet():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -196,7 +197,7 @@ def test_buy_xnl_mystery_box_with_wallet():
 
 
 def test_buy_usdc_mystery_box_with_wallet_user_have_not_money():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION_WITHOUT_MONEY)
@@ -237,7 +238,7 @@ def test_buy_usdc_mystery_box_with_wallet_user_have_not_money():
 
 
 def test_buy_xnl_mystery_box_with_wallet_user_have_not_money():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION_WITHOUT_MONEY)
@@ -278,7 +279,7 @@ def test_buy_xnl_mystery_box_with_wallet_user_have_not_money():
 
 
 def test_buy_usdc_mystery_box_with_wallet_user_not_avtorise_sign_in_button():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     time.sleep(1)
     browser.find_element_by_class_name('Logo_min__TBvKP').click()
@@ -302,7 +303,7 @@ def test_buy_usdc_mystery_box_with_wallet_user_not_avtorise_sign_in_button():
 
 
 def test_buy_usdc_mystery_box_with_wallet_user_not_avtorise_register_button():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     time.sleep(1)
     browser.find_element_by_class_name('Logo_min__TBvKP').click()
@@ -324,7 +325,7 @@ def test_buy_usdc_mystery_box_with_wallet_user_not_avtorise_register_button():
 
 
 def test_buy_usdc_mystery_box_with_wallet_user_have_not_kyc():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_VERIFICATION)

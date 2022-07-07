@@ -2,7 +2,7 @@ from selenium import webdriver
 import time
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver import Keys
-
+from driver import driver
 
 STAGE_URL = 'https://stage.xnl.zpoken.io/login'
 DEV_URL = 'https://dev.xnl.zpoken.io/login'
@@ -14,7 +14,7 @@ USER_WITH_EMAIL_AND_KYC_VERIFICATION_WITHOUT_MONEY = 'chronicletest4@ukr.net'
 
 
 def test_clean_onfido_before():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get('https://dev-admin.xnl.zpoken.io/')
     time.sleep(5)
     admin_login = browser.find_element_by_id('login').send_keys('savchukura888@gmail.com')
@@ -29,7 +29,7 @@ def test_clean_onfido_before():
     search = browser.find_element_by_id('search')
     search.send_keys('chronicletest5')
     search.send_keys(Keys.RETURN)
-    time.sleep(18)
+    time.sleep(20)
     opt_button = browser.find_element_by_xpath("//button[@class='UsersTable_more__mxMkE UsersTable_icon__6yCHI']")
     opt_button.click()
     time.sleep(3)
@@ -42,15 +42,7 @@ def test_clean_onfido_before():
 
 
 def test_notifications_kyc_rejected():
-    options = webdriver.ChromeOptions()
-    # options.add_argument("--incognito")
-    options.add_experimental_option("prefs", { \
-    "profile.default_content_setting_values.media_stream_mic": 1,
-    "profile.default_content_setting_values.media_stream_camera": 1,
-    "profile.default_content_setting_values.geolocation": 1,
-    "profile.default_content_setting_values.notifications": 1
-    })
-    browser = webdriver.Chrome(options=options)
+    browser = driver
     browser.get('https://dev.xnl.zpoken.io/login')
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys("chronicletest5@ukr.net")
@@ -187,7 +179,7 @@ def test_notifications_kyc_rejected():
 
 
 def test_clean_onfido_after():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get('https://dev-admin.xnl.zpoken.io/')
     time.sleep(5)
     admin_login = browser.find_element_by_id('login').send_keys('savchukura888@gmail.com')
@@ -215,15 +207,7 @@ def test_clean_onfido_after():
 
 
 def test_notifications_kyc_accepted():
-    options = webdriver.ChromeOptions()
-    # options.add_argument("--incognito")
-    options.add_experimental_option("prefs", { \
-    "profile.default_content_setting_values.media_stream_mic": 1,
-    "profile.default_content_setting_values.media_stream_camera": 1,
-    "profile.default_content_setting_values.geolocation": 1,
-    "profile.default_content_setting_values.notifications": 1
-    })
-    browser = webdriver.Chrome(options=options)
+    browser = driver
     browser.get('https://dev.xnl.zpoken.io/login')
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys("chronicletest5@ukr.net")
@@ -359,7 +343,7 @@ def test_notifications_kyc_accepted():
 
 
 def test_notifications_top_up_usdc():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -451,7 +435,7 @@ def test_notifications_top_up_usdc():
 
 
 def test_notification_item_purchase():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -514,7 +498,7 @@ def test_notification_item_purchase():
 
 
 def test_notification_offer_purchase():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys('chronicletest3@ukr.net')

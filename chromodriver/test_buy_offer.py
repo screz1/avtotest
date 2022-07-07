@@ -6,6 +6,7 @@ from fake_useragent import UserAgent
 from selenium.common.exceptions import NoSuchElementException
 import re
 from selenium.webdriver.support.color import Color
+from driver import driver
 
 STAGE_URL = 'https://stage.xnl.zpoken.io/login'
 DEV_URL = 'https://dev.xnl.zpoken.io/login'
@@ -17,7 +18,7 @@ USER_WITH_EMAIL_AND_KYC_VERIFICATION_WITHOUT_MONEY = 'chronicletest4@ukr.net'
 
 
 def test_create_offers_to_valid_test():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_FOR_CREATE_OFFERS)
@@ -195,7 +196,7 @@ def test_create_offers_to_valid_test():
 
 
 def test_buy_offer_xnl_max_price():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -250,7 +251,7 @@ def test_buy_offer_xnl_max_price():
 
 
 def test_buy_offer_xnl_min_price():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -305,7 +306,7 @@ def test_buy_offer_xnl_min_price():
 
 
 def test_buy_offer_xnl_normal_price():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -360,7 +361,7 @@ def test_buy_offer_xnl_normal_price():
 
 
 def test_buy_offer_usdc_max_price():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -415,7 +416,7 @@ def test_buy_offer_usdc_max_price():
 
 
 def test_buy_offer_usdc_min_price():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -470,7 +471,7 @@ def test_buy_offer_usdc_min_price():
 
 
 def test_buy_offer_usdc_normal_price():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -525,7 +526,7 @@ def test_buy_offer_usdc_normal_price():
 
 
 def test_create_offers_to_invalid_test():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_FOR_CREATE_OFFERS)
@@ -603,7 +604,7 @@ def test_create_offers_to_invalid_test():
 
 
 def test_buy_usdc_offer_user_hasnt_kyc():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_VERIFICATION)
@@ -636,7 +637,7 @@ def test_buy_usdc_offer_user_hasnt_kyc():
 
 
 def test_buy_xnl_offer_user_hasnt_kyc():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_VERIFICATION)
@@ -669,7 +670,7 @@ def test_buy_xnl_offer_user_hasnt_kyc():
 
 
 def test_buy_usdc_offer_user_hasnt_money():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION_WITHOUT_MONEY)
@@ -702,7 +703,7 @@ def test_buy_usdc_offer_user_hasnt_money():
 
 
 def test_buy_xnl_offer_user_hasnt_money():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION_WITHOUT_MONEY)
@@ -735,7 +736,7 @@ def test_buy_xnl_offer_user_hasnt_money():
 
 
 def test_delete_test_offers():
-    browser = webdriver.Chrome()
+    browser = driver
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_FOR_CREATE_OFFERS)

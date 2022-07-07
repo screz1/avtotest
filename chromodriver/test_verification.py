@@ -6,7 +6,7 @@ import random
 from selenium.webdriver.chrome.options import Options #as chrome_options
 from fake_useragent import UserAgent
 from selenium.common.exceptions import NoSuchElementException
-
+from driver import driver
 
 STAGE_URL = 'https://stage.xnl.zpoken.io/login'
 DEV_URL = 'https://dev.xnl.zpoken.io/login'
@@ -16,16 +16,7 @@ USER_WITH_EMAIL_AND_KYC_VERIFICATION = 'chronicletest4@ukr.net'
 
 
 def test_kyc_verification():
-    options = webdriver.ChromeOptions()
-    #options.add_argument("--incognito")
-    options.add_experimental_option("prefs", { \
-    "profile.default_content_setting_values.media_stream_mic": 1,
-    "profile.default_content_setting_values.media_stream_camera": 1,
-    "profile.default_content_setting_values.geolocation": 1,
-    "profile.default_content_setting_values.notifications": 1
-    })
-
-    browser = webdriver.Chrome(options=options)
+    browser = driver
     browser.get('https://stage.xnl.zpoken.io/login')
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys("chronicletest5@ukr.net")
