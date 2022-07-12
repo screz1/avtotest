@@ -34,11 +34,67 @@ def test_check_album_screen():
     pop_up_two_fa = browser.find_element_by_xpath(
         "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
     pop_up_two_fa.click()
-    time.sleep(2)
+    time.sleep(3)
     user_drop = browser.find_element_by_xpath("//div[@class='UserHeaderCard_dropdownBtn__eXCOo']").click()
     time.sleep(1)
     my_collection = browser.find_elements_by_xpath("//a[@class='Dropdown_link__FcCSx']")
     my_collection[0].click()
     time.sleep(1)
     album_tab = browser.find_element_by_id('profileCollectionAlbums').click()
+    time.sleep(1)
+    album_mame = browser.find_elements_by_xpath("//div[@class='CollectionCardList_header__GyzhH CollectionCardList_text__abUZ4']")
+    album = album_mame[0].text
+    albums = browser.find_elements_by_xpath("//div[@class='CollectionCardList_card__3TwI5 undefined']")
+    albums[0].click()
+    time.sleep(3)
+    collections_name = browser.find_element_by_xpath("//div[@class='CollectionDetail_nav2__96nT8']").text
+    assert album == collections_name
+
+
+def test_check_album_screen_item_screen():
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
+    browser.get(URL)
+    input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
+    input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
+    time.sleep(1)
+    input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
+    input_chronicle_password.send_keys("213456qaZ")
+    time.sleep(1)
+    check_box = browser.find_element_by_xpath(
+        "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
+    check_box.click()
+    time.sleep(2)
+    sign_in_button = browser.find_element_by_xpath(
+        "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
+    sign_in_button.click()
+    time.sleep(2)
+    pop_up_two_fa = browser.find_element_by_xpath(
+        "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+    pop_up_two_fa.click()
+    time.sleep(3)
+    user_drop = browser.find_element_by_xpath("//div[@class='UserHeaderCard_dropdownBtn__eXCOo']").click()
+    time.sleep(1)
+    my_collection = browser.find_elements_by_xpath("//a[@class='Dropdown_link__FcCSx']")
+    my_collection[0].click()
+    time.sleep(1)
+    album_tab = browser.find_element_by_id('profileCollectionAlbums').click()
+    time.sleep(1)
+    album_mame = browser.find_elements_by_xpath(
+        "//div[@class='CollectionCardList_header__GyzhH CollectionCardList_text__abUZ4']")
+    album = album_mame[0].text
+    albums = browser.find_elements_by_xpath("//div[@class='CollectionCardList_card__3TwI5 undefined']")
+    albums[0].click()
+    time.sleep(3)
+    collections_name = browser.find_element_by_xpath("//div[@class='CollectionDetail_nav2__96nT8']").text
+    assert album == collections_name
+    time.sleep(2)
+    item_name_on_screen = browser.find_elements_by_xpath("//div[@class='FeaturesCardList_card__c0a2s']//div[@class='FeaturesCardList_header__gNIR8 FeaturesCardList_lineText__Qt65n']")
+    item_name = item_name_on_screen[0].text
+    item = browser.find_elements_by_xpath("//div[@class='FeaturesCardList_card__c0a2s']")
+    item[0].click()
+    time.sleep(2)
+    item_name_on_item_screen = browser.find_element_by_xpath("//div[@class='HeaderItemCard_header__3K45m']").text
+    assert item_name == item_name_on_item_screen
+
+
     
