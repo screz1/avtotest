@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver import Keys
 import time
 from selenium.webdriver.chrome.options import Options #as chrome_options
-from fake_useragent import UserAgent
+#from fake_useragent import UserAgent
 import random
 from driver import driver
 
@@ -13,7 +13,7 @@ URL = 'https://stage.xnl.zpoken.io/sign_up'
 
 
 def test_sign_up_valid_data():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     birth_input = browser.find_element_by_xpath("//input[@placeholder='DD/MM/YYYY']")
     birth_input.send_keys("11111999")
@@ -45,7 +45,7 @@ def test_sign_up_valid_data():
 
 
 def test_email_verification():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get('https://accounts.ukr.net/login?client_id=9GLooZH9KjbBlWnuLkVX&drop_reason=logout')
     time.sleep(2)
     login = browser.find_element_by_name('login')
@@ -72,7 +72,7 @@ def test_email_verification():
 
 
 def test_user_hasnt_18_years():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     birth_input = browser.find_element_by_xpath("//input[@placeholder='DD/MM/YYYY']")
     birth_input.send_keys("30122015")
@@ -88,7 +88,7 @@ def test_user_hasnt_18_years():
 
 
 def test_invalid_date_of_birth_one():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     birth_input = browser.find_element_by_xpath("//input[@placeholder='DD/MM/YYYY']")
     birth_input.send_keys("31041999")
@@ -100,7 +100,7 @@ def test_invalid_date_of_birth_one():
 
 
 def test_invalid_date_of_birth_two():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     birth_input = browser.find_element_by_xpath("//input[@placeholder='DD/MM/YYYY']")
     birth_input.send_keys("31131999")
@@ -112,7 +112,7 @@ def test_invalid_date_of_birth_two():
 
 
 def test_invalid_date_of_birth_three():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     birth_input = browser.find_element_by_xpath("//input[@placeholder='DD/MM/YYYY']")
     birth_input.send_keys("30121000")
@@ -124,7 +124,7 @@ def test_invalid_date_of_birth_three():
 
 
 def test_invalid_date_of_birth_four():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     birth_input = browser.find_element_by_xpath("//input[@placeholder='DD/MM/YYYY']")
     birth_input.send_keys("qwasrfvb")
@@ -136,7 +136,7 @@ def test_invalid_date_of_birth_four():
 
 
 def test_sign_up_invalid_data_display_name_field_empty():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     birth_input = browser.find_element_by_xpath("//input[@placeholder='DD/MM/YYYY']")
     birth_input.send_keys("11111999")
@@ -175,7 +175,7 @@ def test_sign_up_invalid_data_display_name_field_empty():
 
 
 def test_sign_up_invalid_data_email_field_empty():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     birth_input = browser.find_element_by_xpath("//input[@placeholder='DD/MM/YYYY']")
     birth_input.send_keys("11111999")
@@ -208,7 +208,7 @@ def test_sign_up_invalid_data_email_field_empty():
 
 
 def test_sign_up_invalid_data_password_field_empty():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     birth_input = browser.find_element_by_xpath("//input[@placeholder='DD/MM/YYYY']")
     birth_input.send_keys("11111999")
@@ -241,7 +241,7 @@ def test_sign_up_invalid_data_password_field_empty():
 
 
 def test_sign_up_invalid_data_password_not_correct_7_symbols():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     birth_input = browser.find_element_by_xpath("//input[@placeholder='DD/MM/YYYY']")
     birth_input.send_keys("11111999")
@@ -274,7 +274,7 @@ def test_sign_up_invalid_data_password_not_correct_7_symbols():
 
 
 def test_sign_up_invalid_data_password_not_correct_all_symbols_in_low_register():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     birth_input = browser.find_element_by_xpath("//input[@placeholder='DD/MM/YYYY']")
     birth_input.send_keys("11111999")
@@ -307,7 +307,7 @@ def test_sign_up_invalid_data_password_not_correct_all_symbols_in_low_register()
 
 
 def test_sign_up_invalid_data_display_name_more_than_30_symbols():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     birth_input = browser.find_element_by_xpath("//input[@placeholder='DD/MM/YYYY']")
     birth_input.send_keys("11111999")
@@ -342,7 +342,7 @@ def test_sign_up_invalid_data_display_name_more_than_30_symbols():
 
 
 def test_sign_up_invalid_data_already_registered_display_name():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     birth_input = browser.find_element_by_xpath("//input[@placeholder='DD/MM/YYYY']")
     birth_input.send_keys("11111999")
@@ -376,7 +376,7 @@ def test_sign_up_invalid_data_already_registered_display_name():
 
 
 def test_sign_up_invalid_data_already_registered_email():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     birth_input = browser.find_element_by_xpath("//input[@placeholder='DD/MM/YYYY']")
     birth_input.send_keys("11111999")

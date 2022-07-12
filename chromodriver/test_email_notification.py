@@ -15,7 +15,7 @@ URL = 'https://stage.xnl.zpoken.io/login'
 
 
 def test_email_notif_kyc_rejected():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL_ADMIN)
     time.sleep(5)
     admin_login = browser.find_element_by_id('login').send_keys('savchukura888@gmail.com')
@@ -62,7 +62,7 @@ def test_email_notif_kyc_rejected():
 
 
 def test_email_notif_kyc_approwed():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL_ADMIN)
     time.sleep(5)
     admin_login = browser.find_element_by_id('login').send_keys('savchukura888@gmail.com')
@@ -111,7 +111,7 @@ def test_email_notif_kyc_approwed():
 
 
 def test_email_notification_top_up():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -214,7 +214,7 @@ def test_email_notification_top_up():
 
 
 def test_email_notification_item_purchase():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)

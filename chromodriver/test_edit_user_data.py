@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver import Keys
 import time
 from selenium.webdriver.chrome.options import Options #as chrome_options
-from fake_useragent import UserAgent
+#from fake_useragent import UserAgent
 from driver import driver
 
 EMAIL_FOR_REGISTRATION = 'chronicletest5@ukr.net'
@@ -10,7 +10,7 @@ URL = 'https://stage.xnl.zpoken.io/login'
 
 
 def test_edit_display_name_valid_data():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(EMAIL_FOR_REGISTRATION)
@@ -49,7 +49,7 @@ def test_edit_display_name_valid_data():
 
 
 def test_create_user_avatar():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(EMAIL_FOR_REGISTRATION)
@@ -83,7 +83,7 @@ def test_create_user_avatar():
 
 
 def test_create_user_avatar_check_nevermind_button():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(EMAIL_FOR_REGISTRATION)
@@ -117,7 +117,7 @@ def test_create_user_avatar_check_nevermind_button():
 
 
 def test_create_user_avatar_check_remove_button():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(EMAIL_FOR_REGISTRATION)
@@ -151,7 +151,7 @@ def test_create_user_avatar_check_remove_button():
 
 
 def test_edit_user_avatar():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(EMAIL_FOR_REGISTRATION)
@@ -185,7 +185,7 @@ def test_edit_user_avatar():
 
 
 def test_edit_display_name_valid_data_min_symbols():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(EMAIL_FOR_REGISTRATION)
@@ -223,7 +223,7 @@ def test_edit_display_name_valid_data_min_symbols():
 
 
 def test_edit_display_name_valid_data_max_symbols():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(EMAIL_FOR_REGISTRATION)
@@ -261,7 +261,7 @@ def test_edit_display_name_valid_data_max_symbols():
 
 
 def test_edit_display_name_check_never_mind_button():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(EMAIL_FOR_REGISTRATION)
@@ -300,7 +300,7 @@ def test_edit_display_name_check_never_mind_button():
 
 
 def test_edit_display_name_input_more_than_30_symbols():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(EMAIL_FOR_REGISTRATION)
@@ -336,7 +336,7 @@ def test_edit_display_name_input_more_than_30_symbols():
 
 
 def test_edit_display_name_leave_name_field_empty():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(EMAIL_FOR_REGISTRATION)
@@ -372,7 +372,7 @@ def test_edit_display_name_leave_name_field_empty():
 
 
 def test_edit_display_name_use_already_register_display_name():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(EMAIL_FOR_REGISTRATION)

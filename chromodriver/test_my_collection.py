@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver import Keys
 import time
 from selenium.webdriver.chrome.options import Options #as chrome_options
-from fake_useragent import UserAgent
+#from fake_useragent import UserAgent
 from selenium.common.exceptions import NoSuchElementException
 from driver import driver
 
@@ -15,7 +15,7 @@ USER_WITH_EMAIL_AND_KYC_VERIFICATION_WITHOUT_MONEY = 'chronicletest1@ukr.net'
 
 
 def test_check_album_screen():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)

@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver import Keys
 import time
 from selenium.webdriver.chrome.options import Options #as chrome_options
-from fake_useragent import UserAgent
+#from fake_useragent import UserAgent
 from selenium.common.exceptions import NoSuchElementException
 import re
 from selenium.webdriver.support.color import Color
@@ -17,7 +17,7 @@ USER_WITH_EMAIL_AND_KYC_VERIFICATION_WITHOUT_MONEY = 'chronicletest1@ukr.net'
 
 
 def test_create_new_offer_with_usdc():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -78,7 +78,7 @@ def test_create_new_offer_with_usdc():
 
 
 def test_edit_item_usdc_offer_on_market_place_screen():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -115,7 +115,7 @@ def test_edit_item_usdc_offer_on_market_place_screen():
 
 
 def test_edit_item_usdc_offer_on_listings_tab_screen():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -158,7 +158,7 @@ def test_edit_item_usdc_offer_on_listings_tab_screen():
 
 
 def test_delete_usdc_offer():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -197,7 +197,7 @@ def test_delete_usdc_offer():
 
 
 def test_create_new_offer_with_usdc_min_price():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -267,7 +267,7 @@ def test_create_new_offer_with_usdc_min_price():
 
 
 def test_create_new_offer_with_usdc_max_price():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -337,7 +337,7 @@ def test_create_new_offer_with_usdc_max_price():
 
 
 def test_create_new_offer_with_xnl():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -391,7 +391,7 @@ def test_create_new_offer_with_xnl():
 
 
 def test_edit_item_xnl_offer_on_market_place_screen():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -428,7 +428,7 @@ def test_edit_item_xnl_offer_on_market_place_screen():
 
 
 def test_edit_item_xnl_offer_on_listings_tab_screen():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -471,7 +471,7 @@ def test_edit_item_xnl_offer_on_listings_tab_screen():
 
 
 def test_delete_xnl_offer():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -510,7 +510,7 @@ def test_delete_xnl_offer():
 
 
 def test_create_new_offer_with_xnl_min_price():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -573,7 +573,7 @@ def test_create_new_offer_with_xnl_min_price():
 
 
 def test_create_new_offer_with_xnl_max_price():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -636,7 +636,7 @@ def test_create_new_offer_with_xnl_max_price():
 
 
 def test_create_new_offer_with_usd_less_than_min_price():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -694,7 +694,7 @@ def test_create_new_offer_with_usd_less_than_min_price():
 
 
 def test_create_new_offer_with_usd_more_than_max_price():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -752,7 +752,7 @@ def test_create_new_offer_with_usd_more_than_max_price():
 
 
 def test_create_new_offer_with_usd_leave_price_field_empty():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -805,7 +805,7 @@ def test_create_new_offer_with_usd_leave_price_field_empty():
 
 
 def test_create_new_offer_with_xnl_less_than_min_price():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -863,7 +863,7 @@ def test_create_new_offer_with_xnl_less_than_min_price():
 
 
 def test_create_new_offer_with_xnl_more_than_max_price():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -921,7 +921,7 @@ def test_create_new_offer_with_xnl_more_than_max_price():
 
 
 def test_create_usdc_offer_user_hasnt_kyc():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_VERIFICATION)
@@ -989,7 +989,7 @@ def test_create_usdc_offer_user_hasnt_kyc():
 
 
 def test_create_xnl_offer_user_hasnt_kyc():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_VERIFICATION)

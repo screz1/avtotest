@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver import Keys
 import time
 from selenium.webdriver.chrome.options import Options #as chrome_options
-from fake_useragent import UserAgent
+#from fake_useragent import UserAgent
 from selenium.common.exceptions import NoSuchElementException
 from driver import driver
 
@@ -14,7 +14,7 @@ USER_WITH_EMAIL_AND_KYC_VERIFICATION = 'chronicletest102@gmail.com'
 
 
 def test_purchase_with_usd_wallet_card():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -64,7 +64,7 @@ def test_purchase_with_usd_wallet_card():
 
 
 def test_purchase_with_usd_wallet_card_invalid_user():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_VERIFICATION)
@@ -116,7 +116,7 @@ def test_purchase_with_usd_wallet_card_invalid_user():
 
 
 def test_purchase_user_not_avtorize():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get('https://dev.xnl.zpoken.io/store')
     time.sleep(2)
     browser.execute_script("window.scrollTo(0,1800)")
@@ -143,7 +143,7 @@ def test_purchase_user_not_avtorize():
 
 
 def test_purchase_with_usd_wallet_card_user_has_not_enough_usd():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)

@@ -14,7 +14,7 @@ USER_WITH_EMAIL_AND_KYC_VERIFICATION_WITHOUT_MONEY = 'chronicletest4@ukr.net'
 
 
 def test_clean_onfido_before():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get('https://dev-admin.xnl.zpoken.io/')
     time.sleep(5)
     admin_login = browser.find_element_by_id('login').send_keys('savchukura888@gmail.com')
@@ -42,7 +42,7 @@ def test_clean_onfido_before():
 
 
 def test_notifications_kyc_rejected():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get('https://dev.xnl.zpoken.io/login')
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys("chronicletest5@ukr.net")
@@ -179,7 +179,7 @@ def test_notifications_kyc_rejected():
 
 
 def test_clean_onfido_after():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get('https://dev-admin.xnl.zpoken.io/')
     time.sleep(5)
     admin_login = browser.find_element_by_id('login').send_keys('savchukura888@gmail.com')
@@ -207,7 +207,7 @@ def test_clean_onfido_after():
 
 
 def test_notifications_kyc_accepted():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get('https://dev.xnl.zpoken.io/login')
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys("chronicletest5@ukr.net")
@@ -343,7 +343,7 @@ def test_notifications_kyc_accepted():
 
 
 def test_notifications_top_up_usdc():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -435,7 +435,7 @@ def test_notifications_top_up_usdc():
 
 
 def test_notification_item_purchase():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -498,7 +498,7 @@ def test_notification_item_purchase():
 
 
 def test_notification_offer_purchase():
-    browser = driver
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys('chronicletest3@ukr.net')
