@@ -12,7 +12,7 @@ options.add_experimental_option("prefs", { \
 
 
 
-driver = webdriver.Chrome(options=options)
+driver = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver', options=options)
 
 #driverwindows = webdriver.Chrome(options=options)
 
