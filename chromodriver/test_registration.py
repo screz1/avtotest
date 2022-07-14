@@ -57,17 +57,18 @@ def test_email_verification():
     time.sleep(2)
     password.send_keys(Keys.RETURN)
     time.sleep(2)
-    mail = browser.find_element_by_class_name('noselect').click()
+    #mail = browser.find_element_by_class_name('noselect').click()
+    mail = browser.find_elements_by_xpath("//tr[@class='msglist__row unread unseen icon0  ui-draggable']")
+    mail[0].click()
     time.sleep(2)
+
     confirm_email = browser.find_element_by_class_name('xfmc10').click()
     time.sleep(2)
-
+    #time.sleep(2)
+    #check_ukr = browser.find_element_by_name('whitelist').click()
+    #time.sleep(2)
+    #conf_zpok = browser.find_element_by_xpath("//form[@method='GET']//button[@type='submit']").click()
     browser.switch_to.window(browser.window_handles[1])
-    time.sleep(2)
-    check_ukr = browser.find_element_by_name('whitelist').click()
-    time.sleep(2)
-    conf_zpok = browser.find_element_by_xpath("//form[@method='GET']//button[@type='submit']").click()
-
     time.sleep(5)
 
 
@@ -83,7 +84,6 @@ def test_user_hasnt_18_years():
     time.sleep(2)
     oh_okay_button = browser.find_element_by_xpath("//button[@class='Button_btn__JyuE1 Button_red__p8Ej9 Button_withIcon__1TgpF']")
     oh_okay_button.click()
-
     time.sleep(5)
 
 
@@ -155,20 +155,11 @@ def test_sign_up_invalid_data_display_name_field_empty():
     time.sleep(1)
     check_box = browser.find_element_by_name('checkbox').click()
     time.sleep(1)
-    display_error = browser.find_element_by_xpath("//div[@class='RegistrationForm_tipError__LxCu7']").text
-    if display_error == u'Sorry... This username seems to be already taken.You can use letters, numbers, punctuation marks and special symbols. Get creative!':
-        True
-    else:
-        False
-    assert display_error == 'Sorry... This username seems to be already taken.You can use letters, numbers, punctuation marks and special symbols. Get creative!'
+    display_error = browser.find_element_by_xpath("//div[@class='Input_tipError__CKiEf']").text
+    assert display_error == 'Username seems to be invalid, please check...'
     email_error = browser.find_element_by_xpath("//div[@class='RegistrationForm_input___OhVe']//div[@class='Input_tipError__CKiEf']").text
-    if email_error == u'Email seems to be invalid, please check...':
-        True
-    else:
-        False
     #assert email_error == 'Email seems to be invalid, please check...'
     #password_error = browser.find_element_by_xpath("//div[@class='Input_tipError__CKiEf']")
-
     next_button = browser.find_element_by_xpath("//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF Button_disable__0XBGJ']")
     #next_button.click()
     time.sleep(5)
@@ -195,13 +186,8 @@ def test_sign_up_invalid_data_email_field_empty():
     check_box = browser.find_element_by_name('checkbox').click()
     time.sleep(1)
     email_error = browser.find_element_by_xpath("//div[@class='RegistrationForm_input___OhVe']//div[@class='Input_tipError__CKiEf']").text
-    if email_error == u'Email seems to be invalid, please check...':
-        True
-    else:
-        False
     assert email_error == 'Email seems to be invalid, please check...'
     #password_error = browser.find_element_by_xpath("//div[@class='Input_tipError__CKiEf']")
-
     next_button = browser.find_element_by_xpath("//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF Button_disable__0XBGJ']")
     #next_button.click()
     time.sleep(5)
@@ -228,13 +214,7 @@ def test_sign_up_invalid_data_password_field_empty():
     check_box = browser.find_element_by_name('checkbox').click()
     time.sleep(1)
     password_error = browser.find_element_by_xpath("//div[@class='RegistrationForm_input___OhVe']//div[@class='Input_tipError__CKiEf']").text
-    if password_error == u'Password needs to be at least 8 characters long and must include a symbol and capital':
-        True
-    else:
-        False
     assert password_error == 'Password needs to be at least 8 characters long and must include a symbol and capital'
-
-
     next_button = browser.find_element_by_xpath("//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF Button_disable__0XBGJ']")
     #next_button.click()
     time.sleep(5)
@@ -261,13 +241,7 @@ def test_sign_up_invalid_data_password_not_correct_7_symbols():
     check_box = browser.find_element_by_name('checkbox').click()
     time.sleep(1)
     password_error = browser.find_element_by_xpath("//div[@class='RegistrationForm_input___OhVe']//div[@class='Input_tipError__CKiEf']").text
-    if password_error == u'Password needs to be at least 8 characters long and must include a symbol and capital':
-        True
-    else:
-        False
     assert password_error == 'Password needs to be at least 8 characters long and must include a symbol and capital'
-
-
     next_button = browser.find_element_by_xpath("//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF Button_disable__0XBGJ']")
     #next_button.click()
     time.sleep(5)
@@ -294,13 +268,7 @@ def test_sign_up_invalid_data_password_not_correct_all_symbols_in_low_register()
     check_box = browser.find_element_by_name('checkbox').click()
     time.sleep(1)
     password_error = browser.find_element_by_xpath("//div[@class='RegistrationForm_input___OhVe']//div[@class='Input_tipError__CKiEf']").text
-    if password_error == u'Password needs to be at least 8 characters long and must include a symbol and capital':
-        True
-    else:
-        False
     assert password_error == 'Password needs to be at least 8 characters long and must include a symbol and capital'
-
-
     next_button = browser.find_element_by_xpath("//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF Button_disable__0XBGJ']")
     #next_button.click()
     time.sleep(5)
@@ -329,14 +297,9 @@ def test_sign_up_invalid_data_display_name_more_than_30_symbols():
     time.sleep(1)
     display_error = browser.find_element_by_xpath(
         "//div[@class='Input_tipError__CKiEf']").text
-    if display_error == u'Username seems to be invalid, please check...':
-        True
-    else:
-        False
     assert display_error == 'Username seems to be invalid, please check...'
     next_button = browser.find_element_by_xpath(
         "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF Button_disable__0XBGJ']")
-
     time.sleep(5)
     browser.close()
 
@@ -363,14 +326,9 @@ def test_sign_up_invalid_data_already_registered_display_name():
     check_box = browser.find_element_by_name('checkbox').click()
     time.sleep(1)
     display_error = browser.find_element_by_xpath("//div[@class='RegistrationForm_tipError__LxCu7']").text
-    if display_error == u'Sorry... This username seems to be already taken.You can use letters, numbers, punctuation marks and special symbols. Get creative!':
-        True
-    else:
-        False
     assert display_error == 'Sorry... This username seems to be already taken.You can use letters, numbers, punctuation marks and special symbols. Get creative!'
     next_button = browser.find_element_by_xpath(
         "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF Button_disable__0XBGJ']")
-
     time.sleep(5)
     browser.close()
 
@@ -396,15 +354,12 @@ def test_sign_up_invalid_data_already_registered_email():
     time.sleep(1)
     check_box = browser.find_element_by_name('checkbox').click()
     time.sleep(1)
-
     next_button = browser.find_element_by_xpath(
         "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']").click()
     time.sleep(1)
     email_error = browser.find_element_by_xpath("//div[@class='RegistrationForm_tipError__LxCu7']").text
-
     assert email_error == 'Oops, this email seems to be already taken...'
     time.sleep(5)
-
     browser.close()
 
 
