@@ -12,6 +12,8 @@ URL = 'https://stage.xnl.zpoken.io/login'
 USER_WITH_EMAIL_VERIFICATION = 'chronicletest101@gmail.com'
 USER_WITH_EMAIL_AND_KYC_VERIFICATION = 'chronicletest5@ukr.net'
 USER_WITH_EMAIL_AND_KYC_VERIFICATION_WITHOUT_MONEY = 'chronicletest1@ukr.net'
+USER_WITH_EMAIL_AND_KYC_VERIFICATION_FOR_SALES = 'chronicletest5@ukr.net'
+
 
 
 CARD = '  4242 4242 4242 4242  12 24  123  58000 '
@@ -22,7 +24,7 @@ def test_buy_usdc_mystery_box_with_wallet():
     browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
-    input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
+    input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION_FOR_SALES)
     time.sleep(1)
     input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
@@ -157,7 +159,7 @@ def test_buy_xnl_mystery_box_with_wallet():
     browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
-    input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
+    input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION_FOR_SALES)
     time.sleep(1)
     input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")

@@ -76,7 +76,7 @@ def test_create_user_avatar():
     avatar_button = browser.find_element_by_xpath("//div[@class='PersonalSettingsModal_camera__IFAz7']").click()
     time.sleep(1)
     upload_avatar = browser.find_element_by_xpath("//input[@type='file']")
-    upload_avatar.send_keys("C:/Users/WellDone/PycharmProjects/Selenium/valid_image.png")
+    upload_avatar.send_keys("/home/user/PycharmProjects/avtotest/valid_image.png")
     time.sleep(3)
     save_button = browser.find_element_by_xpath("//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']").click()
     time.sleep(5)
@@ -110,7 +110,6 @@ def test_create_user_avatar_check_nevermind_button():
     avatar_button = browser.find_element_by_xpath("//div[@class='PersonalSettingsModal_camera__IFAz7']").click()
     time.sleep(1)
     never_mind_button = browser.find_element_by_id('upload_avatar_nevermind')
-
     time.sleep(1)
     never_mind_button.click()
     time.sleep(5)
@@ -144,7 +143,7 @@ def test_create_user_avatar_check_remove_button():
     avatar_button = browser.find_element_by_xpath("//div[@class='PersonalSettingsModal_camera__IFAz7']").click()
     time.sleep(1)
     upload_avatar = browser.find_element_by_xpath("//input[@type='file']")
-    upload_avatar.send_keys("C:/Users/WellDone/PycharmProjects/Selenium/valid_image.png")
+    upload_avatar.send_keys("/home/user/PycharmProjects/avtotest/valid_image.png")
     time.sleep(3)
     remove_button = browser.find_element_by_xpath("//button[@class='Button_btn__JyuE1 Button_red__p8Ej9 DragAndDrop_btnRemove__D0MaR Button_withIcon__1TgpF']").click()
     time.sleep(5)
@@ -178,7 +177,7 @@ def test_edit_user_avatar():
     avatar_button = browser.find_element_by_xpath("//div[@class='PersonalSettingsModal_camera__IFAz7']").click()
     time.sleep(1)
     upload_avatar = browser.find_element_by_xpath("//input[@type='file']")
-    upload_avatar.send_keys("C:/Users/WellDone/PycharmProjects/Selenium/image_two.png")
+    upload_avatar.send_keys("/home/user/PycharmProjects/avtotest/image_two.png")
     time.sleep(3)
     save_button = browser.find_element_by_xpath("//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']").click()
     time.sleep(5)
@@ -238,7 +237,7 @@ def test_edit_display_name_valid_data_max_symbols():
     sign_in_button = browser.find_element_by_xpath(
         "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
     sign_in_button.click()
-    time.sleep(2)
+    time.sleep(3)
     pop_up_two_fa = browser.find_element_by_xpath(
         "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
     pop_up_two_fa.click()

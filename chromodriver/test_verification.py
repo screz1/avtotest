@@ -16,7 +16,17 @@ USER_WITH_EMAIL_AND_KYC_VERIFICATION = 'chronicletest4@ukr.net'
 
 
 def test_kyc_verification():
-    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
+    options = webdriver.ChromeOptions()
+    # options.add_argument("--incognito")
+    options.add_experimental_option("prefs", { \
+    "profile.default_content_setting_values.media_stream_mic": 1,
+    "profile.default_content_setting_values.media_stream_camera": 1,
+    "profile.default_content_setting_values.geolocation": 1,
+    "profile.default_content_setting_values.notifications": 1
+    })
+
+
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver', options=options)
     browser.get('https://stage.xnl.zpoken.io/login')
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys("chronicletest5@ukr.net")
@@ -93,12 +103,12 @@ def test_kyc_verification():
     submit_document_button = browser.find_element_by_xpath("//button[@data-onfido-qa='countrySelectorNextStep']").click()
     #upload_foto_button = browser.find_element_by_xpath("//button[@data-onfido-qa='uploaderButtonLink']").click()
     image_input = browser.find_element_by_xpath("//input[@type='file']")
-    image_input.send_keys("C:/Users/WellDone/PycharmProjects/Selenium/sample_driving_licence (1).png")
+    image_input.send_keys("/home/user/PycharmProjects/avtotest/sample_driving_licence (1).png")
     time.sleep(1)
     upload_button_front = browser.find_element_by_xpath("//button[@data-onfido-qa='confirm-action-btn']").click()
     time.sleep(5)
     image_input = browser.find_element_by_xpath("//input[@type='file']")
-    image_input.send_keys("C:/Users/WellDone/PycharmProjects/Selenium/sample_driving_licence (1).png")
+    image_input.send_keys("/home/user/PycharmProjects/avtotest/sample_driving_licence (1).png")
     time.sleep(5)
     upload_button_back = browser.find_element_by_xpath("//button[@data-onfido-qa='confirm-action-btn']").click()
     time.sleep(5)
