@@ -9,8 +9,8 @@ DEV_URL = 'https://dev.xnl.zpoken.io/login'
 URL = 'https://dev.xnl.zpoken.io/login'
 USER_WITH_EMAIL_VERIFICATION = 'chronicletest110@gmail.com'
 USER_WITH_EMAIL_AND_KYC_VERIFICATION = 'chronicletest5@ukr.net'
-USER_WITH_EMAIL_AND_KYC_FOR_CREATE_OFFERS = 'chronicletest3@ukr.net'
-USER_WITH_EMAIL_AND_KYC_VERIFICATION_WITHOUT_MONEY = 'chronicletest4@ukr.net'
+USER_WITH_EMAIL_AND_KYC_FOR_CREATE_OFFERS = 'chronicletest1@ukr.net'
+USER_WITH_EMAIL_AND_KYC_VERIFICATION_WITHOUT_MONEY = 'chronicletest3@ukr.net'
 
 
 def test_clean_onfido_before():
@@ -42,7 +42,15 @@ def test_clean_onfido_before():
 
 
 def test_notifications_kyc_rejected():
-    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
+    options = webdriver.ChromeOptions()
+    # options.add_argument("--incognito")
+    options.add_experimental_option("prefs", { \
+    "profile.default_content_setting_values.media_stream_mic": 1,
+    "profile.default_content_setting_values.media_stream_camera": 1,
+    "profile.default_content_setting_values.geolocation": 1,
+    "profile.default_content_setting_values.notifications": 1
+    })
+    browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver', options=options)
     browser.get('https://dev.xnl.zpoken.io/login')
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys("chronicletest5@ukr.net")
@@ -119,12 +127,12 @@ def test_notifications_kyc_rejected():
         "//button[@data-onfido-qa='countrySelectorNextStep']").click()
     # upload_foto_button = browser.find_element_by_xpath("//button[@data-onfido-qa='uploaderButtonLink']").click()
     image_input = browser.find_element_by_xpath("//input[@type='file']")
-    image_input.send_keys("C:/Users/WellDone/PycharmProjects/Selenium/sample_driving_licence (1).png")
+    image_input.send_keys("/home/user/PycharmProjects/avtotest/sample_driving_licence (1).png")
     time.sleep(1)
     upload_button_front = browser.find_element_by_xpath("//button[@data-onfido-qa='confirm-action-btn']").click()
     time.sleep(5)
     image_input = browser.find_element_by_xpath("//input[@type='file']")
-    image_input.send_keys("C:/Users/WellDone/PycharmProjects/Selenium/sample_driving_licence (1).png")
+    image_input.send_keys("/home/user/PycharmProjects/avtotest/sample_driving_licence (1).png")
     time.sleep(5)
     upload_button_back = browser.find_element_by_xpath("//button[@data-onfido-qa='confirm-action-btn']").click()
     time.sleep(5)
@@ -207,6 +215,15 @@ def test_clean_onfido_after():
 
 
 def test_notifications_kyc_accepted():
+    options = webdriver.ChromeOptions()
+    # options.add_argument("--incognito")
+    options.add_experimental_option("prefs", { \
+    "profile.default_content_setting_values.media_stream_mic": 1,
+    "profile.default_content_setting_values.media_stream_camera": 1,
+    "profile.default_content_setting_values.geolocation": 1,
+    "profile.default_content_setting_values.notifications": 1
+    })
+
     browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get('https://dev.xnl.zpoken.io/login')
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
@@ -283,12 +300,12 @@ def test_notifications_kyc_accepted():
         "//button[@data-onfido-qa='countrySelectorNextStep']").click()
     # upload_foto_button = browser.find_element_by_xpath("//button[@data-onfido-qa='uploaderButtonLink']").click()
     image_input = browser.find_element_by_xpath("//input[@type='file']")
-    image_input.send_keys("C:/Users/WellDone/PycharmProjects/Selenium/sample_driving_licence (1).png")
+    image_input.send_keys("/home/user/PycharmProjects/avtotest/sample_driving_licence (1).png")
     time.sleep(1)
     upload_button_front = browser.find_element_by_xpath("//button[@data-onfido-qa='confirm-action-btn']").click()
     time.sleep(5)
     image_input = browser.find_element_by_xpath("//input[@type='file']")
-    image_input.send_keys("C:/Users/WellDone/PycharmProjects/Selenium/sample_driving_licence (1).png")
+    image_input.send_keys("/home/user/PycharmProjects/avtotest/sample_driving_licence (1).png")
     time.sleep(5)
     upload_button_back = browser.find_element_by_xpath("//button[@data-onfido-qa='confirm-action-btn']").click()
     time.sleep(5)
@@ -501,7 +518,7 @@ def test_notification_offer_purchase():
     browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
-    input_chronicle_login.send_keys('chronicletest3@ukr.net')
+    input_chronicle_login.send_keys('chronicletest1@ukr.net')
     time.sleep(1)
     input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
@@ -562,11 +579,13 @@ def test_notification_offer_purchase():
     time.sleep(1)
     user_drop.click()
     time.sleep(1)
-    my_collection[1].click()
+    #my_collection[2].click()
     time.sleep(1)
-    log_out = browser.find_element_by_xpath("//button[@class='Button_btn__JyuE1 Button_red__p8Ej9 Button_withIcon__1TgpF']")
+    log_out = browser.find_element_by_id("Dropdown_Log_out")
     log_out.click()
     time.sleep(1)
+    browser.find_element_by_xpath("//button[@class='Button_btn__JyuE1 Button_red__p8Ej9 Button_withIcon__1TgpF']").click()
+    time.sleep(3)
 
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
@@ -618,18 +637,21 @@ def test_notification_offer_purchase():
     print(bal1)
     print(bal2)
 
+    time.sleep(3)
+    browser.find_element_by_xpath("//div[@class='UserHeaderCard_dropdownBtn__eXCOo']").click()
+    #user_drop.click()
     time.sleep(1)
-    user_drop.click()
+    #my_collection[1].click()
     time.sleep(1)
-    my_collection[1].click()
-    time.sleep(1)
-    log_out = browser.find_element_by_xpath(
-        "//button[@class='Button_btn__JyuE1 Button_red__p8Ej9 Button_withIcon__1TgpF']")
+    log_out = browser.find_element_by_id("Dropdown_Log_out")
     log_out.click()
     time.sleep(1)
+    browser.find_element_by_xpath(
+        "//button[@class='Button_btn__JyuE1 Button_red__p8Ej9 Button_withIcon__1TgpF']").click()
+    time.sleep(3)
 
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
-    input_chronicle_login.send_keys('chronicletest3@ukr.net')
+    input_chronicle_login.send_keys('chronicletest1@ukr.net')
     time.sleep(1)
     input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")

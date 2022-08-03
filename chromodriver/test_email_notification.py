@@ -10,8 +10,8 @@ from driver import driver
 
 STAGE_URL = 'https://stage.xnl.zpoken.io/login'
 DEV_URL = 'https://dev.xnl.zpoken.io/login'
-URL_ADMIN = 'https://stage-admin.xnl.zpoken.io/'
-URL = 'https://stage.xnl.zpoken.io/login'
+URL_ADMIN = 'https://dev-admin.xnl.zpoken.io/'
+URL = 'https://dev.xnl.zpoken.io/login'
 
 
 def test_email_notif_kyc_rejected():
@@ -238,7 +238,7 @@ def test_email_notification_item_purchase():
     time.sleep(2)
     collections = browser.find_elements_by_xpath("//div[@class='AllCollectionCard_collectionCard__zDgyu']")
     time.sleep(2)
-    collections[6].click()
+    collections[0].click()
     time.sleep(2)
     items_for_purchase_usd = browser.find_elements_by_xpath("//div[@class='FeaturesCardList_priceWrap__Y6R4r USDC']")
     time.sleep(2)

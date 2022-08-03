@@ -9,7 +9,7 @@ from driver import driver
 
 STAGE_URL = 'https://stage.xnl.zpoken.io/login'
 DEV_URL = 'https://dev.xnl.zpoken.io/login'
-URL = 'https://stage.xnl.zpoken.io/login'
+URL = 'https://dev.xnl.zpoken.io/login'
 USER_WITH_EMAIL_VERIFICATION = 'chronicletest110@gmail.com'
 USER_WITH_EMAIL_AND_KYC_VERIFICATION = 'chronicletest5@ukr.net'
 

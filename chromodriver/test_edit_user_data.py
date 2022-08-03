@@ -6,7 +6,7 @@ from selenium.webdriver.chrome.options import Options #as chrome_options
 from driver import driver
 
 EMAIL_FOR_REGISTRATION = 'chronicletest5@ukr.net'
-URL = 'https://stage.xnl.zpoken.io/login'
+URL = 'https://dev.xnl.zpoken.io/login'
 
 
 def test_edit_display_name_valid_data():
@@ -400,7 +400,7 @@ def test_edit_display_name_use_already_register_display_name():
     name_input = browser.find_element_by_xpath("//input[@class='Input_input__lvORT']")
     name_input.clear()
     time.sleep(1)
-    name_input.send_keys('chronicletest102')
+    name_input.send_keys('chronicletest3')
     time.sleep(1)
     error_test = browser.find_element_by_xpath("//div[@class='UserNameForm_tipError__Iw7i7']").text
     assert error_test == 'Sorry... This username seems to be already taken.You can use letters, numbers, punctuation marks and special symbols. Get creative!'

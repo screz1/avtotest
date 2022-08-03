@@ -9,7 +9,7 @@ from driver import driver
 EMAIL_FOR_REGISTRATION = 'chronicletest5'
 URL_DEV = 'https://dev.xnl.zpoken.io/sign_up'
 URL_STAGE = 'https://stage.xnl.zpoken.io/sign_up'
-URL = 'https://stage.xnl.zpoken.io/sign_up'
+URL = 'https://dev.xnl.zpoken.io/sign_up'
 
 
 def test_sign_up_valid_data():
@@ -315,7 +315,7 @@ def test_sign_up_invalid_data_already_registered_display_name():
         "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']").click()
     time.sleep(1)
     display_name_input = browser.find_element_by_name('username')
-    display_name_input.send_keys('chronicletest2')
+    display_name_input.send_keys('chronicletest3')
     time.sleep(1)
     email_input = browser.find_element_by_name('email')
     email_input.send_keys('chronicletest210@gmail.com')

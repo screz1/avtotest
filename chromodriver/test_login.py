@@ -7,7 +7,7 @@ from selenium.common.exceptions import NoSuchElementException
 from driver import driver
 EMAIL_FOR_REGISTRATION = 'chronicletest5@ukr.net'
 
-URL = 'https://stage.xnl.zpoken.io/login'
+URL = 'https://dev.xnl.zpoken.io/login'
 PROD_URL = 'https://app.chronicle.io/login'
 
 
