@@ -9,7 +9,7 @@ from driver import driver
 EMAIL_FOR_REGISTRATION = 'chronicletest5'
 URL_DEV = 'https://dev.xnl.zpoken.io/sign_up'
 URL_STAGE = 'https://stage.xnl.zpoken.io/sign_up'
-URL = 'https://dev.xnl.zpoken.io/sign_up'
+URL = 'https://stage.xnl.zpoken.io/sign_up'
 
 
 def test_sign_up_valid_data():

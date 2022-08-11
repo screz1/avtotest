@@ -6,7 +6,7 @@ from selenium.webdriver.chrome.options import Options #as chrome_options
 from driver import driver
 
 EMAIL_FOR_REGISTRATION = 'chronicletest5@ukr.net'
-URL = 'https://dev.xnl.zpoken.io/login'
+URL = 'https://stage.xnl.zpoken.io/login'
 
 
 def test_edit_display_name_valid_data():

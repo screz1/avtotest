@@ -10,7 +10,7 @@ from driver import driver
 
 STAGE_URL = 'https://stage.xnl.zpoken.io/login'
 DEV_URL = 'https://dev.xnl.zpoken.io/login'
-URL = 'https://dev.xnl.zpoken.io/login'
+URL = 'https://stage.xnl.zpoken.io/login'
 USER_WITH_EMAIL_VERIFICATION = 'chronicletest2@ukr.net'
 USER_WITH_EMAIL_AND_KYC_VERIFICATION = 'chronicletest4@ukr.net'
 
@@ -29,7 +29,7 @@ def test_kyc_verification():
     browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver', options=options)
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
-    input_chronicle_login.send_keys("chronicletest3@ukr.net")
+    input_chronicle_login.send_keys("chronicletest5@ukr.net")
     time.sleep(2)
     input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
@@ -118,5 +118,5 @@ def test_kyc_verification():
     camera_button = browser.find_element_by_xpath("//button[@class='onfido-sdk-ui-Camera-btn']").click()
     time.sleep(2)
     upload_selfie_button = browser.find_element_by_xpath("//button[@class='ods-button -action--primary onfido-sdk-ui-Theme-button-sm']").click()
-    time.sleep(2)
+    time.sleep(10)
     browser.close()

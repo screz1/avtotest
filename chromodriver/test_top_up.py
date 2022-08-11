@@ -9,7 +9,7 @@ from driver import driver
 
 STAGE_URL = 'https://stage.xnl.zpoken.io/login'
 DEV_URL = 'https://dev.xnl.zpoken.io/login'
-URL = 'https://dev.xnl.zpoken.io/login'
+URL = 'https://stage.xnl.zpoken.io/login'
 USER_WITH_EMAIL_VERIFICATION = 'chronicletest110@gmail.com'
 USER_WITH_EMAIL_AND_KYC_VERIFICATION = 'chronicletest5@ukr.net'
 
@@ -63,7 +63,7 @@ def test_top_up_usdc_use_valid_data_with_fiat():
     country_drop.click()
     time.sleep(1)
     country = browser.find_elements_by_xpath("//div[@class='CustomSelect_option__x3Rbv']")
-    country[0].click()
+    country[1].click()
     city = browser.find_element_by_xpath("//input[@name='city']")
     city.send_keys('City')
     address_one = browser.find_element_by_xpath("//input[@name='addressLine_1']")
