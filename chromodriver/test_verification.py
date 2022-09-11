@@ -29,7 +29,7 @@ def test_kyc_verification():
     browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver', options=options)
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
-    input_chronicle_login.send_keys("chronicletest5@ukr.net")
+    input_chronicle_login.send_keys("chronicletest3@ukr.net")
     time.sleep(2)
     input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
