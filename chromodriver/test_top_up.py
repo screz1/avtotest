@@ -162,7 +162,7 @@ def test_top_up_usdc_use_valid_data_with_fiat_check_nevermind_button():
     time.sleep(1)
 
 
-def test_top_up_usdc_use_valid_data_with_fiat_user_lost_address_line2_empty():
+def test_top_up_usdc_use_valid_data_with_fiat_user_leave_address_line2_empty():
     browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
