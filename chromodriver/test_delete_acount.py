@@ -23,10 +23,7 @@ def test_delete_account():
     time.sleep(1)
     input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
-    time.sleep(1)
-    check_box = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
+
     time.sleep(2)
     sign_in_button = browser.find_element_by_xpath(
         "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
@@ -93,15 +90,7 @@ def test_sign_up_after_deleted():
     browser.get(URL)
     browser.find_element_by_xpath("//*[text() = 'Sign up']").click()
     time.sleep(2)
-    birth_input = browser.find_element_by_xpath("//input[@placeholder='DD/MM/YYYY']")
-    birth_input.send_keys("11111999")
-    birth_input.send_keys(Keys.RETURN)
-    time.sleep(2)
-    continue_to_reg_but = browser.find_element_by_xpath("//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']").click()
-    time.sleep(1)
-    display_name_input = browser.find_element_by_name('username')
-    display_name_input.send_keys(EMAIL_FOR_REGISTRATION)
-    time.sleep(1)
+
     email_input = browser.find_element_by_name('email')
     email_input.send_keys(EMAIL_FOR_REGISTRATION+'@ukr.net')
     time.sleep(1)

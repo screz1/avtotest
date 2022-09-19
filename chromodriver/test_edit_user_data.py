@@ -17,10 +17,7 @@ def test_edit_display_name_valid_data():
     time.sleep(1)
     input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
-    time.sleep(1)
-    check_box = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
+
     time.sleep(2)
     sign_in_button = browser.find_element_by_xpath(
         "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
@@ -56,10 +53,7 @@ def test_create_user_avatar():
     time.sleep(1)
     input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
-    time.sleep(1)
-    check_box = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
+
     time.sleep(2)
     sign_in_button = browser.find_element_by_xpath(
         "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
@@ -90,10 +84,7 @@ def test_create_user_avatar_check_nevermind_button():
     time.sleep(1)
     input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
-    time.sleep(1)
-    check_box = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
+
     time.sleep(2)
     sign_in_button = browser.find_element_by_xpath(
         "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
@@ -123,10 +114,7 @@ def test_create_user_avatar_check_remove_button():
     time.sleep(1)
     input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
-    time.sleep(1)
-    check_box = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
+
     time.sleep(2)
     sign_in_button = browser.find_element_by_xpath(
         "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
@@ -157,10 +145,7 @@ def test_edit_user_avatar():
     time.sleep(1)
     input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
-    time.sleep(1)
-    check_box = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
+
     time.sleep(2)
     sign_in_button = browser.find_element_by_xpath(
         "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
@@ -191,10 +176,7 @@ def test_edit_display_name_valid_data_min_symbols():
     time.sleep(1)
     input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
-    time.sleep(1)
-    check_box = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
+
     time.sleep(2)
     sign_in_button = browser.find_element_by_xpath(
         "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
@@ -229,10 +211,7 @@ def test_edit_display_name_valid_data_max_symbols():
     time.sleep(1)
     input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
-    time.sleep(1)
-    check_box = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
+
     time.sleep(2)
     sign_in_button = browser.find_element_by_xpath(
         "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
@@ -268,10 +247,7 @@ def test_edit_display_name_check_never_mind_button():
     time.sleep(1)
     input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
-    time.sleep(1)
-    check_box = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
+
     time.sleep(2)
     sign_in_button = browser.find_element_by_xpath(
         "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
@@ -306,10 +282,7 @@ def test_edit_display_name_input_more_than_30_symbols():
     time.sleep(1)
     input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
-    time.sleep(1)
-    check_box = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
+
     time.sleep(2)
     sign_in_button = browser.find_element_by_xpath(
         "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
@@ -342,10 +315,7 @@ def test_edit_display_name_leave_name_field_empty():
     time.sleep(1)
     input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
-    time.sleep(1)
-    check_box = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
+
     time.sleep(2)
     sign_in_button = browser.find_element_by_xpath(
         "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
@@ -378,10 +348,7 @@ def test_edit_display_name_use_already_register_display_name():
     time.sleep(1)
     input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
-    time.sleep(1)
-    check_box = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
+    
     time.sleep(2)
     sign_in_button = browser.find_element_by_xpath(
         "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")

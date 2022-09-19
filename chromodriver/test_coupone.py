@@ -13,8 +13,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 STAGE_URL = 'https://stage.xnl.zpoken.io/login'
 DEV_URL = 'https://dev.xnl.zpoken.io/login'
-URL = 'https://dev.xnl.zpoken.io/login'
-URL_ADMIN = 'https://dev-admin.xnl.zpoken.io/'
+URL = 'https://stage.xnl.zpoken.io/login'
+URL_ADMIN = 'https://stage-admin.xnl.zpoken.io/'
 USER_WITH_EMAIL_VERIFICATION = 'chronicletest103@gmail.com'
 USER_WITH_EMAIL_AND_KYC_VERIFICATION = 'chronicletest5@ukr.net'
 USER_WITH_EMAIL_AND_KYC_FOR_CREATE_OFFERS = 'chronicletest1@ukr.net'

@@ -6,6 +6,9 @@ from selenium.webdriver.chrome.options import Options #as chrome_options
 #from fake_useragent import UserAgent
 from selenium.common.exceptions import NoSuchElementException
 from driver import driver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as ec
+from selenium.webdriver.support.ui import WebDriverWait
 
 STAGE_URL = 'https://stage.xnl.zpoken.io/login'
 DEV_URL = 'https://dev.xnl.zpoken.io/login'
@@ -301,16 +304,16 @@ def test_top_up_usdc_use_valid_data_min_deposit_with_fiat():
 def test_top_up_usdc_use_valid_data_max_deposit_with_fiat():
     browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
+    wait = WebDriverWait(browser, 15, 0.3)
     input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_AND_KYC_VERIFICATION)
     time.sleep(1)
     input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
     time.sleep(1)
-    check_box = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
-    time.sleep(2)
+    #check_box = browser.find_element_by_xpath("//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
+    #check_box.click()
+    #time.sleep(2)
     sign_in_button = browser.find_element_by_xpath(
         "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
     sign_in_button.click()
@@ -358,7 +361,10 @@ def test_top_up_usdc_use_valid_data_max_deposit_with_fiat():
     time.sleep(1)
     top_up = browser.find_element_by_id('Are_you_sure_you_want_to_make_a_top_up__top_up')
     top_up.click()
-    time.sleep(10)
+    wait.until(ec.visibility_of_element_located((By.ID, 'It_may_take_some_time_to_process_your_transaction_Okay')))
+    okay_button = browser.find_element(By.ID, "It_may_take_some_time_to_process_your_transaction_Okay")
+    okay_button.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//p[@class='__3dsecure_smallText__V9LrF']")))
     cong = browser.find_element_by_xpath("//p[@class='__3dsecure_smallText__V9LrF']").text
     assert cong == 'Your transaction was successful'
     back_to_store = browser.find_element_by_xpath("//a[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")

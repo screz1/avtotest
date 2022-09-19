@@ -8,10 +8,10 @@ from driver import driver
 
 STAGE_URL = 'https://stage.xnl.zpoken.io/login'
 DEV_URL = 'https://dev.xnl.zpoken.io/login'
-URL = 'https://dev.xnl.zpoken.io/login'
-USER_WITH_EMAIL_VERIFICATION = 'chronicletest101@gmail.com'
-USER_WITH_EMAIL_AND_KYC_VERIFICATION = 'chronicletest1@ukr.net'
-USER_WITH_EMAIL_AND_KYC_VERIFICATION_WITHOUT_MONEY = 'chronicletest3@ukr.net'
+URL = 'https://stage.xnl.zpoken.io/login'
+USER_WITH_EMAIL_VERIFICATION = 'chronicletest2@ukr.net'
+USER_WITH_EMAIL_AND_KYC_VERIFICATION = 'chronicletest5@ukr.net'
+USER_WITH_EMAIL_AND_KYC_VERIFICATION_WITHOUT_MONEY = 'chronicletest4@ukr.net'
 
 
 def test_check_album_screen():
@@ -22,10 +22,7 @@ def test_check_album_screen():
     time.sleep(1)
     input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
-    time.sleep(1)
-    check_box = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
+
     time.sleep(2)
     sign_in_button = browser.find_element_by_xpath(
         "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
@@ -59,10 +56,7 @@ def test_check_album_screen_item_screen():
     time.sleep(1)
     input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
-    time.sleep(1)
-    check_box = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
+
     time.sleep(2)
     sign_in_button = browser.find_element_by_xpath(
         "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
@@ -126,10 +120,7 @@ def test_check_album_screen_item_screen_view_listings_button():
     time.sleep(1)
     input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
-    time.sleep(1)
-    check_box = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
+
     time.sleep(2)
     sign_in_button = browser.find_element_by_xpath(
         "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
@@ -185,10 +176,7 @@ def test_check_album_screen_item_screen_view_withdraw_button():
     time.sleep(1)
     input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
-    time.sleep(1)
-    check_box = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
+
     time.sleep(2)
     sign_in_button = browser.find_element_by_xpath(
         "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
@@ -248,10 +236,7 @@ def test_check_album_screen_item_screen_view_market_button():
     time.sleep(1)
     input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
-    time.sleep(1)
-    check_box = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
+
     time.sleep(2)
     sign_in_button = browser.find_element_by_xpath(
         "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")

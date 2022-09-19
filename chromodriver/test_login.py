@@ -4,7 +4,7 @@ import time
 from selenium.webdriver.chrome.options import Options #as chrome_options
 #from fake_useragent import UserAgent
 from selenium.common.exceptions import NoSuchElementException
-from driver import driver
+
 EMAIL_FOR_REGISTRATION = 'chronicletest5@ukr.net'
 
 URL = 'https://stage.xnl.zpoken.io/login'
@@ -20,9 +20,9 @@ def test_log_in_valid_data():
     time.sleep(1)
     input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
-    #time.sleep(1)
-    #check_box = browser.find_element_by_xpath("//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    #check_box.click()
+    time.sleep(1)
+    check_box = browser.find_element_by_xpath("//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
+    check_box.click()
     time.sleep(2)
     sign_in_button = browser.find_element_by_xpath(
         "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
