@@ -42,7 +42,7 @@ def test_delete_account():
     time.sleep(1)
     delete_button = browser.find_element_by_id('Delete_account_delete')
     delete_button.click()
-    time.sleep(1)
+    time.sleep(3)
     get_url = browser.current_url
     assert get_url == URL
     print(get_url)
@@ -52,10 +52,7 @@ def test_delete_account():
     time.sleep(1)
     input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
-    time.sleep(1)
-    check_box = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
+
     time.sleep(2)
     sign_in_button = browser.find_element_by_xpath(
         "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
@@ -101,12 +98,14 @@ def test_sign_up_after_deleted():
     time.sleep(1)
     next_button = browser.find_element_by_xpath("//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")
     next_button.click()
-    time.sleep(3)
-    #confirm_email = browser.find_element_by_xpath("//div[@class='LoginRightSide_formContainer__A5A7J']//h2[@class='LoginRightSide_h2__BFRs8']").text
-    #assert confirm_email == 'Confirm Email'
-    #text = browser.find_element_by_xpath("//div[@class='LoginRightSide_formContainer__A5A7J']//p[@class='VerifyEmail_desc__nqNEF']").text
-    #assert text == "We've sent you a letter to with confirmation details. Please go to your Email service and follow the instructions to activate your account."
-    #time.sleep(2)
+    time.sleep(5)
+    confirm_email = browser.find_element_by_xpath(
+        "//div[@class='LoginRightSide_formContainer__A5A7J']//h2[@class='LoginRightSide_h2__BFRs8']").text
+    assert confirm_email == 'Confirm Email'
+    text = browser.find_element_by_xpath(
+        "//div[@class='LoginRightSide_formContainer__A5A7J']//p[@class='VerifyEmail_desc__nqNEF']").text
+    assert text == "We've sent you a letter with confirmation details. Please go to your Email service and follow the instructions to activate your account."
+    time.sleep(2)
 
     browser.get('https://accounts.ukr.net/login?client_id=9GLooZH9KjbBlWnuLkVX&drop_reason=logout')
     time.sleep(2)
