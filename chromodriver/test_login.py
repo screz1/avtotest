@@ -4,6 +4,9 @@ import time
 from selenium.webdriver.chrome.options import Options #as chrome_options
 #from fake_useragent import UserAgent
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as ec
+from selenium.webdriver.support.ui import WebDriverWait
 
 EMAIL_FOR_REGISTRATION = 'chronicletest5@ukr.net'
 
@@ -14,23 +17,23 @@ PROD_URL = 'https://app.chronicle.io/login'
 def test_log_in_valid_data():
     browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
-    input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
-
+    wait = WebDriverWait(browser, 15, 0.3)
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="login"]')))
+    input_chronicle_login = browser.find_element(By.XPATH, '//input[@name="login"]')
     input_chronicle_login.send_keys(EMAIL_FOR_REGISTRATION)
-    time.sleep(1)
-    input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="password"]')))
+    input_chronicle_password = browser.find_element(By.XPATH, '//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
-    time.sleep(1)
-    check_box = browser.find_element_by_xpath("//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
-    time.sleep(2)
-    sign_in_button = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")))
+    sign_in_button = browser.find_element(
+       By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
     sign_in_button.click()
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+    pop_up_two_fa = browser.find_element(
+       By.XPATH, "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
     time.sleep(2)
-    pop_up_two_fa = browser.find_element_by_xpath(
-        "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
-
     pop_up_two_fa.click()
     time.sleep(1)
     browser.quit()
@@ -39,22 +42,22 @@ def test_log_in_valid_data():
 def test_log_in_email_field_empty():
     browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
-    input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
+    wait = WebDriverWait(browser, 15, 0.3)
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="login"]')))
+    input_chronicle_login = browser.find_element(By.XPATH, '//input[@name="login"]')
     input_chronicle_login.send_keys("")
 
-    time.sleep(1)
-    input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="password"]')))
+    input_chronicle_password = browser.find_element(By.XPATH, '//input[@name="password"]')
     input_chronicle_password.click()
-    login_error = browser.find_element_by_xpath("//div[@class='LoginForm_input__ZZfRr']//div[@class='Input_tipError__CKiEf']").text
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='LoginForm_input__ZZfRr']//div[@class='Input_tipError__CKiEf']")))
+    login_error = browser.find_element(
+        By.XPATH, "//div[@class='LoginForm_input__ZZfRr']//div[@class='Input_tipError__CKiEf']").text
     assert login_error == 'Email seems to be invalid, please check...'
     input_chronicle_password.send_keys("213456qaZ")
-    time.sleep(1)
 
-    check_box = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
-
-    time.sleep(2)
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="password"]')))
     sign_in_button = browser.find_element_by_xpath("//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
     sign_in_button.click()
     time.sleep(1)
@@ -63,25 +66,24 @@ def test_log_in_email_field_empty():
 def test_log_in_email_not_registered():
     browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
-    input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
+    wait = WebDriverWait(browser, 15, 0.3)
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="login"]')))
+    input_chronicle_login = browser.find_element(By.XPATH, '//input[@name="login"]')
     input_chronicle_login.send_keys("chronicletest999@gmail.com")
 
-    time.sleep(1)
-    input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="password"]')))
+    input_chronicle_password = browser.find_element(By.XPATH, '//input[@name="password"]')
     input_chronicle_password.click()
-
     input_chronicle_password.send_keys("213456qaZ")
-    time.sleep(1)
 
-    check_box = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
-
-    time.sleep(2)
-    sign_in_button = browser.find_element_by_xpath("//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
+    wait.until(ec.visibility_of_element_located((
+        By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")))
+    sign_in_button = browser.find_element(By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
     sign_in_button.click()
-    time.sleep(5)
-    login_error = browser.find_element_by_xpath("//div[@class='LoginForm_input__ZZfRr']//div[@class='LoginForm_tipError__pmHEw']").text
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='LoginForm_input__ZZfRr']//div[@class='LoginForm_tipError__pmHEw']")))
+    login_error = browser.find_element(
+        By.XPATH, "//div[@class='LoginForm_input__ZZfRr']//div[@class='LoginForm_tipError__pmHEw']").text
     assert login_error == 'Oops...We struggle to find anyone registered with this Email...Please check your data or sign up.'
 
     time.sleep(1)
@@ -90,27 +92,26 @@ def test_log_in_email_not_registered():
 def test_log_in_email_not_verified():
     browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
-    input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
+    wait = WebDriverWait(browser, 15, 0.3)
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="login"]')))
+    input_chronicle_login = browser.find_element(By.XPATH, '//input[@name="login"]')
     input_chronicle_login.send_keys("chronicletest120@gmail.com")
 
-    time.sleep(1)
-    input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="password"]')))
+    input_chronicle_password = browser.find_element(By.XPATH, '//input[@name="password"]')
     input_chronicle_password.click()
-
     input_chronicle_password.send_keys("213456qaZ")
-    time.sleep(1)
-
-    check_box = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
-
-    time.sleep(2)
-    sign_in_button = browser.find_element_by_xpath("//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")))
+    sign_in_button = browser.find_element(By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
     sign_in_button.click()
-    time.sleep(5)
-    confirm_email = browser.find_element_by_xpath("//div[@class='LoginRightSide_formContainer__A5A7J']//h2[@class='LoginRightSide_h2__BFRs8']").text
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='LoginRightSide_formContainer__A5A7J']//h2[@class='LoginRightSide_h2__BFRs8']")))
+    confirm_email = browser.find_element(
+        By.XPATH, "//div[@class='LoginRightSide_formContainer__A5A7J']//h2[@class='LoginRightSide_h2__BFRs8']").text
     assert confirm_email == 'Confirm Email'
-    text = browser.find_element_by_xpath("//div[@class='LoginRightSide_formContainer__A5A7J']//p[@class='VerifyEmail_desc__nqNEF']").text
+    text = browser.find_element(
+        By.XPATH, "//div[@class='LoginRightSide_formContainer__A5A7J']//p[@class='VerifyEmail_desc__nqNEF']").text
     assert text == "We've sent you a letter to with confirmation details. Please go to your Email service and follow the instructions to activate your account."
     time.sleep(1)
 
@@ -118,23 +119,24 @@ def test_log_in_email_not_verified():
 def test_log_in_password_field_empty():
     browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
-    input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
+    wait = WebDriverWait(browser, 15, 0.3)
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="login"]')))
+    input_chronicle_login = browser.find_element(By.XPATH, '//input[@name="login"]')
     input_chronicle_login.send_keys("chronicletest102@gmail.com")
 
-    time.sleep(1)
-    input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="password"]')))
+    input_chronicle_password = browser.find_element(By.XPATH, '//input[@name="password"]')
     input_chronicle_password.click()
     input_chronicle_password.send_keys("")
-    time.sleep(1)
 
-    check_box = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
-    time.sleep(2)
-    sign_in_button = browser.find_element_by_xpath("//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")))
+    sign_in_button = browser.find_element(By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
     sign_in_button.click()
-    time.sleep(2)
-    password_error = browser.find_element_by_xpath("//div[@class='Input_container__FISB2 Input_error__5HqQS']//div[@class='Input_tipError__CKiEf']").text
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='Input_container__FISB2 Input_error__5HqQS']//div[@class='Input_tipError__CKiEf']")))
+    password_error = browser.find_element(
+        By.XPATH, "//div[@class='Input_container__FISB2 Input_error__5HqQS']//div[@class='Input_tipError__CKiEf']").text
     assert password_error == 'Password needs to be at least 8 characters long and must include a symbol and capital'
     time.sleep(2)
 
@@ -142,23 +144,24 @@ def test_log_in_password_field_empty():
 def test_log_in_password_field_invalid_data():
     browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
-    input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
+    wait = WebDriverWait(browser, 15, 0.3)
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="login"]')))
+    input_chronicle_login = browser.find_element(By.XPATH, '//input[@name="login"]')
     input_chronicle_login.send_keys("chronicletest102@gmail.com")
 
-    time.sleep(1)
-    input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="password"]')))
+    input_chronicle_password = browser.find_element(By.XPATH, '//input[@name="password"]')
     input_chronicle_password.click()
     input_chronicle_password.send_keys("213456qaZZ")
-    time.sleep(1)
 
-    check_box = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
-    time.sleep(2)
-    sign_in_button = browser.find_element_by_xpath("//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")))
+    sign_in_button = browser.find_element(By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
     sign_in_button.click()
-    time.sleep(2)
-    password_error = browser.find_element_by_xpath("//div[@class='LoginForm_input__ZZfRr']//div[@class='LoginForm_tipError__pmHEw']").text
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='LoginForm_input__ZZfRr']//div[@class='LoginForm_tipError__pmHEw']")))
+    password_error = browser.find_element(
+        By.XPATH, "//div[@class='LoginForm_input__ZZfRr']//div[@class='LoginForm_tipError__pmHEw']").text
     assert password_error == 'Hmm... We remember you but the password seems to be wrong. Check your data or restore password.'
     time.sleep(2)
 
@@ -166,25 +169,24 @@ def test_log_in_password_field_invalid_data():
 def test_log_in_password_field_low_register():
     browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
-    input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
+    wait = WebDriverWait(browser, 15, 0.3)
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="login"]')))
+    input_chronicle_login = browser.find_element(By.XPATH, '//input[@name="login"]')
     input_chronicle_login.send_keys("chronicletest102@gmail.com")
 
-    time.sleep(1)
-    input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="password"]')))
+    input_chronicle_password = browser.find_element(By.XPATH, '//input[@name="password"]')
     input_chronicle_password.click()
     input_chronicle_password.send_keys("213456qaz")
-    time.sleep(1)
 
-    check_box = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
-    check_box.click()
-    time.sleep(2)
-    sign_in_button = browser.find_element_by_xpath("//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")))
+    sign_in_button = browser.find_element(By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
     sign_in_button.click()
-    time.sleep(2)
-    password_error = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_input__ZZfRr']//div[@class='Input_tipError__CKiEf']").text
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='LoginForm_input__ZZfRr']//div[@class='Input_tipError__CKiEf']")))
+    password_error = browser.find_element(
+       By.XPATH, "//div[@class='LoginForm_input__ZZfRr']//div[@class='Input_tipError__CKiEf']").text
     assert password_error == 'Password needs to be at least 8 characters long and must include a symbol and capital'
     time.sleep(2)
 
@@ -192,25 +194,24 @@ def test_log_in_password_field_low_register():
 def test_log_in_password_field_high_register():
     browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
-    input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
+    wait = WebDriverWait(browser, 15, 0.3)
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="login"]')))
+    input_chronicle_login = browser.find_element(By.XPATH, '//input[@name="login"]')
     input_chronicle_login.send_keys("chronicletest102@gmail.com")
 
-    time.sleep(1)
-    input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="password"]')))
+    input_chronicle_password = browser.find_element(By.XPATH, '//input[@name="password"]')
     input_chronicle_password.click()
     input_chronicle_password.send_keys("213456QAZ")
-    time.sleep(1)
 
-    check_box = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
-    check_box.click()
-    time.sleep(2)
-    sign_in_button = browser.find_element_by_xpath("//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")))
+    sign_in_button = browser.find_element(By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
     sign_in_button.click()
-    time.sleep(2)
-    password_error = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_input__ZZfRr']//div[@class='Input_tipError__CKiEf']").text
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='LoginForm_input__ZZfRr']//div[@class='Input_tipError__CKiEf']")))
+    password_error = browser.find_element(
+        By.XPATH, "//div[@class='LoginForm_input__ZZfRr']//div[@class='Input_tipError__CKiEf']").text
     assert password_error == 'Password needs to be at least 8 characters long and must include a symbol and capital'
     time.sleep(2)
 
