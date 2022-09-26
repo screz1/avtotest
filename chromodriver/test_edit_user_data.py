@@ -4,6 +4,9 @@ import time
 from selenium.webdriver.chrome.options import Options #as chrome_options
 #from fake_useragent import UserAgent
 from driver import driver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as ec
+from selenium.webdriver.support.ui import WebDriverWait
 
 EMAIL_FOR_REGISTRATION = 'chronicletest5@ukr.net'
 URL = 'https://stage.xnl.zpoken.io/login'
@@ -12,19 +15,25 @@ URL = 'https://stage.xnl.zpoken.io/login'
 def test_edit_display_name_valid_data():
     browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
-    input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
+    wait = WebDriverWait(browser, 15, 0.3)
+
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="login"]')))
+    input_chronicle_login = browser.find_element(By.XPATH, '//input[@name="login"]')
     input_chronicle_login.send_keys(EMAIL_FOR_REGISTRATION)
-    time.sleep(1)
-    input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="password"]')))
+    input_chronicle_password = browser.find_element(By.XPATH, '//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
 
-    time.sleep(2)
-    sign_in_button = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")))
+    sign_in_button = browser.find_element(
+       By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
     sign_in_button.click()
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+    pop_up_two_fa = browser.find_element(
+        By.XPATH, "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
     time.sleep(2)
-    pop_up_two_fa = browser.find_element_by_xpath(
-        "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
     pop_up_two_fa.click()
     time.sleep(2)
     user_drop = browser.find_element_by_xpath("//div[@class='UserHeaderCard_dropdownBtn__eXCOo']").click()
