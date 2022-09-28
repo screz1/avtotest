@@ -35,249 +35,348 @@ def test_edit_display_name_valid_data():
         By.XPATH, "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
     time.sleep(2)
     pop_up_two_fa.click()
-    time.sleep(2)
-    user_drop = browser.find_element_by_xpath("//div[@class='UserHeaderCard_dropdownBtn__eXCOo']").click()
-    time.sleep(1)
-    user_settings = browser.find_element_by_xpath("//div[@class='Dropdown_iconWrap__od6ky']").click()
-    time.sleep(1)
-    edit_dis_name = browser.find_element_by_xpath("//div[@class='PersonalSettingsModal_editNameIcon__7b1au']").click()
-    time.sleep(1)
-    name_input = browser.find_element_by_xpath("//input[@class='Input_input__lvORT']")
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='UserHeaderCard_dropdownBtn__eXCOo']")))
+    user_drop = browser.find_element(By.XPATH, "//div[@class='UserHeaderCard_dropdownBtn__eXCOo']")
+    user_drop.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='Dropdown_iconWrap__od6ky']")))
+    user_settings = browser.find_element(By.XPATH, "//div[@class='Dropdown_iconWrap__od6ky']")
+    user_settings.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='PersonalSettingsModal_editNameIcon__7b1au']")))
+    edit_dis_name = browser.find_element(By.XPATH, "//div[@class='PersonalSettingsModal_editNameIcon__7b1au']")
+    edit_dis_name.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//input[@class='Input_input__lvORT']")))
+    name_input = browser.find_element(By.XPATH, "//input[@class='Input_input__lvORT']")
     name_input.clear()
     time.sleep(1)
     name_input.send_keys('validvalidsw')
-    time.sleep(1)
-    save_button = browser.find_element_by_xpath("//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']").click()
-    time.sleep(1)
-    display_name = browser.find_element_by_xpath("//div[@class='PersonalSettingsModal_nick__Xc8TN']").text
-    time.sleep(1)
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")))
+    save_button = browser.find_element(
+        By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")
+    save_button.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='PersonalSettingsModal_nick__Xc8TN']")))
+    display_name = browser.find_element(By.XPATH, "//div[@class='PersonalSettingsModal_nick__Xc8TN']").text
     assert display_name == 'validvalidsw'
 
 
 def test_create_user_avatar():
     browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
-    input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
+    wait = WebDriverWait(browser, 15, 0.3)
+
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="login"]')))
+    input_chronicle_login = browser.find_element(By.XPATH, '//input[@name="login"]')
     input_chronicle_login.send_keys(EMAIL_FOR_REGISTRATION)
-    time.sleep(1)
-    input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="password"]')))
+    input_chronicle_password = browser.find_element(By.XPATH, '//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
 
-    time.sleep(2)
-    sign_in_button = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")))
+    sign_in_button = browser.find_element(
+        By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
     sign_in_button.click()
-    time.sleep(2)
-    pop_up_two_fa = browser.find_element_by_xpath(
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH,
+         "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+    pop_up_two_fa = browser.find_element(
+        By.XPATH,
         "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
-    pop_up_two_fa.click()
     time.sleep(2)
-    user_drop = browser.find_element_by_xpath("//div[@class='UserHeaderCard_dropdownBtn__eXCOo']").click()
-    time.sleep(1)
-    user_settings = browser.find_element_by_xpath("//div[@class='Dropdown_iconWrap__od6ky']").click()
-    time.sleep(1)
-    avatar_button = browser.find_element_by_xpath("//div[@class='PersonalSettingsModal_camera__IFAz7']").click()
-    time.sleep(1)
-    upload_avatar = browser.find_element_by_xpath("//input[@type='file']")
+    pop_up_two_fa.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='UserHeaderCard_dropdownBtn__eXCOo']")))
+    user_drop = browser.find_element(By.XPATH, "//div[@class='UserHeaderCard_dropdownBtn__eXCOo']")
+    user_drop.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='Dropdown_iconWrap__od6ky']")))
+    user_settings = browser.find_element(By.XPATH, "//div[@class='Dropdown_iconWrap__od6ky']")
+    user_settings.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='PersonalSettingsModal_camera__IFAz7']")))
+    avatar_button = browser.find_element(By.XPATH, "//div[@class='PersonalSettingsModal_camera__IFAz7']")
+    avatar_button.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//input[@type='file']")))
+    upload_avatar = browser.find_element(By.XPATH, "//input[@type='file']")
     upload_avatar.send_keys("/home/user/PycharmProjects/avtotest/valid_image.png")
-    time.sleep(3)
-    save_button = browser.find_element_by_xpath("//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']").click()
-    time.sleep(5)
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")))
+    save_button = browser.find_element(
+        By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")
+    save_button.click()
 
 
 def test_create_user_avatar_check_nevermind_button():
     browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
-    input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
+    wait = WebDriverWait(browser, 15, 0.3)
+
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="login"]')))
+    input_chronicle_login = browser.find_element(By.XPATH, '//input[@name="login"]')
     input_chronicle_login.send_keys(EMAIL_FOR_REGISTRATION)
-    time.sleep(1)
-    input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="password"]')))
+    input_chronicle_password = browser.find_element(By.XPATH, '//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
 
-    time.sleep(2)
-    sign_in_button = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")))
+    sign_in_button = browser.find_element(
+        By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
     sign_in_button.click()
-    time.sleep(2)
-    pop_up_two_fa = browser.find_element_by_xpath(
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH,
+         "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+    pop_up_two_fa = browser.find_element(
+        By.XPATH,
         "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
-    pop_up_two_fa.click()
     time.sleep(2)
-    user_drop = browser.find_element_by_xpath("//div[@class='UserHeaderCard_dropdownBtn__eXCOo']").click()
-    time.sleep(1)
-    user_settings = browser.find_element_by_xpath("//div[@class='Dropdown_iconWrap__od6ky']").click()
-    time.sleep(1)
-    avatar_button = browser.find_element_by_xpath("//div[@class='PersonalSettingsModal_camera__IFAz7']").click()
-    time.sleep(1)
-    never_mind_button = browser.find_element_by_id('upload_avatar_nevermind')
-    time.sleep(1)
+    pop_up_two_fa.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='UserHeaderCard_dropdownBtn__eXCOo']")))
+    user_drop = browser.find_element(By.XPATH, "//div[@class='UserHeaderCard_dropdownBtn__eXCOo']")
+    user_drop.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='Dropdown_iconWrap__od6ky']")))
+    user_settings = browser.find_element(By.XPATH, "//div[@class='Dropdown_iconWrap__od6ky']")
+    user_settings.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='PersonalSettingsModal_camera__IFAz7']")))
+    avatar_button = browser.find_element(By.XPATH, "//div[@class='PersonalSettingsModal_camera__IFAz7']")
+    avatar_button.click()
+    wait.until(ec.visibility_of_element_located((By.ID, 'upload_avatar_nevermind')))
+    never_mind_button = browser.find_element(By.ID, 'upload_avatar_nevermind')
     never_mind_button.click()
-    time.sleep(5)
+    time.sleep(1)
 
 
 def test_create_user_avatar_check_remove_button():
     browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
-    input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
+    wait = WebDriverWait(browser, 15, 0.3)
+
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="login"]')))
+    input_chronicle_login = browser.find_element(By.XPATH, '//input[@name="login"]')
     input_chronicle_login.send_keys(EMAIL_FOR_REGISTRATION)
-    time.sleep(1)
-    input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="password"]')))
+    input_chronicle_password = browser.find_element(By.XPATH, '//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
 
-    time.sleep(2)
-    sign_in_button = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")))
+    sign_in_button = browser.find_element(
+        By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
     sign_in_button.click()
-    time.sleep(2)
-    pop_up_two_fa = browser.find_element_by_xpath(
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH,
+         "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+    pop_up_two_fa = browser.find_element(
+        By.XPATH,
         "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
-    pop_up_two_fa.click()
     time.sleep(2)
-    user_drop = browser.find_element_by_xpath("//div[@class='UserHeaderCard_dropdownBtn__eXCOo']").click()
-    time.sleep(1)
-    user_settings = browser.find_element_by_xpath("//div[@class='Dropdown_iconWrap__od6ky']").click()
-    time.sleep(1)
-    avatar_button = browser.find_element_by_xpath("//div[@class='PersonalSettingsModal_camera__IFAz7']").click()
-    time.sleep(1)
-    upload_avatar = browser.find_element_by_xpath("//input[@type='file']")
+    pop_up_two_fa.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='UserHeaderCard_dropdownBtn__eXCOo']")))
+    user_drop = browser.find_element(By.XPATH, "//div[@class='UserHeaderCard_dropdownBtn__eXCOo']")
+    user_drop.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='Dropdown_iconWrap__od6ky']")))
+    user_settings = browser.find_element(By.XPATH, "//div[@class='Dropdown_iconWrap__od6ky']")
+    user_settings.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='PersonalSettingsModal_camera__IFAz7']")))
+    avatar_button = browser.find_element(By.XPATH, "//div[@class='PersonalSettingsModal_camera__IFAz7']")
+    avatar_button.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//input[@type='file']")))
+    upload_avatar = browser.find_element(By.XPATH, "//input[@type='file']")
     upload_avatar.send_keys("/home/user/PycharmProjects/avtotest/valid_image.png")
-    time.sleep(3)
-    remove_button = browser.find_element_by_xpath("//button[@class='Button_btn__JyuE1 Button_red__p8Ej9 DragAndDrop_btnRemove__D0MaR Button_withIcon__1TgpF']").click()
-    time.sleep(5)
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//button[@class='Button_btn__JyuE1 Button_red__p8Ej9 DragAndDrop_btnRemove__D0MaR Button_withIcon__1TgpF']")))
+    remove_button = browser.find_element(By.XPATH, "//button[@class='Button_btn__JyuE1 Button_red__p8Ej9 DragAndDrop_btnRemove__D0MaR Button_withIcon__1TgpF']")
+    remove_button.click()
+    time.sleep(1)
 
 
 def test_edit_user_avatar():
     browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
-    input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
+    wait = WebDriverWait(browser, 15, 0.3)
+
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="login"]')))
+    input_chronicle_login = browser.find_element(By.XPATH, '//input[@name="login"]')
     input_chronicle_login.send_keys(EMAIL_FOR_REGISTRATION)
-    time.sleep(1)
-    input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="password"]')))
+    input_chronicle_password = browser.find_element(By.XPATH, '//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
 
-    time.sleep(2)
-    sign_in_button = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")))
+    sign_in_button = browser.find_element(
+        By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
     sign_in_button.click()
-    time.sleep(2)
-    pop_up_two_fa = browser.find_element_by_xpath(
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH,
+         "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+    pop_up_two_fa = browser.find_element(
+        By.XPATH,
         "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
-    pop_up_two_fa.click()
     time.sleep(2)
-    user_drop = browser.find_element_by_xpath("//div[@class='UserHeaderCard_dropdownBtn__eXCOo']").click()
-    time.sleep(1)
-    user_settings = browser.find_element_by_xpath("//div[@class='Dropdown_iconWrap__od6ky']").click()
-    time.sleep(1)
-    avatar_button = browser.find_element_by_xpath("//div[@class='PersonalSettingsModal_camera__IFAz7']").click()
-    time.sleep(1)
-    upload_avatar = browser.find_element_by_xpath("//input[@type='file']")
-    upload_avatar.send_keys("/home/user/PycharmProjects/avtotest/image_two.png")
-    time.sleep(3)
-    save_button = browser.find_element_by_xpath("//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']").click()
+    pop_up_two_fa.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='UserHeaderCard_dropdownBtn__eXCOo']")))
+    user_drop = browser.find_element(By.XPATH, "//div[@class='UserHeaderCard_dropdownBtn__eXCOo']")
+    user_drop.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='Dropdown_iconWrap__od6ky']")))
+    user_settings = browser.find_element(By.XPATH, "//div[@class='Dropdown_iconWrap__od6ky']")
+    user_settings.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='PersonalSettingsModal_camera__IFAz7']")))
+    avatar_button = browser.find_element(By.XPATH, "//div[@class='PersonalSettingsModal_camera__IFAz7']")
+    avatar_button.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//input[@type='file']")))
+    upload_avatar = browser.find_element(By.XPATH, "//input[@type='file']")
+    upload_avatar.send_keys("/home/user/PycharmProjects/avtotest/valid_image.png")
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")))
+    save_button = browser.find_element(
+        By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")
+    save_button.click()
     time.sleep(5)
 
 
 def test_edit_display_name_valid_data_min_symbols():
     browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
-    input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
+    wait = WebDriverWait(browser, 15, 0.3)
+
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="login"]')))
+    input_chronicle_login = browser.find_element(By.XPATH, '//input[@name="login"]')
     input_chronicle_login.send_keys(EMAIL_FOR_REGISTRATION)
-    time.sleep(1)
-    input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="password"]')))
+    input_chronicle_password = browser.find_element(By.XPATH, '//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
 
-    time.sleep(2)
-    sign_in_button = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")))
+    sign_in_button = browser.find_element(
+        By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
     sign_in_button.click()
-    time.sleep(2)
-    pop_up_two_fa = browser.find_element_by_xpath(
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH,
+         "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+    pop_up_two_fa = browser.find_element(
+        By.XPATH,
         "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
-    pop_up_two_fa.click()
     time.sleep(2)
-    user_drop = browser.find_element_by_xpath("//div[@class='UserHeaderCard_dropdownBtn__eXCOo']").click()
-    time.sleep(1)
-    user_settings = browser.find_element_by_xpath("//div[@class='Dropdown_iconWrap__od6ky']").click()
-    time.sleep(1)
-    edit_dis_name = browser.find_element_by_xpath("//div[@class='PersonalSettingsModal_editNameIcon__7b1au']").click()
-    time.sleep(1)
-    name_input = browser.find_element_by_xpath("//input[@class='Input_input__lvORT']")
+    pop_up_two_fa.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='UserHeaderCard_dropdownBtn__eXCOo']")))
+    user_drop = browser.find_element(By.XPATH, "//div[@class='UserHeaderCard_dropdownBtn__eXCOo']")
+    user_drop.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='Dropdown_iconWrap__od6ky']")))
+    user_settings = browser.find_element(By.XPATH, "//div[@class='Dropdown_iconWrap__od6ky']")
+    user_settings.click()
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='PersonalSettingsModal_editNameIcon__7b1au']")))
+    edit_dis_name = browser.find_element(
+        By.XPATH, "//div[@class='PersonalSettingsModal_editNameIcon__7b1au']")
+    edit_dis_name.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//input[@class='Input_input__lvORT']")))
+    name_input = browser.find_element(By.XPATH, "//input[@class='Input_input__lvORT']")
     name_input.clear()
     time.sleep(1)
     name_input.send_keys('w')
-    time.sleep(1)
-    save_button = browser.find_element_by_xpath("//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']").click()
-    time.sleep(1)
-    display_name = browser.find_element_by_xpath("//div[@class='PersonalSettingsModal_nick__Xc8TN']").text
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")))
+    save_button = browser.find_element(
+        By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")
+    save_button.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='PersonalSettingsModal_nick__Xc8TN']")))
+    display_name = browser.find_element(By.XPATH, "//div[@class='PersonalSettingsModal_nick__Xc8TN']").text
     assert display_name == 'w'
 
 
 def test_edit_display_name_valid_data_max_symbols():
     browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
-    input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
+    wait = WebDriverWait(browser, 15, 0.3)
+
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="login"]')))
+    input_chronicle_login = browser.find_element(By.XPATH, '//input[@name="login"]')
     input_chronicle_login.send_keys(EMAIL_FOR_REGISTRATION)
-    time.sleep(1)
-    input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="password"]')))
+    input_chronicle_password = browser.find_element(By.XPATH, '//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
 
-    time.sleep(2)
-    sign_in_button = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")))
+    sign_in_button = browser.find_element(
+        By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
     sign_in_button.click()
-    time.sleep(3)
-    pop_up_two_fa = browser.find_element_by_xpath(
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH,
+         "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+    pop_up_two_fa = browser.find_element(
+        By.XPATH,
         "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
-    pop_up_two_fa.click()
     time.sleep(2)
-    user_drop = browser.find_element_by_xpath("//div[@class='UserHeaderCard_dropdownBtn__eXCOo']").click()
-    time.sleep(1)
-    user_settings = browser.find_element_by_xpath("//div[@class='Dropdown_iconWrap__od6ky']").click()
-    time.sleep(1)
-    edit_dis_name = browser.find_element_by_xpath("//div[@class='PersonalSettingsModal_editNameIcon__7b1au']").click()
-    time.sleep(1)
-    name_input = browser.find_element_by_xpath("//input[@class='Input_input__lvORT']")
+    pop_up_two_fa.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='UserHeaderCard_dropdownBtn__eXCOo']")))
+    user_drop = browser.find_element(By.XPATH, "//div[@class='UserHeaderCard_dropdownBtn__eXCOo']")
+    user_drop.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='Dropdown_iconWrap__od6ky']")))
+    user_settings = browser.find_element(By.XPATH, "//div[@class='Dropdown_iconWrap__od6ky']")
+    user_settings.click()
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='PersonalSettingsModal_editNameIcon__7b1au']")))
+    edit_dis_name = browser.find_element(
+        By.XPATH, "//div[@class='PersonalSettingsModal_editNameIcon__7b1au']")
+    edit_dis_name.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//input[@class='Input_input__lvORT']")))
+    name_input = browser.find_element(By.XPATH, "//input[@class='Input_input__lvORT']")
     name_input.clear()
     time.sleep(1)
     name_input.send_keys('namenamenamenamenamenamenameww')
-    time.sleep(1)
-    save_button = browser.find_element_by_xpath("//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']").click()
-    time.sleep(1)
-    display_name = browser.find_element_by_xpath("//div[@class='PersonalSettingsModal_nick__Xc8TN']").text
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")))
+    save_button = browser.find_element(
+        By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")
+    save_button.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='PersonalSettingsModal_nick__Xc8TN']")))
+    display_name = browser.find_element(By.XPATH, "//div[@class='PersonalSettingsModal_nick__Xc8TN']").text
     assert display_name == 'namenamenamenamenamenamenameww'
 
 
 def test_edit_display_name_check_never_mind_button():
     browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
-    input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
-    input_chronicle_login.send_keys(EMAIL_FOR_REGISTRATION)
+    wait = WebDriverWait(browser, 15, 0.3)
 
-    time.sleep(1)
-    input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="login"]')))
+    input_chronicle_login = browser.find_element(By.XPATH, '//input[@name="login"]')
+    input_chronicle_login.send_keys(EMAIL_FOR_REGISTRATION)
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="password"]')))
+    input_chronicle_password = browser.find_element(By.XPATH, '//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
 
-    time.sleep(2)
-    sign_in_button = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")))
+    sign_in_button = browser.find_element(
+        By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
     sign_in_button.click()
-    time.sleep(2)
-    pop_up_two_fa = browser.find_element_by_xpath(
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH,
+         "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+    pop_up_two_fa = browser.find_element(
+        By.XPATH,
         "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
-    pop_up_two_fa.click()
     time.sleep(2)
-    user_drop = browser.find_element_by_xpath("//div[@class='UserHeaderCard_dropdownBtn__eXCOo']").click()
-    time.sleep(1)
-    user_settings = browser.find_element_by_xpath("//div[@class='Dropdown_iconWrap__od6ky']").click()
-    time.sleep(1)
-    edit_dis_name = browser.find_element_by_xpath("//div[@class='PersonalSettingsModal_editNameIcon__7b1au']").click()
-    time.sleep(1)
-    name_input = browser.find_element_by_xpath("//input[@class='Input_input__lvORT']")
+    pop_up_two_fa.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='UserHeaderCard_dropdownBtn__eXCOo']")))
+    user_drop = browser.find_element(By.XPATH, "//div[@class='UserHeaderCard_dropdownBtn__eXCOo']")
+    user_drop.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='Dropdown_iconWrap__od6ky']")))
+    user_settings = browser.find_element(By.XPATH, "//div[@class='Dropdown_iconWrap__od6ky']")
+    user_settings.click()
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='PersonalSettingsModal_editNameIcon__7b1au']")))
+    edit_dis_name = browser.find_element(
+        By.XPATH, "//div[@class='PersonalSettingsModal_editNameIcon__7b1au']")
+    edit_dis_name.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//input[@class='Input_input__lvORT']")))
+    name_input = browser.find_element(By.XPATH, "//input[@class='Input_input__lvORT']")
     name_input.clear()
     time.sleep(1)
-    name_input.send_keys('namenamenamena')
-    time.sleep(1)
-    never_mind_button = browser.find_element_by_id('change_display_name_nevermind')
+    name_input.send_keys('name')
+    wait.until(ec.visibility_of_element_located((By.ID, 'change_display_name_nevermind')))
+    never_mind_button = browser.find_element(By.ID, 'change_display_name_nevermind')
     never_mind_button.click()
 
     time.sleep(5)
@@ -286,100 +385,148 @@ def test_edit_display_name_check_never_mind_button():
 def test_edit_display_name_input_more_than_30_symbols():
     browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
-    input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
+    wait = WebDriverWait(browser, 15, 0.3)
+
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="login"]')))
+    input_chronicle_login = browser.find_element(By.XPATH, '//input[@name="login"]')
     input_chronicle_login.send_keys(EMAIL_FOR_REGISTRATION)
-    time.sleep(1)
-    input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="password"]')))
+    input_chronicle_password = browser.find_element(By.XPATH, '//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
 
-    time.sleep(2)
-    sign_in_button = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")))
+    sign_in_button = browser.find_element(
+        By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
     sign_in_button.click()
-    time.sleep(2)
-    pop_up_two_fa = browser.find_element_by_xpath(
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH,
+         "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+    pop_up_two_fa = browser.find_element(
+        By.XPATH,
         "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
-    pop_up_two_fa.click()
     time.sleep(2)
-    user_drop = browser.find_element_by_xpath("//div[@class='UserHeaderCard_dropdownBtn__eXCOo']").click()
-    time.sleep(1)
-    user_settings = browser.find_element_by_xpath("//div[@class='Dropdown_iconWrap__od6ky']").click()
-    time.sleep(1)
-    edit_dis_name = browser.find_element_by_xpath("//div[@class='PersonalSettingsModal_editNameIcon__7b1au']").click()
-    time.sleep(1)
-    name_input = browser.find_element_by_xpath("//input[@class='Input_input__lvORT']")
+    pop_up_two_fa.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='UserHeaderCard_dropdownBtn__eXCOo']")))
+    user_drop = browser.find_element(By.XPATH, "//div[@class='UserHeaderCard_dropdownBtn__eXCOo']")
+    user_drop.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='Dropdown_iconWrap__od6ky']")))
+    user_settings = browser.find_element(By.XPATH, "//div[@class='Dropdown_iconWrap__od6ky']")
+    user_settings.click()
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='PersonalSettingsModal_editNameIcon__7b1au']")))
+    edit_dis_name = browser.find_element(
+        By.XPATH, "//div[@class='PersonalSettingsModal_editNameIcon__7b1au']")
+    edit_dis_name.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//input[@class='Input_input__lvORT']")))
+    name_input = browser.find_element(By.XPATH, "//input[@class='Input_input__lvORT']")
     name_input.clear()
     time.sleep(1)
     name_input.send_keys('namenamenamenamenamenamenamewwq')
-    time.sleep(1)
-    save_button = browser.find_element_by_xpath("//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF Button_disable__0XBGJ']").click()
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF Button_disable__0XBGJ']")))
+    save_button = browser.find_element(
+        By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF Button_disable__0XBGJ']")
+    save_button.click()
     time.sleep(1)
 
 
 def test_edit_display_name_leave_name_field_empty():
     browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
-    input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
+    wait = WebDriverWait(browser, 15, 0.3)
+
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="login"]')))
+    input_chronicle_login = browser.find_element(By.XPATH, '//input[@name="login"]')
     input_chronicle_login.send_keys(EMAIL_FOR_REGISTRATION)
-    time.sleep(1)
-    input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="password"]')))
+    input_chronicle_password = browser.find_element(By.XPATH, '//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
 
-    time.sleep(2)
-    sign_in_button = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")))
+    sign_in_button = browser.find_element(
+        By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
     sign_in_button.click()
-    time.sleep(2)
-    pop_up_two_fa = browser.find_element_by_xpath(
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH,
+         "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+    pop_up_two_fa = browser.find_element(
+        By.XPATH,
         "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
-    pop_up_two_fa.click()
     time.sleep(2)
-    user_drop = browser.find_element_by_xpath("//div[@class='UserHeaderCard_dropdownBtn__eXCOo']").click()
-    time.sleep(1)
-    user_settings = browser.find_element_by_xpath("//div[@class='Dropdown_iconWrap__od6ky']").click()
-    time.sleep(1)
-    edit_dis_name = browser.find_element_by_xpath("//div[@class='PersonalSettingsModal_editNameIcon__7b1au']").click()
-    time.sleep(1)
-    name_input = browser.find_element_by_xpath("//input[@class='Input_input__lvORT']")
+    pop_up_two_fa.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='UserHeaderCard_dropdownBtn__eXCOo']")))
+    user_drop = browser.find_element(By.XPATH, "//div[@class='UserHeaderCard_dropdownBtn__eXCOo']")
+    user_drop.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='Dropdown_iconWrap__od6ky']")))
+    user_settings = browser.find_element(By.XPATH, "//div[@class='Dropdown_iconWrap__od6ky']")
+    user_settings.click()
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='PersonalSettingsModal_editNameIcon__7b1au']")))
+    edit_dis_name = browser.find_element(
+        By.XPATH, "//div[@class='PersonalSettingsModal_editNameIcon__7b1au']")
+    edit_dis_name.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//input[@class='Input_input__lvORT']")))
+    name_input = browser.find_element(By.XPATH, "//input[@class='Input_input__lvORT']")
     name_input.clear()
     time.sleep(1)
     name_input.send_keys('')
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH,
+         "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF Button_disable__0XBGJ']")))
+    save_button = browser.find_element(
+        By.XPATH,
+        "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF Button_disable__0XBGJ']")
+    save_button.click()
     time.sleep(1)
-    save_button = browser.find_element_by_xpath("//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF Button_disable__0XBGJ']").click()
-    time.sleep(2)
 
 
 def test_edit_display_name_use_already_register_display_name():
     browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
-    input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
+    wait = WebDriverWait(browser, 15, 0.3)
+
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="login"]')))
+    input_chronicle_login = browser.find_element(By.XPATH, '//input[@name="login"]')
     input_chronicle_login.send_keys(EMAIL_FOR_REGISTRATION)
-    time.sleep(1)
-    input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="password"]')))
+    input_chronicle_password = browser.find_element(By.XPATH, '//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
-    
-    time.sleep(2)
-    sign_in_button = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
+
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")))
+    sign_in_button = browser.find_element(
+        By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
     sign_in_button.click()
-    time.sleep(2)
-    pop_up_two_fa = browser.find_element_by_xpath(
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH,
+         "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+    pop_up_two_fa = browser.find_element(
+        By.XPATH,
         "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
-    pop_up_two_fa.click()
     time.sleep(2)
-    user_drop = browser.find_element_by_xpath("//div[@class='UserHeaderCard_dropdownBtn__eXCOo']").click()
-    time.sleep(1)
-    user_settings = browser.find_element_by_xpath("//div[@class='Dropdown_iconWrap__od6ky']").click()
-    time.sleep(1)
-    edit_dis_name = browser.find_element_by_xpath("//div[@class='PersonalSettingsModal_editNameIcon__7b1au']").click()
-    time.sleep(1)
-    name_input = browser.find_element_by_xpath("//input[@class='Input_input__lvORT']")
+    pop_up_two_fa.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='UserHeaderCard_dropdownBtn__eXCOo']")))
+    user_drop = browser.find_element(By.XPATH, "//div[@class='UserHeaderCard_dropdownBtn__eXCOo']")
+    user_drop.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='Dropdown_iconWrap__od6ky']")))
+    user_settings = browser.find_element(By.XPATH, "//div[@class='Dropdown_iconWrap__od6ky']")
+    user_settings.click()
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='PersonalSettingsModal_editNameIcon__7b1au']")))
+    edit_dis_name = browser.find_element(
+        By.XPATH, "//div[@class='PersonalSettingsModal_editNameIcon__7b1au']")
+    edit_dis_name.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//input[@class='Input_input__lvORT']")))
+    name_input = browser.find_element(By.XPATH, "//input[@class='Input_input__lvORT']")
     name_input.clear()
     time.sleep(1)
     name_input.send_keys('chronicletest3')
-    time.sleep(1)
-    error_test = browser.find_element_by_xpath("//div[@class='UserNameForm_tipError__Iw7i7']").text
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='UserNameForm_tipError__Iw7i7']")))
+    error_test = browser.find_element(By.XPATH, "//div[@class='UserNameForm_tipError__Iw7i7']").text
     assert error_test == 'Sorry... This username seems to be already taken.You can use letters, numbers, punctuation marks and special symbols. Get creative!'
-    save_button = browser.find_element_by_xpath("//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF Button_disable__0XBGJ']").click()
+    save_button = browser.find_element(By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF Button_disable__0XBGJ']")
+    save_button.click()
     time.sleep(2)
 
