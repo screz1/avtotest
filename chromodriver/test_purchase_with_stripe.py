@@ -16,12 +16,7 @@ CVC = '123'
 POST = '58000'
 
 
-
-
-USER_WITH_EMAIL_VERIFICATION = 'chronicletest3@ukr.net'
-
-
-
+USER_WITH_EMAIL_VERIFICATION = 'chronicletest5@ukr.net'
 
 
 def test_purchase_with_credit_card():
@@ -42,7 +37,7 @@ def test_purchase_with_credit_card():
     sign_in_button.click()
     time.sleep(3)
     pop_up_two_fa = browser.find_element_by_xpath(
-        "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+        "//*[text() = 'skip for now']")
     pop_up_two_fa.click()
     time.sleep(2)
     browser.execute_script("window.scrollTo(0,1800)")
@@ -96,7 +91,7 @@ def test_purchase_with_saved_credit_card():
     sign_in_button.click()
     time.sleep(2)
     pop_up_two_fa = browser.find_element_by_xpath(
-        "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+        "//*[text() = 'skip for now']")
     pop_up_two_fa.click()
     time.sleep(2)
     browser.execute_script("window.scrollTo(0,1800)")
@@ -147,7 +142,7 @@ def test_purchase_with_credit_card_invalid_card():
     sign_in_button.click()
     time.sleep(3)
     pop_up_two_fa = browser.find_element_by_xpath(
-        "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+        "//*[text() = 'skip for now']")
     pop_up_two_fa.click()
     time.sleep(2)
     browser.execute_script("window.scrollTo(0,1800)")

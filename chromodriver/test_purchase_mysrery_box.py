@@ -38,7 +38,7 @@ def test_buy_usdc_mystery_box_with_wallet():
     sign_in_button.click()
     time.sleep(3)
     pop_up_two_fa = browser.find_element_by_xpath(
-        "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+        "//*[text() = 'skip for now']")
     pop_up_two_fa.click()
     time.sleep(1)
     balance_before = browser.find_elements_by_xpath("//span[@class='UserHeaderCard_value__zgpGT']")
@@ -89,7 +89,7 @@ def test_buy_usdc_mystery_box_with_stripe():
     sign_in_button.click()
     time.sleep(3)
     pop_up_two_fa = browser.find_element_by_xpath(
-        "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+        "//*[text() = 'skip for now']")
     pop_up_two_fa.click()
     time.sleep(1)
     browser.execute_script("window.scrollTo(0,1000)")
@@ -133,7 +133,7 @@ def test_buy_usdc_mystery_box_with_stripe_saved_card():
     sign_in_button.click()
     time.sleep(3)
     pop_up_two_fa = browser.find_element_by_xpath(
-        "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+        "//*[text() = 'skip for now']")
     pop_up_two_fa.click()
     time.sleep(1)
     browser.execute_script("window.scrollTo(0,1000)")
@@ -173,7 +173,7 @@ def test_buy_xnl_mystery_box_with_wallet():
     sign_in_button.click()
     time.sleep(3)
     pop_up_two_fa = browser.find_element_by_xpath(
-        "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+        "//*[text() = 'skip for now']")
     pop_up_two_fa.click()
     time.sleep(1)
     browser.execute_script("window.scrollTo(0,1000)")
@@ -216,7 +216,7 @@ def test_buy_usdc_mystery_box_with_wallet_user_have_not_money():
     sign_in_button.click()
     time.sleep(3)
     pop_up_two_fa = browser.find_element_by_xpath(
-        "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+        "//*[text() = 'skip for now']")
     pop_up_two_fa.click()
     time.sleep(1)
     browser.execute_script("window.scrollTo(0,1000)")
@@ -257,7 +257,7 @@ def test_buy_xnl_mystery_box_with_wallet_user_have_not_money():
     sign_in_button.click()
     time.sleep(3)
     pop_up_two_fa = browser.find_element_by_xpath(
-        "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+        "//*[text() = 'skip for now']")
     pop_up_two_fa.click()
     time.sleep(1)
     browser.execute_script("window.scrollTo(0,1000)")
@@ -344,7 +344,7 @@ def test_buy_usdc_mystery_box_with_wallet_user_have_not_kyc():
     sign_in_button.click()
     time.sleep(3)
     pop_up_two_fa = browser.find_element_by_xpath(
-        "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+        "//*[text() = 'skip for now']")
     pop_up_two_fa.click()
     time.sleep(1)
     browser.execute_script("window.scrollTo(0,1000)")
