@@ -174,7 +174,7 @@ def test_notifications_kyc_rejected():
     time.sleep(2)
     browser.get('https://dev-admin.xnl.zpoken.io/')
     wait.until(ec.visibility_of_element_located((By.ID, 'login')))
-    admin_login = browser.find_element_by_id('login')
+    admin_login = browser.find_element(By.ID, 'login')
     admin_login.send_keys('savchukura888@gmail.com')
     admin_password = browser.find_element(By.ID, 'password')
     admin_password.send_keys('213456qaZ')
@@ -372,7 +372,7 @@ def test_notifications_kyc_accepted():
     time.sleep(2)
     browser.get('https://dev-admin.xnl.zpoken.io/')
     wait.until(ec.visibility_of_element_located((By.ID, 'login')))
-    admin_login = browser.find_element_by_id('login')
+    admin_login = browser.find_element(By.ID, 'login')
     admin_login.send_keys('savchukura888@gmail.com')
     admin_password = browser.find_element(By.ID, 'password')
     admin_password.send_keys('213456qaZ')
@@ -725,13 +725,14 @@ def test_notification_offer_purchase():
     wait.until(ec.visibility_of_element_located((By.XPATH, "//*[text() = 'skip for now']")))
     pop_up_two_fa = browser.find_element(
         By.XPATH, "//*[text() = 'skip for now']")
-    pop_up_two_fa.click()
     time.sleep(2)
+    pop_up_two_fa.click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='Notifications_dropbtn__iJw44']")))
 
-    notification_drop = browser.find_element_by_xpath("//div[@class='Notifications_dropbtn__iJw44']")
+    notification_drop = browser.find_element(By.XPATH, "//div[@class='Notifications_dropbtn__iJw44']")
     notification_drop.click()
     time.sleep(1)
-    top_up_notif = browser.find_element_by_xpath("//div[@class='Notifications_desc__PHz3Z']").text
+    top_up_notif = browser.find_element(By.XPATH, "//div[@class='Notifications_desc__PHz3Z']").text
     assert top_up_notif == ('Your item sold on the marketplace\n'
                             'Your purchase of item usdc three for USDC 7.76 was successful\n'
                             'a few seconds ago')
