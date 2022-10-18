@@ -357,77 +357,105 @@ def test_buy_usdc_mystery_box_with_wallet_user_not_avtorise_sign_in_button():
 def test_buy_usdc_mystery_box_with_wallet_user_not_avtorise_register_button():
     browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
-    time.sleep(1)
-    browser.find_element_by_class_name('Logo_min__TBvKP').click()
-    time.sleep(1)
+    wait = WebDriverWait(browser, 15, 0.3)
+
+    wait.until(ec.visibility_of_element_located((By.CLASS_NAME, 'Logo_min__TBvKP')))
+    browser.find_element(By.CLASS_NAME, 'Logo_min__TBvKP').click()
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='Header_links__EHO60']")))
     browser.execute_script("window.scrollTo(0,1000)")
-    time.sleep(2)
-    details = browser.find_elements_by_xpath(
-        "//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+    details = browser.find_elements(
+        By.XPATH, "//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
     details[1].click()
-    time.sleep(5)
-    try_your_luck = browser.find_elements_by_xpath(
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH,
+         "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL MysteryBoxPrice_btn__05O7g MysteryBoxPrice_fullBtn__kdDyC']")))
+    try_your_luck = browser.find_elements(
+        By.XPATH,
         "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL MysteryBoxPrice_btn__05O7g MysteryBoxPrice_fullBtn__kdDyC']")
     try_your_luck[0].click()
-    time.sleep(2)
-    register = browser.find_element_by_xpath("//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//*[text() = 'register']")))
+    register = browser.find_element(
+        By.XPATH, "//*[text() = 'register']")
+
     register.click()
-    time.sleep(2)
-    birth_input = browser.find_element_by_xpath("//input[@placeholder='DD/MM/YYYY']").is_displayed()
+    wait.until(ec.visibility_of_element_located((By.NAME, "email")))
+    email_input = browser.find_element(By.NAME, "email")
+    email_input.is_displayed()
+    password_input = browser.find_element(By.NAME, "password")
+    password_input.is_displayed()
 
 
 def test_buy_usdc_mystery_box_with_wallet_user_have_not_kyc():
     browser = webdriver.Chrome(executable_path='/home/user/PycharmProjects/avtotest/chromedriver')
     browser.get(URL)
-    input_chronicle_login = browser.find_element_by_xpath('//input[@name="login"]')
+    wait = WebDriverWait(browser, 15, 0.3)
+
+    wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="login"]')))
+    input_chronicle_login = browser.find_element(By.XPATH, '//input[@name="login"]')
     input_chronicle_login.send_keys(USER_WITH_EMAIL_VERIFICATION)
-    time.sleep(1)
-    input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
+    input_chronicle_password = browser.find_element(By.XPATH, '//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
-    time.sleep(1)
-    check_box = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
-    time.sleep(2)
-    sign_in_button = browser.find_element_by_xpath(
-        "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")))
+    sign_in_button = browser.find_element(
+        By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
     sign_in_button.click()
-    time.sleep(3)
-    pop_up_two_fa = browser.find_element_by_xpath(
-        "//*[text() = 'skip for now']")
-    pop_up_two_fa.click()
-    time.sleep(1)
-    browser.execute_script("window.scrollTo(0,1000)")
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//*[text() = 'skip for now']")))
+    pop_up_two_fa = browser.find_element(By.XPATH, "//*[text() = 'skip for now']")
     time.sleep(2)
-    details = browser.find_elements_by_xpath(
-        "//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+    pop_up_two_fa.click()
+    browser.execute_script("window.scrollTo(0,1000)")
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+    details = browser.find_elements(
+        By.XPATH, "//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
     details[1].click()
-    time.sleep(1)
-    try_your_luck = browser.find_elements_by_xpath(
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH,
+         "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL MysteryBoxPrice_btn__05O7g MysteryBoxPrice_fullBtn__kdDyC']")))
+    try_your_luck = browser.find_elements(
+        By.XPATH,
         "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL MysteryBoxPrice_btn__05O7g MysteryBoxPrice_fullBtn__kdDyC']")
     try_your_luck[0].click()
-    time.sleep(2)
-    wallet_tab = browser.find_element_by_id('confirmBoughtwallet')
-    time.sleep(1)
-    pay_now = browser.find_elements_by_xpath("//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF Button_disable__0XBGJ']")
+    wait.until(ec.visibility_of_element_located((By.ID, 'confirmBoughtwallet')))
+    wallet_tab = browser.find_element(By.ID, 'confirmBoughtwallet')
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH,
+         "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF Button_disable__0XBGJ']")))
+    pay_now = browser.find_elements(
+        By.XPATH,
+        "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF Button_disable__0XBGJ']")
     pay_now[0].click()
-    set_up_wallet = browser.find_element_by_xpath("//button[@class='Button_btn__JyuE1 Button_link__x13mQ']")
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//button[@class='Button_btn__JyuE1 Button_link__x13mQ']")))
+    set_up_wallet = browser.find_element(By.XPATH, "//button[@class='Button_btn__JyuE1 Button_link__x13mQ']")
     set_up_wallet.click()
-    time.sleep(1)
-    first_name_input = browser.find_element_by_xpath("//input[@name='first_name']")
-    last_name_input = browser.find_element_by_xpath("//input[@name='last_name']")
+    wait.until(ec.visibility_of_element_located((By.XPATH, "//input[@name='first_name']")))
+    first_name_input = browser.find_element(By.XPATH, "//input[@name='first_name']")
+    first_name_input.is_displayed()
+    last_name_input = browser.find_element(By.XPATH, "//input[@name='last_name']")
+    last_name_input.is_displayed()
     try:
-        birthday_input = browser.find_element_by_xpath("//input[@placeholder='DD/MM/YYYY']")
+        birthday_input = browser.find_element(By.XPATH, "//input[@placeholder='DD/MM/YYYY']")
         if birthday_input.is_displayed():
             print("...")
     except NoSuchElementException:
         print("...")
-    country_drop = browser.find_element_by_xpath(
-        "//div[@class='CustomSelect_select__5EopE CustomSelect_crypto__mGhH3 CustomSelect_montserrat__L3McY']//h5[@class='CustomSelect_label__e7_op']").click()
-    city_input = browser.find_element_by_xpath("//input[@name='city']")
-    address_line_one_input = browser.find_element_by_xpath("//input[@name='line1']")
-    address_line_two_input = browser.find_element_by_xpath("//input[@name='line2']")
-    province_input = browser.find_element_by_xpath("//input[@name='district']")
-    zip_code_input = browser.find_element_by_xpath("//input[@name='postalCode']")
+    country_drop = browser.find_element(
+        By.XPATH,
+        "//div[@class='CustomSelect_select__5EopE CustomSelect_crypto__mGhH3 CustomSelect_montserrat__L3McY']//h5[@class='CustomSelect_label__e7_op']")
+    country_drop.click()
+    city_input = browser.find_element(By.XPATH, "//input[@name='city']")
+    city_input.is_displayed()
+    address_line_one_input = browser.find_element(By.XPATH, "//input[@name='line1']")
+    address_line_one_input.is_displayed()
+    address_line_two_input = browser.find_element(By.XPATH, "//input[@name='line2']")
+    address_line_two_input.is_displayed()
+    province_input = browser.find_element(By.XPATH, "//input[@name='district']")
+    province_input.is_displayed()
+    zip_code_input = browser.find_element(By.XPATH, "//input[@name='postalCode']")
+    zip_code_input.is_displayed()
     time.sleep(1)
 
