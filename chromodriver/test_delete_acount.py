@@ -1,10 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver import Keys
 import time
-from selenium.webdriver.chrome.options import Options #as chrome_options
-#from fake_useragent import UserAgent
-from selenium.common.exceptions import NoSuchElementException
-from driver import driver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import WebDriverWait
@@ -36,9 +32,9 @@ def test_delete_account():
        By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
     sign_in_button.click()
     wait.until(ec.visibility_of_element_located(
-        (By.XPATH, "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+        (By.XPATH, "//*[text() = 'skip for now']")))
     pop_up_two_fa = browser.find_element(
-       By.XPATH, "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+       By.XPATH, "//*[text() = 'skip for now']")
     time.sleep(2)
     pop_up_two_fa.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='UserHeaderCard_dropdownBtn__eXCOo']")))
@@ -63,7 +59,7 @@ def test_delete_account():
     input_chronicle_login = browser.find_element(By.XPATH, '//input[@name="login"]')
     input_chronicle_login.send_keys(EMAIL_FOR_REGISTRATION + '@ukr.net')
 
-    input_chronicle_password = browser.find_element_by_xpath('//input[@name="password"]')
+    input_chronicle_password = browser.find_element(By.XPATH, '//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
 
     wait.until(ec.visibility_of_element_located(

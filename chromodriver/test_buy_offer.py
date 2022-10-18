@@ -37,9 +37,9 @@ def test_create_offers_to_valid_test():
        By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
     sign_in_button.click()
     wait.until(ec.visibility_of_element_located(
-        (By.XPATH, "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+        (By.XPATH, "//*[text() = 'skip for now']")))
     pop_up_two_fa = browser.find_element(
-       By.XPATH, "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+       By.XPATH, "//*[text() = 'skip for now']")
     time.sleep(2)
     pop_up_two_fa.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='UserHeaderCard_dropdownBtn__eXCOo']")))
@@ -235,9 +235,11 @@ def test_create_offers_to_valid_test():
     price_input = browser.find_element(By.ID, 'price_steps_modal')
     price_input.send_keys('500000')
     wait.until(ec.visibility_of_element_located(
-        (By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL TradeStepsModal_btnIcon__6t66Z Button_withIcon__1TgpF']")))
+        (By.XPATH,
+         "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL TradeStepsModal_btnIcon__6t66Z Button_withIcon__1TgpF']")))
     create = browser.find_element(
-       By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL TradeStepsModal_btnIcon__6t66Z Button_withIcon__1TgpF']")
+       By.XPATH,
+        "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL TradeStepsModal_btnIcon__6t66Z Button_withIcon__1TgpF']")
     create.click()
     time.sleep(1)
 
@@ -259,9 +261,9 @@ def test_buy_offer_xnl_max_price():
        By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
     sign_in_button.click()
     wait.until(ec.visibility_of_element_located(
-        (By.XPATH, "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+        (By.XPATH, "//*[text() = 'skip for now']")))
     pop_up_two_fa = browser.find_element(
-       By.XPATH, "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+       By.XPATH, "//*[text() = 'skip for now']")
     time.sleep(2)
     pop_up_two_fa.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//span[@class='UserHeaderCard_value__zgpGT']")))
@@ -320,10 +322,10 @@ def test_buy_offer_xnl_min_price():
     sign_in_button.click()
     wait.until(ec.visibility_of_element_located(
         (By.XPATH,
-         "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+         "//*[text() = 'skip for now']")))
     pop_up_two_fa = browser.find_element(
         By.XPATH,
-        "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+        "//*[text() = 'skip for now']")
     time.sleep(2)
     pop_up_two_fa.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//span[@class='UserHeaderCard_value__zgpGT']")))
@@ -381,10 +383,10 @@ def test_buy_offer_xnl_normal_price():
     sign_in_button.click()
     wait.until(ec.visibility_of_element_located(
         (By.XPATH,
-         "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+         "//*[text() = 'skip for now']")))
     pop_up_two_fa = browser.find_element(
         By.XPATH,
-        "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+        "//*[text() = 'skip for now']")
     time.sleep(2)
     pop_up_two_fa.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//span[@class='UserHeaderCard_value__zgpGT']")))
@@ -442,10 +444,10 @@ def test_buy_offer_usdc_max_price():
     sign_in_button.click()
     wait.until(ec.visibility_of_element_located(
         (By.XPATH,
-         "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+         "//*[text() = 'skip for now']")))
     pop_up_two_fa = browser.find_element(
         By.XPATH,
-        "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+        "//*[text() = 'skip for now']")
     time.sleep(2)
     pop_up_two_fa.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//span[@class='UserHeaderCard_value__zgpGT']")))
@@ -503,10 +505,10 @@ def test_buy_offer_usdc_min_price():
     sign_in_button.click()
     wait.until(ec.visibility_of_element_located(
         (By.XPATH,
-         "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+         "//*[text() = 'skip for now']")))
     pop_up_two_fa = browser.find_element(
         By.XPATH,
-        "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+        "//*[text() = 'skip for now']")
     time.sleep(2)
     pop_up_two_fa.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//span[@class='UserHeaderCard_value__zgpGT']")))
@@ -564,10 +566,10 @@ def test_buy_offer_usdc_normal_price():
     sign_in_button.click()
     wait.until(ec.visibility_of_element_located(
         (By.XPATH,
-         "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+         "//*[text() = 'skip for now']")))
     pop_up_two_fa = browser.find_element(
         By.XPATH,
-        "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+        "//*[text() = 'skip for now']")
     time.sleep(2)
     pop_up_two_fa.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//span[@class='UserHeaderCard_value__zgpGT']")))
@@ -625,9 +627,9 @@ def test_create_offers_to_invalid_test():
        By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
     sign_in_button.click()
     wait.until(ec.visibility_of_element_located(
-        (By.XPATH, "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+        (By.XPATH, "//*[text() = 'skip for now']")))
     pop_up_two_fa = browser.find_element(
-       By.XPATH, "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+       By.XPATH, "//*[text() = 'skip for now']")
     time.sleep(2)
     pop_up_two_fa.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='UserHeaderCard_dropdownBtn__eXCOo']")))
@@ -719,9 +721,9 @@ def test_buy_usdc_offer_user_hasnt_kyc():
        By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
     sign_in_button.click()
     wait.until(ec.visibility_of_element_located(
-        (By.XPATH, "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+        (By.XPATH, "//*[text() = 'skip for now']")))
     pop_up_two_fa = browser.find_element(
-       By.XPATH, "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+       By.XPATH, "//*[text() = 'skip for now']")
     time.sleep(2)
     pop_up_two_fa.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//*[text() = 'Trade']")))
@@ -760,9 +762,9 @@ def test_buy_xnl_offer_user_hasnt_kyc():
        By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
     sign_in_button.click()
     wait.until(ec.visibility_of_element_located(
-        (By.XPATH, "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+        (By.XPATH, "//*[text() = 'skip for now']")))
     pop_up_two_fa = browser.find_element(
-        By.XPATH, "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+        By.XPATH, "//*[text() = 'skip for now']")
     time.sleep(2)
     pop_up_two_fa.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//*[text() = 'Trade']")))
@@ -801,9 +803,9 @@ def test_buy_usdc_offer_user_hasnt_money():
         By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
     sign_in_button.click()
     wait.until(ec.visibility_of_element_located(
-        (By.XPATH, "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+        (By.XPATH, "//*[text() = 'skip for now']")))
     pop_up_two_fa = browser.find_element(
-        By.XPATH, "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+        By.XPATH, "//*[text() = 'skip for now']")
     time.sleep(2)
     pop_up_two_fa.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//*[text() = 'Trade']")))
@@ -842,9 +844,9 @@ def test_buy_xnl_offer_user_hasnt_money():
         By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
     sign_in_button.click()
     wait.until(ec.visibility_of_element_located(
-        (By.XPATH, "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+        (By.XPATH, "//*[text() = 'skip for now']")))
     pop_up_two_fa = browser.find_element(
-        By.XPATH, "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+        By.XPATH, "//*[text() = 'skip for now']")
     time.sleep(2)
     pop_up_two_fa.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//*[text() = 'Trade']")))
@@ -883,9 +885,9 @@ def test_delete_test_offers():
         By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
     sign_in_button.click()
     wait.until(ec.visibility_of_element_located(
-        (By.XPATH, "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+        (By.XPATH, "//*[text() = 'skip for now']")))
     pop_up_two_fa = browser.find_element(
-        By.XPATH, "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+        By.XPATH, "//*[text() = 'skip for now']")
     time.sleep(2)
     pop_up_two_fa.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='UserHeaderCard_dropdownBtn__eXCOo']")))

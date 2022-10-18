@@ -1,10 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver import Keys
 import time
-from selenium.webdriver.chrome.options import Options #as chrome_options
-#from fake_useragent import UserAgent
-import random
-from driver import driver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import WebDriverWait
@@ -98,7 +94,8 @@ def test_sign_up_invalid_data_email_field_empty():
     assert email_error == 'Email seems to be invalid, please check...'
 
     next_button = browser.find_element(
-        By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF Button_disable__0XBGJ']")
+        By.XPATH,
+        "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF Button_disable__0XBGJ']")
     #next_button.click()
 
 
@@ -120,7 +117,9 @@ def test_sign_up_invalid_data_password_field_empty():
     password_error = browser.find_element(
         By.XPATH, "//div[@class='RegistrationForm_input___OhVe']//div[@class='Input_tipError__CKiEf']").text
     assert password_error == 'Password needs to be at least 8 characters long and must include a symbol and capital'
-    next_button = browser.find_element(By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF Button_disable__0XBGJ']")
+    next_button = browser.find_element(
+        By.XPATH,
+        "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF Button_disable__0XBGJ']")
     #next_button.click()
     time.sleep(1)
 
@@ -142,7 +141,8 @@ def test_sign_up_invalid_data_password_not_correct_7_symbols():
         By.XPATH, "//div[@class='RegistrationForm_input___OhVe']//div[@class='Input_tipError__CKiEf']").text
     assert password_error == 'Password needs to be at least 8 characters long and must include a symbol and capital'
     next_button = browser.find_element(
-        By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF Button_disable__0XBGJ']")
+        By.XPATH,
+        "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF Button_disable__0XBGJ']")
     # next_button.click()
     time.sleep(1)
 

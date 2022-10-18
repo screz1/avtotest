@@ -31,10 +31,10 @@ def test_log_in_valid_data():
     sign_in_button.click()
     wait.until(ec.visibility_of_element_located(
         (By.XPATH,
-         "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+         "//*[text() = 'skip for now']")))
     pop_up_two_fa = browser.find_element(
        By.XPATH,
-        "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+        "//*[text() = 'skip for now']")
     time.sleep(2)
     pop_up_two_fa.click()
     time.sleep(1)

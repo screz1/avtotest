@@ -26,9 +26,9 @@ def test_edit_display_name_valid_data():
        By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
     sign_in_button.click()
     wait.until(ec.visibility_of_element_located(
-        (By.XPATH, "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+        (By.XPATH, "//*[text() = 'skip for now']")))
     pop_up_two_fa = browser.find_element(
-        By.XPATH, "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+        By.XPATH, "//*[text() = 'skip for now']")
     time.sleep(2)
     pop_up_two_fa.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='UserHeaderCard_dropdownBtn__eXCOo']")))
@@ -74,10 +74,10 @@ def test_create_user_avatar():
     sign_in_button.click()
     wait.until(ec.visibility_of_element_located(
         (By.XPATH,
-         "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+         "//*[text() = 'skip for now']")))
     pop_up_two_fa = browser.find_element(
         By.XPATH,
-        "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+        "//*[text() = 'skip for now']")
     time.sleep(2)
     pop_up_two_fa.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='UserHeaderCard_dropdownBtn__eXCOo']")))
@@ -118,10 +118,10 @@ def test_create_user_avatar_check_nevermind_button():
     sign_in_button.click()
     wait.until(ec.visibility_of_element_located(
         (By.XPATH,
-         "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+         "//*[text() = 'skip for now']")))
     pop_up_two_fa = browser.find_element(
         By.XPATH,
-        "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+        "//*[text() = 'skip for now']")
     time.sleep(2)
     pop_up_two_fa.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='UserHeaderCard_dropdownBtn__eXCOo']")))
@@ -158,10 +158,10 @@ def test_create_user_avatar_check_remove_button():
     sign_in_button.click()
     wait.until(ec.visibility_of_element_located(
         (By.XPATH,
-         "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+         "//*[text() = 'skip for now']")))
     pop_up_two_fa = browser.find_element(
         By.XPATH,
-        "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+        "//*[text() = 'skip for now']")
     time.sleep(2)
     pop_up_two_fa.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='UserHeaderCard_dropdownBtn__eXCOo']")))
@@ -202,10 +202,10 @@ def test_edit_user_avatar():
     sign_in_button.click()
     wait.until(ec.visibility_of_element_located(
         (By.XPATH,
-         "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+         "//*[text() = 'skip for now']")))
     pop_up_two_fa = browser.find_element(
         By.XPATH,
-        "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+        "//*[text() = 'skip for now']")
     time.sleep(2)
     pop_up_two_fa.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='UserHeaderCard_dropdownBtn__eXCOo']")))
@@ -247,10 +247,10 @@ def test_edit_display_name_valid_data_min_symbols():
     sign_in_button.click()
     wait.until(ec.visibility_of_element_located(
         (By.XPATH,
-         "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+         "//*[text() = 'skip for now']")))
     pop_up_two_fa = browser.find_element(
         By.XPATH,
-        "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+        "//*[text() = 'skip for now']")
     time.sleep(2)
     pop_up_two_fa.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='UserHeaderCard_dropdownBtn__eXCOo']")))
@@ -298,10 +298,10 @@ def test_edit_display_name_valid_data_max_symbols():
     sign_in_button.click()
     wait.until(ec.visibility_of_element_located(
         (By.XPATH,
-         "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+         "//*[text() = 'skip for now']")))
     pop_up_two_fa = browser.find_element(
         By.XPATH,
-        "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+        "//*[text() = 'skip for now']")
     time.sleep(2)
     pop_up_two_fa.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='UserHeaderCard_dropdownBtn__eXCOo']")))
@@ -349,10 +349,10 @@ def test_edit_display_name_check_never_mind_button():
     sign_in_button.click()
     wait.until(ec.visibility_of_element_located(
         (By.XPATH,
-         "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+         "//*[text() = 'skip for now']")))
     pop_up_two_fa = browser.find_element(
         By.XPATH,
-        "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+        "//*[text() = 'skip for now']")
     time.sleep(2)
     pop_up_two_fa.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='UserHeaderCard_dropdownBtn__eXCOo']")))
@@ -397,10 +397,10 @@ def test_edit_display_name_input_more_than_30_symbols():
     sign_in_button.click()
     wait.until(ec.visibility_of_element_located(
         (By.XPATH,
-         "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+         "//*[text() = 'skip for now']")))
     pop_up_two_fa = browser.find_element(
         By.XPATH,
-        "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+        "//*[text() = 'skip for now']")
     time.sleep(2)
     pop_up_two_fa.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='UserHeaderCard_dropdownBtn__eXCOo']")))
@@ -446,10 +446,10 @@ def test_edit_display_name_leave_name_field_empty():
     sign_in_button.click()
     wait.until(ec.visibility_of_element_located(
         (By.XPATH,
-         "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+         "//*[text() = 'skip for now']")))
     pop_up_two_fa = browser.find_element(
         By.XPATH,
-        "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+        "//*[text() = 'skip for now']")
     time.sleep(2)
     pop_up_two_fa.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='UserHeaderCard_dropdownBtn__eXCOo']")))
@@ -497,10 +497,10 @@ def test_edit_display_name_use_already_register_display_name():
     sign_in_button.click()
     wait.until(ec.visibility_of_element_located(
         (By.XPATH,
-         "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+         "//*[text() = 'skip for now']")))
     pop_up_two_fa = browser.find_element(
         By.XPATH,
-        "//div[@class='Modal_modal__77o1K Modal_center__9TGY8 ']//div[@class='Modal_yellow__0RbLH']//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+        "//*[text() = 'skip for now']")
     time.sleep(2)
     pop_up_two_fa.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='UserHeaderCard_dropdownBtn__eXCOo']")))
