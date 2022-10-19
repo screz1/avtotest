@@ -1013,9 +1013,11 @@ def test_create_discount_coupon_on_usdc_check_intent_model_mystery_box_valid_dat
     browser.get(URL_ADMIN)
     wait = WebDriverWait(browser, 15, 0.3)
     wait.until(ec.visibility_of_element_located((By.ID, 'login')))
-    admin_login = browser.find_element(By.ID, 'login').send_keys('savchukura888@gmail.com')
+    admin_login = browser.find_element(By.ID, 'login')
+    admin_login.send_keys('savchukura888@gmail.com')
     wait.until(ec.visibility_of_element_located((By.ID, 'password')))
-    admin_password = browser.find_element(By.ID, 'password').send_keys('213456qaZ')
+    admin_password = browser.find_element(By.ID, 'password')
+    admin_password.send_keys('213456qaZ')
     wait.until(ec.visibility_of_element_located((By.XPATH, "//*[text() = 'Sign in']")))
     sign_in_button = browser.find_element(By.XPATH, "//*[text() = 'Sign in']")
     sign_in_button.click()
@@ -1027,9 +1029,10 @@ def test_create_discount_coupon_on_usdc_check_intent_model_mystery_box_valid_dat
     generate_button = browser.find_element(By.ID, "DiscountCoupon_generate")
     generate_button.click()
     time.sleep(3)
-    #coupon_name = browser.find_element(By.XPATH, "//div[@class='CustomInput_input__6p7Y2']").text
-    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")))
-    discount_amount = browser.find_element(By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")))
+    discount_amount = browser.find_element(
+        By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")
     discount_amount.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//span[@class='CustomSelect_titleOption__IiH1v USDC']")))
     type = browser.find_element(By.XPATH, "//span[@class='CustomSelect_titleOption__IiH1v USDC']")
@@ -1038,18 +1041,24 @@ def test_create_discount_coupon_on_usdc_check_intent_model_mystery_box_valid_dat
     amount = browser.find_element(By.ID, "default_price.value")
     amount.send_keys("1")
 
-    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[3]/div/div[2]/div")))
-    intent_model = browser.find_element(By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[3]/div/div[2]/div")
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[3]/div/div[2]/div")))
+    intent_model = browser.find_element(
+        By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[3]/div/div[2]/div")
     intent_model.click()
-    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[3]/div/div[2]/div/div/div[3]")))
-    intent_mystery = browser.find_element(By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[3]/div/div[2]/div/div/div[3]")
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[3]/div/div[2]/div/div/div[3]")))
+    intent_mystery = browser.find_element(
+        By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[3]/div/div[2]/div/div/div[3]")
     intent_mystery.click()
 
     wait.until(ec.visibility_of_element_located((By.ID, 'DiscountCoupon_create')))
     create_button = browser.find_element(By.ID, "DiscountCoupon_create")
     create_button.click()
-    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']")))
-    creation_message = browser.find_element(By.XPATH, "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']").text
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']")))
+    creation_message = browser.find_element(
+        By.XPATH, "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']").text
     assert creation_message == "CREATION SUCCESSFUL!"
     browser.find_element(By.XPATH, "//*[text() = 'Contents']").click()
     wait.until(ec.visibility_of_element_located((By.ID, 'createCard_coupon')))
@@ -1064,29 +1073,29 @@ def test_create_discount_coupon_on_usdc_check_intent_model_mystery_box_valid_dat
     wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="password"]')))
     input_chronicle_password = browser.find_element(By.XPATH, '//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
-    wait.until(ec.visibility_of_element_located((By.XPATH,
-                                                 "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")))
-    check_box = browser.find_element(By.XPATH,
-        "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
-    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")))
-    sign_in_button = browser.find_element(By.XPATH,
-        "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
+
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")))
+    sign_in_button = browser.find_element(By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
     sign_in_button.click()
     wait.until(ec.visibility_of_element_located((By.XPATH,
                                                  "//*[text() = 'skip for now']")))
-    pop_up_two_fa = browser.find_element(By.XPATH,
-        "//*[text() = 'skip for now']")
+    pop_up_two_fa = browser.find_element(By.XPATH, "//*[text() = 'skip for now']")
+    time.sleep(2)
     pop_up_two_fa.click()
 
-    wait.until(ec.visibility_of_element_located((By.XPATH, "//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
-    details = browser.find_elements(By.XPATH,
-        "//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+    details = browser.find_elements(
+        By.XPATH, "//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
     details[1].click()
     time.sleep(5)
-    wait.until(ec.visibility_of_element_located((By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL MysteryBoxPrice_btn__05O7g MysteryBoxPrice_fullBtn__kdDyC']")))
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH,
+         "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL MysteryBoxPrice_btn__05O7g MysteryBoxPrice_fullBtn__kdDyC']")))
 
-    try_your_luck = browser.find_elements(By.XPATH,
+    try_your_luck = browser.find_elements(
+        By.XPATH,
         "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL MysteryBoxPrice_btn__05O7g MysteryBoxPrice_fullBtn__kdDyC']")
     try_your_luck[0].click()
     time.sleep(2)
@@ -1105,9 +1114,10 @@ def test_create_discount_coupon_on_usdc_check_intent_model_mystery_box_valid_dat
     time.sleep(2)
     price_after = browser.find_element(By.XPATH, "//div[@class='ConfirmBoughtModal_totalValue__qoUoG']").text
     assert price_before != price_after
-    wait.until(ec.visibility_of_element_located((By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")))
-    pay_now = browser.find_elements(By.XPATH,
-        "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")))
+    pay_now = browser.find_elements(
+        By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")
     pay_now[1].click()
 
     wait.until(ec.visibility_of_element_located((By.XPATH, "//h2[@class='Review_h2__p7QZX']")))
@@ -1119,7 +1129,6 @@ def test_create_discount_coupon_on_usdc_check_intent_model_mystery_box_valid_dat
     browser.find_element(By.ID, "login").send_keys("savchukura888@gmail.com")
     browser.find_element(By.ID, "password").send_keys("213456qaZ")
     browser.find_element(By.ID, "LoginPage_Sign_in").click()
-    #time.sleep(4)
     wait.until(ec.visibility_of_element_located((By.XPATH, "//a[@href='/contents']")))
     side_menu = browser.find_element(By.XPATH, "//a[@href='/contents']")
     side_menu.click()
@@ -1142,9 +1151,11 @@ def test_create_discount_coupon_on_usdc_use_for_xnl_item():
     browser.get(URL_ADMIN)
     wait = WebDriverWait(browser, 15, 0.3)
     wait.until(ec.visibility_of_element_located((By.ID, 'login')))
-    admin_login = browser.find_element(By.ID, 'login').send_keys('savchukura888@gmail.com')
+    admin_login = browser.find_element(By.ID, 'login')
+    admin_login.send_keys('savchukura888@gmail.com')
     wait.until(ec.visibility_of_element_located((By.ID, 'password')))
-    admin_password = browser.find_element(By.ID, 'password').send_keys('213456qaZ')
+    admin_password = browser.find_element(By.ID, 'password')
+    admin_password.send_keys('213456qaZ')
     wait.until(ec.visibility_of_element_located((By.XPATH, "//*[text() = 'Sign in']")))
     sign_in_button = browser.find_element(By.XPATH, "//*[text() = 'Sign in']")
     sign_in_button.click()
@@ -1156,9 +1167,10 @@ def test_create_discount_coupon_on_usdc_use_for_xnl_item():
     generate_button = browser.find_element(By.ID, "DiscountCoupon_generate")
     generate_button.click()
     time.sleep(2)
-    #coupon_name = browser.find_element(By.XPATH, "//div[@class='CustomInput_input__6p7Y2']").text
-    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")))
-    discount_amount = browser.find_element(By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")))
+    discount_amount = browser.find_element(
+        By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")
     discount_amount.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//span[@class='CustomSelect_titleOption__IiH1v USDC']")))
     type = browser.find_element(By.XPATH, "//span[@class='CustomSelect_titleOption__IiH1v USDC']")
@@ -1169,8 +1181,10 @@ def test_create_discount_coupon_on_usdc_use_for_xnl_item():
     wait.until(ec.visibility_of_element_located((By.ID, 'DiscountCoupon_create')))
     create_button = browser.find_element(By.ID, "DiscountCoupon_create")
     create_button.click()
-    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']")))
-    creation_message = browser.find_element(By.XPATH, "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']").text
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']")))
+    creation_message = browser.find_element(
+        By.XPATH, "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']").text
     assert creation_message == "CREATION SUCCESSFUL!"
     browser.find_element(By.XPATH, "//*[text() = 'Contents']").click()
     wait.until(ec.visibility_of_element_located((By.ID, 'createCard_coupon')))
@@ -1185,19 +1199,14 @@ def test_create_discount_coupon_on_usdc_use_for_xnl_item():
     wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="password"]')))
     input_chronicle_password = browser.find_element(By.XPATH, '//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
-    wait.until(ec.visibility_of_element_located((By.XPATH,
-                                                 "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")))
-    check_box = browser.find_element(By.XPATH,
-        "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
-    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")))
-    sign_in_button = browser.find_element(By.XPATH,
-        "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")))
+    sign_in_button = browser.find_element(By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
     sign_in_button.click()
     wait.until(ec.visibility_of_element_located((By.XPATH,
                                                  "//*[text() = 'skip for now']")))
-    pop_up_two_fa = browser.find_element(By.XPATH,
-        "//*[text() = 'skip for now']")
+    pop_up_two_fa = browser.find_element(By.XPATH, "//*[text() = 'skip for now']")
+    time.sleep(2)
     pop_up_two_fa.click()
     browser.execute_script("window.scrollTo(0,1800)")
     wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='AllCollectionCard_collectionCard__zDgyu']")))
@@ -1206,9 +1215,11 @@ def test_create_discount_coupon_on_usdc_use_for_xnl_item():
     wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='FeaturesCardList_priceWrap__Y6R4r XNL']")))
     items_for_purchase_usd = browser.find_elements(By.XPATH, "//div[@class='FeaturesCardList_priceWrap__Y6R4r XNL']")
     items_for_purchase_usd[0].click()
-    wait.until(ec.visibility_of_element_located((By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")))
-    buy_button = browser.find_element(By.XPATH,
-        "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']").click()
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")))
+    buy_button = browser.find_element(
+        By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")
+    buy_button.click()
     time.sleep(1)
     try:
         buy_anyway_button = browser.find_element(By.ID, 'Item_duplicate_Buy_anyway')
@@ -1218,7 +1229,8 @@ def test_create_discount_coupon_on_usdc_use_for_xnl_item():
     except NoSuchElementException:
         print("...")
     wait.until(ec.visibility_of_element_located((By.ID, 'confirmBoughtwallet')))
-    tab_wallet = browser.find_element(By.ID, 'confirmBoughtwallet').click()
+    tab_wallet = browser.find_element(By.ID, 'confirmBoughtwallet')
+    tab_wallet.click()
     wait.until(ec.visibility_of_element_located((By.ID, "coupon")))
     insert_coupon = browser.find_element(By.ID, "coupon")
     insert_coupon.send_keys(coupon_name)
@@ -1240,7 +1252,7 @@ def test_create_discount_coupon_on_usdc_use_for_xnl_item():
     browser.find_element(By.ID, "login").send_keys("savchukura888@gmail.com")
     browser.find_element(By.ID, "password").send_keys("213456qaZ")
     browser.find_element(By.ID, "LoginPage_Sign_in").click()
-    #time.sleep(4)
+
     wait.until(ec.visibility_of_element_located((By.XPATH, "//a[@href='/contents']")))
     side_menu = browser.find_element(By.XPATH, "//a[@href='/contents']")
     side_menu.click()
@@ -1252,7 +1264,8 @@ def test_create_discount_coupon_on_usdc_use_for_xnl_item():
     drop_but = browser.find_elements(By.XPATH, "//button[@class='Tables_dropDown__zineI']")
     drop_but[1].click()
     wait.until(ec.visibility_of_element_located((By.ID, "InfoModal_Delete_coupon_Delete_it")))
-    del_but = browser.find_element(By.ID, "InfoModal_Delete_coupon_Delete_it").click()
+    del_but = browser.find_element(By.ID, "InfoModal_Delete_coupon_Delete_it")
+    del_but.click()
     time.sleep(0.5)
     browser.quit()
 
@@ -1262,9 +1275,11 @@ def test_create_discount_coupon_on_xnl_use_for_usdc_item():
     browser.get(URL_ADMIN)
     wait = WebDriverWait(browser, 15, 0.3)
     wait.until(ec.visibility_of_element_located((By.ID, 'login')))
-    admin_login = browser.find_element(By.ID, 'login').send_keys('savchukura888@gmail.com')
+    admin_login = browser.find_element(By.ID, 'login')
+    admin_login.send_keys('savchukura888@gmail.com')
     wait.until(ec.visibility_of_element_located((By.ID, 'password')))
-    admin_password = browser.find_element(By.ID, 'password').send_keys('213456qaZ')
+    admin_password = browser.find_element(By.ID, 'password')
+    admin_password.send_keys('213456qaZ')
     wait.until(ec.visibility_of_element_located((By.XPATH, "//*[text() = 'Sign in']")))
     sign_in_button = browser.find_element(By.XPATH, "//*[text() = 'Sign in']")
     sign_in_button.click()
@@ -1276,9 +1291,11 @@ def test_create_discount_coupon_on_xnl_use_for_usdc_item():
     generate_button = browser.find_element(By.ID, "DiscountCoupon_generate")
     generate_button.click()
     time.sleep(2)
-    #coupon_name = browser.find_element(By.XPATH, "//div[@class='CustomInput_input__6p7Y2']").text
-    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")))
-    discount_amount = browser.find_element(By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")
+
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")))
+    discount_amount = browser.find_element(
+        By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")
     discount_amount.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//span[@class='CustomSelect_titleOption__IiH1v XNL']")))
     type = browser.find_element(By.XPATH, "//span[@class='CustomSelect_titleOption__IiH1v XNL']")
@@ -1289,8 +1306,10 @@ def test_create_discount_coupon_on_xnl_use_for_usdc_item():
     wait.until(ec.visibility_of_element_located((By.ID, 'DiscountCoupon_create')))
     create_button = browser.find_element(By.ID, "DiscountCoupon_create")
     create_button.click()
-    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']")))
-    creation_message = browser.find_element(By.XPATH, "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']").text
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']")))
+    creation_message = browser.find_element(
+        By.XPATH, "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']").text
     assert creation_message == "CREATION SUCCESSFUL!"
     browser.find_element(By.XPATH, "//*[text() = 'Contents']").click()
     wait.until(ec.visibility_of_element_located((By.ID, 'createCard_coupon')))
@@ -1305,19 +1324,15 @@ def test_create_discount_coupon_on_xnl_use_for_usdc_item():
     wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="password"]')))
     input_chronicle_password = browser.find_element(By.XPATH, '//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
-    wait.until(ec.visibility_of_element_located((By.XPATH,
-                                                 "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")))
-    check_box = browser.find_element(By.XPATH,
-        "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
-    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")))
-    sign_in_button = browser.find_element(By.XPATH,
-        "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
+
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")))
+    sign_in_button = browser.find_element(By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
     sign_in_button.click()
     wait.until(ec.visibility_of_element_located((By.XPATH,
                                                  "//*[text() = 'skip for now']")))
-    pop_up_two_fa = browser.find_element(By.XPATH,
-        "//*[text() = 'skip for now']")
+    pop_up_two_fa = browser.find_element(By.XPATH, "//*[text() = 'skip for now']")
+    time.sleep(2)
     pop_up_two_fa.click()
     browser.execute_script("window.scrollTo(0,1800)")
     wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='AllCollectionCard_collectionCard__zDgyu']")))
@@ -1326,9 +1341,11 @@ def test_create_discount_coupon_on_xnl_use_for_usdc_item():
     wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='FeaturesCardList_priceWrap__Y6R4r USDC']")))
     items_for_purchase_usd = browser.find_elements(By.XPATH, "//div[@class='FeaturesCardList_priceWrap__Y6R4r USDC']")
     items_for_purchase_usd[0].click()
-    wait.until(ec.visibility_of_element_located((By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")))
-    buy_button = browser.find_element(By.XPATH,
-        "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']").click()
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")))
+    buy_button = browser.find_element(
+        By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")
+    buy_button.click()
     time.sleep(1)
     try:
         buy_anyway_button = browser.find_element(By.ID, 'Item_duplicate_Buy_anyway')
@@ -1338,7 +1355,8 @@ def test_create_discount_coupon_on_xnl_use_for_usdc_item():
     except NoSuchElementException:
         print("...")
     wait.until(ec.visibility_of_element_located((By.ID, 'confirmBoughtwallet')))
-    tab_wallet = browser.find_element(By.ID, 'confirmBoughtwallet').click()
+    tab_wallet = browser.find_element(By.ID, 'confirmBoughtwallet')
+    tab_wallet.click()
     wait.until(ec.visibility_of_element_located((By.ID, "coupon")))
     insert_coupon = browser.find_element(By.ID, "coupon")
     insert_coupon.send_keys(coupon_name)
@@ -1360,7 +1378,6 @@ def test_create_discount_coupon_on_xnl_use_for_usdc_item():
     browser.find_element(By.ID, "login").send_keys("savchukura888@gmail.com")
     browser.find_element(By.ID, "password").send_keys("213456qaZ")
     browser.find_element(By.ID, "LoginPage_Sign_in").click()
-    #time.sleep(4)
     wait.until(ec.visibility_of_element_located((By.XPATH, "//a[@href='/contents']")))
     side_menu = browser.find_element(By.XPATH, "//a[@href='/contents']")
     side_menu.click()
@@ -1372,7 +1389,8 @@ def test_create_discount_coupon_on_xnl_use_for_usdc_item():
     drop_but = browser.find_elements(By.XPATH, "//button[@class='Tables_dropDown__zineI']")
     drop_but[1].click()
     wait.until(ec.visibility_of_element_located((By.ID, "InfoModal_Delete_coupon_Delete_it")))
-    del_but = browser.find_element(By.ID, "InfoModal_Delete_coupon_Delete_it").click()
+    del_but = browser.find_element(By.ID, "InfoModal_Delete_coupon_Delete_it")
+    del_but.click()
     time.sleep(0.5)
     browser.quit()
 
@@ -1382,9 +1400,11 @@ def test_create_discount_coupon_on_usdc_check_intent_model_for_item_use_in_myste
     browser.get(URL_ADMIN)
     wait = WebDriverWait(browser, 15, 0.3)
     wait.until(ec.visibility_of_element_located((By.ID, 'login')))
-    admin_login = browser.find_element(By.ID, 'login').send_keys('savchukura888@gmail.com')
+    admin_login = browser.find_element(By.ID, 'login')
+    admin_login.send_keys('savchukura888@gmail.com')
     wait.until(ec.visibility_of_element_located((By.ID, 'password')))
-    admin_password = browser.find_element(By.ID, 'password').send_keys('213456qaZ')
+    admin_password = browser.find_element(By.ID, 'password')
+    admin_password.send_keys('213456qaZ')
     wait.until(ec.visibility_of_element_located((By.XPATH, "//*[text() = 'Sign in']")))
     sign_in_button = browser.find_element(By.XPATH, "//*[text() = 'Sign in']")
     sign_in_button.click()
@@ -1396,9 +1416,10 @@ def test_create_discount_coupon_on_usdc_check_intent_model_for_item_use_in_myste
     generate_button = browser.find_element(By.ID, "DiscountCoupon_generate")
     generate_button.click()
     time.sleep(3)
-    #coupon_name = browser.find_element(By.XPATH, "//div[@class='CustomInput_input__6p7Y2']").text
-    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")))
-    discount_amount = browser.find_element(By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")))
+    discount_amount = browser.find_element(
+        By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")
     discount_amount.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//span[@class='CustomSelect_titleOption__IiH1v USDC']")))
     type = browser.find_element(By.XPATH, "//span[@class='CustomSelect_titleOption__IiH1v USDC']")
@@ -1407,18 +1428,24 @@ def test_create_discount_coupon_on_usdc_check_intent_model_for_item_use_in_myste
     amount = browser.find_element(By.ID, "default_price.value")
     amount.send_keys("1")
 
-    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[3]/div/div[2]/div")))
-    intent_model = browser.find_element(By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[3]/div/div[2]/div")
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[3]/div/div[2]/div")))
+    intent_model = browser.find_element(
+        By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[3]/div/div[2]/div")
     intent_model.click()
-    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[3]/div/div[2]/div/div/div[2]")))
-    intent_mystery = browser.find_element(By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[3]/div/div[2]/div/div/div[2]")
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[3]/div/div[2]/div/div/div[2]")))
+    intent_mystery = browser.find_element(
+        By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[3]/div/div[2]/div/div/div[2]")
     intent_mystery.click()
 
     wait.until(ec.visibility_of_element_located((By.ID, 'DiscountCoupon_create')))
     create_button = browser.find_element(By.ID, "DiscountCoupon_create")
     create_button.click()
-    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']")))
-    creation_message = browser.find_element(By.XPATH, "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']").text
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']")))
+    creation_message = browser.find_element(
+        By.XPATH, "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']").text
     assert creation_message == "CREATION SUCCESSFUL!"
     browser.find_element(By.XPATH, "//*[text() = 'Contents']").click()
     wait.until(ec.visibility_of_element_located((By.ID, 'createCard_coupon')))
@@ -1433,29 +1460,29 @@ def test_create_discount_coupon_on_usdc_check_intent_model_for_item_use_in_myste
     wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="password"]')))
     input_chronicle_password = browser.find_element(By.XPATH, '//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
-    wait.until(ec.visibility_of_element_located((By.XPATH,
-                                                 "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")))
-    check_box = browser.find_element(By.XPATH,
-        "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
-    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")))
-    sign_in_button = browser.find_element(By.XPATH,
-        "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
+
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")))
+    sign_in_button = browser.find_element(By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
     sign_in_button.click()
     wait.until(ec.visibility_of_element_located((By.XPATH,
                                                  "//*[text() = 'skip for now']")))
-    pop_up_two_fa = browser.find_element(By.XPATH,
-        "//*[text() = 'skip for now']")
+    pop_up_two_fa = browser.find_element(By.XPATH, "//*[text() = 'skip for now']")
+    time.sleep(2)
     pop_up_two_fa.click()
 
-    wait.until(ec.visibility_of_element_located((By.XPATH, "//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
-    details = browser.find_elements(By.XPATH,
-        "//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")))
+    details = browser.find_elements(
+        By.XPATH, "//button[@class='Button_btn__JyuE1 Button_transparent__FdLwD Button_withIcon__1TgpF']")
     details[1].click()
     time.sleep(5)
-    wait.until(ec.visibility_of_element_located((By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL MysteryBoxPrice_btn__05O7g MysteryBoxPrice_fullBtn__kdDyC']")))
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH,
+         "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL MysteryBoxPrice_btn__05O7g MysteryBoxPrice_fullBtn__kdDyC']")))
 
-    try_your_luck = browser.find_elements(By.XPATH,
+    try_your_luck = browser.find_elements(
+        By.XPATH,
         "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL MysteryBoxPrice_btn__05O7g MysteryBoxPrice_fullBtn__kdDyC']")
     try_your_luck[0].click()
     time.sleep(2)
@@ -1474,9 +1501,10 @@ def test_create_discount_coupon_on_usdc_check_intent_model_for_item_use_in_myste
     wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='CustomInput_tipError__p_EHR']")))
     error = browser.find_element(By.XPATH, "//div[@class='CustomInput_tipError__p_EHR']").text
     assert error == 'Coupon is not valid'
-    wait.until(ec.visibility_of_element_located((By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")))
-    pay_now = browser.find_elements(By.XPATH,
-        "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")))
+    pay_now = browser.find_elements(
+        By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")
     pay_now[1].click()
 
     wait.until(ec.visibility_of_element_located((By.XPATH, "//h2[@class='Review_h2__p7QZX']")))
@@ -1488,7 +1516,7 @@ def test_create_discount_coupon_on_usdc_check_intent_model_for_item_use_in_myste
     browser.find_element(By.ID, "login").send_keys("savchukura888@gmail.com")
     browser.find_element(By.ID, "password").send_keys("213456qaZ")
     browser.find_element(By.ID, "LoginPage_Sign_in").click()
-    #time.sleep(4)
+
     wait.until(ec.visibility_of_element_located((By.XPATH, "//a[@href='/contents']")))
     side_menu = browser.find_element(By.XPATH, "//a[@href='/contents']")
     side_menu.click()
@@ -1511,9 +1539,11 @@ def test_create_discount_coupon_on_usdc_check_intent_model_mystery_box_use_in_it
     browser.get(URL_ADMIN)
     wait = WebDriverWait(browser, 15, 0.3)
     wait.until(ec.visibility_of_element_located((By.ID, 'login')))
-    admin_login = browser.find_element(By.ID, 'login').send_keys('savchukura888@gmail.com')
+    admin_login = browser.find_element(By.ID, 'login')
+    admin_login.send_keys('savchukura888@gmail.com')
     wait.until(ec.visibility_of_element_located((By.ID, 'password')))
-    admin_password = browser.find_element(By.ID, 'password').send_keys('213456qaZ')
+    admin_password = browser.find_element(By.ID, 'password')
+    admin_password.send_keys('213456qaZ')
     wait.until(ec.visibility_of_element_located((By.XPATH, "//*[text() = 'Sign in']")))
     sign_in_button = browser.find_element(By.XPATH, "//*[text() = 'Sign in']")
     sign_in_button.click()
@@ -1525,9 +1555,11 @@ def test_create_discount_coupon_on_usdc_check_intent_model_mystery_box_use_in_it
     generate_button = browser.find_element(By.ID, "DiscountCoupon_generate")
     generate_button.click()
     time.sleep(3)
-    #coupon_name = browser.find_element(By.XPATH, "//div[@class='CustomInput_input__6p7Y2']").text
-    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")))
-    discount_amount = browser.find_element(By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")
+
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")))
+    discount_amount = browser.find_element(
+        By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")
     discount_amount.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//span[@class='CustomSelect_titleOption__IiH1v USDC']")))
     type = browser.find_element(By.XPATH, "//span[@class='CustomSelect_titleOption__IiH1v USDC']")
@@ -1536,18 +1568,24 @@ def test_create_discount_coupon_on_usdc_check_intent_model_mystery_box_use_in_it
     amount = browser.find_element(By.ID, "default_price.value")
     amount.send_keys("1")
 
-    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[3]/div/div[2]/div")))
-    intent_model = browser.find_element(By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[3]/div/div[2]/div")
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[3]/div/div[2]/div")))
+    intent_model = browser.find_element(
+        By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[3]/div/div[2]/div")
     intent_model.click()
-    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[3]/div/div[2]/div/div/div[3]")))
-    intent_item = browser.find_element(By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[3]/div/div[2]/div/div/div[3]")
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[3]/div/div[2]/div/div/div[3]")))
+    intent_item = browser.find_element(
+        By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[3]/div/div[2]/div/div/div[3]")
     intent_item.click()
 
     wait.until(ec.visibility_of_element_located((By.ID, 'DiscountCoupon_create')))
     create_button = browser.find_element(By.ID, "DiscountCoupon_create")
     create_button.click()
-    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']")))
-    creation_message = browser.find_element(By.XPATH, "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']").text
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']")))
+    creation_message = browser.find_element(
+        By.XPATH, "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']").text
     assert creation_message == "CREATION SUCCESSFUL!"
     browser.find_element(By.XPATH, "//*[text() = 'Contents']").click()
     wait.until(ec.visibility_of_element_located((By.ID, 'createCard_coupon')))
@@ -1562,19 +1600,16 @@ def test_create_discount_coupon_on_usdc_check_intent_model_mystery_box_use_in_it
     wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="password"]')))
     input_chronicle_password = browser.find_element(By.XPATH, '//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
-    wait.until(ec.visibility_of_element_located((By.XPATH,
-                                                 "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")))
-    check_box = browser.find_element(By.XPATH,
-        "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
-    wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")))
-    sign_in_button = browser.find_element(By.XPATH,
-        "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
+
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")))
+    sign_in_button = browser.find_element(
+        By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
     sign_in_button.click()
     wait.until(ec.visibility_of_element_located((By.XPATH,
                                                  "//*[text() = 'skip for now']")))
-    pop_up_two_fa = browser.find_element(By.XPATH,
-        "//*[text() = 'skip for now']")
+    pop_up_two_fa = browser.find_element(By.XPATH, "//*[text() = 'skip for now']")
+    time.sleep(2)
     pop_up_two_fa.click()
     browser.execute_script("window.scrollTo(0,1800)")
     wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='AllCollectionCard_collectionCard__zDgyu']")))
@@ -1583,9 +1618,11 @@ def test_create_discount_coupon_on_usdc_check_intent_model_mystery_box_use_in_it
     wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='FeaturesCardList_priceWrap__Y6R4r USDC']")))
     items_for_purchase_usd = browser.find_elements(By.XPATH, "//div[@class='FeaturesCardList_priceWrap__Y6R4r USDC']")
     items_for_purchase_usd[0].click()
-    wait.until(ec.visibility_of_element_located((By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")))
-    buy_button = browser.find_element(By.XPATH,
-        "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']").click()
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")))
+    buy_button = browser.find_element(
+        By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")
+    buy_button.click()
     time.sleep(1)
     try:
         buy_anyway_button = browser.find_element(By.ID, 'Item_duplicate_Buy_anyway')
@@ -1595,7 +1632,8 @@ def test_create_discount_coupon_on_usdc_check_intent_model_mystery_box_use_in_it
     except NoSuchElementException:
         print("...")
     wait.until(ec.visibility_of_element_located((By.ID, 'confirmBoughtwallet')))
-    tab_wallet = browser.find_element(By.ID, 'confirmBoughtwallet').click()
+    tab_wallet = browser.find_element(By.ID, 'confirmBoughtwallet')
+    tab_wallet.click()
     wait.until(ec.visibility_of_element_located((By.ID, "coupon")))
     insert_coupon = browser.find_element(By.ID, "coupon")
     insert_coupon.send_keys(coupon_name)
@@ -1607,8 +1645,6 @@ def test_create_discount_coupon_on_usdc_check_intent_model_mystery_box_use_in_it
     wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='CustomInput_tipError__p_EHR']")))
     error = browser.find_element(By.XPATH, "//div[@class='CustomInput_tipError__p_EHR']").text
     assert error == 'Coupon is not valid'
-
-
     pay_now = browser.find_element(By.XPATH, "//*[text() = 'Pay now']")
     pay_now.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//h2[@class='Review_h2__p7QZX']")))
@@ -1620,7 +1656,7 @@ def test_create_discount_coupon_on_usdc_check_intent_model_mystery_box_use_in_it
     browser.find_element(By.ID, "login").send_keys("savchukura888@gmail.com")
     browser.find_element(By.ID, "password").send_keys("213456qaZ")
     browser.find_element(By.ID, "LoginPage_Sign_in").click()
-    #time.sleep(4)
+
     wait.until(ec.visibility_of_element_located((By.XPATH, "//a[@href='/contents']")))
     side_menu = browser.find_element(By.XPATH, "//a[@href='/contents']")
     side_menu.click()
@@ -1643,9 +1679,11 @@ def test_create_discount_coupon_intent_id_valid_data():
     browser.get(URL_ADMIN)
     wait = WebDriverWait(browser, 15, 0.3)
     wait.until(ec.visibility_of_element_located((By.ID, 'login')))
-    admin_login = browser.find_element(By.ID, 'login').send_keys('savchukura888@gmail.com')
+    admin_login = browser.find_element(By.ID, 'login')
+    admin_login.send_keys('savchukura888@gmail.com')
     wait.until(ec.visibility_of_element_located((By.ID, 'password')))
-    admin_password = browser.find_element(By.ID, 'password').send_keys('213456qaZ')
+    admin_password = browser.find_element(By.ID, 'password')
+    admin_password.send_keys('213456qaZ')
     wait.until(ec.visibility_of_element_located((By.XPATH, "//*[text() = 'Sign in']")))
     sign_in_button = browser.find_element(By.XPATH, "//*[text() = 'Sign in']")
     sign_in_button.click()
@@ -1657,11 +1695,10 @@ def test_create_discount_coupon_intent_id_valid_data():
     generate_button = browser.find_element(By.ID, "DiscountCoupon_generate")
     generate_button.click()
     time.sleep(2)
-    # coupon_name = browser.find_element(By.XPATH, "//div[@class='CustomInput_input__6p7Y2']").text
     wait.until(ec.visibility_of_element_located(
         (By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")))
-    discount_amount = browser.find_element(By.XPATH,
-                                           "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")
+    discount_amount = browser.find_element(
+        By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")
     discount_amount.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//span[@class='CustomSelect_titleOption__IiH1v USDC']")))
     type = browser.find_element(By.XPATH, "//span[@class='CustomSelect_titleOption__IiH1v USDC']")
@@ -1678,8 +1715,8 @@ def test_create_discount_coupon_intent_id_valid_data():
     create_button.click()
     wait.until(ec.visibility_of_element_located(
         (By.XPATH, "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']")))
-    creation_message = browser.find_element(By.XPATH,
-                                            "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']").text
+    creation_message = browser.find_element(
+        By.XPATH, "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']").text
     assert creation_message == "CREATION SUCCESSFUL!"
     browser.find_element(By.XPATH, "//*[text() = 'Contents']").click()
     wait.until(ec.visibility_of_element_located((By.ID, 'createCard_coupon')))
@@ -1694,11 +1731,7 @@ def test_create_discount_coupon_intent_id_valid_data():
     wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="password"]')))
     input_chronicle_password = browser.find_element(By.XPATH, '//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
-    wait.until(ec.visibility_of_element_located((By.XPATH,
-                                                 "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")))
-    check_box = browser.find_element(By.XPATH,
-                                     "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
+
     wait.until(
         ec.visibility_of_element_located((By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")))
     sign_in_button = browser.find_element(By.XPATH,
@@ -1718,8 +1751,9 @@ def test_create_discount_coupon_intent_id_valid_data():
     items_for_purchase_usd[0].click()
     wait.until(ec.visibility_of_element_located(
         (By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")))
-    buy_button = browser.find_element(By.XPATH,
-                                      "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']").click()
+    buy_button = browser.find_element(
+        By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")
+    buy_button.click()
     time.sleep(1)
     try:
         buy_anyway_button = browser.find_element(By.ID, 'Item_duplicate_Buy_anyway')
@@ -1729,7 +1763,8 @@ def test_create_discount_coupon_intent_id_valid_data():
     except NoSuchElementException:
         print("...")
     wait.until(ec.visibility_of_element_located((By.ID, 'confirmBoughtwallet')))
-    tab_wallet = browser.find_element(By.ID, 'confirmBoughtwallet').click()
+    tab_wallet = browser.find_element(By.ID, 'confirmBoughtwallet')
+    tab_wallet.click()
     wait.until(ec.visibility_of_element_located((By.ID, "coupon")))
     price_before = browser.find_element(By.XPATH, "//div[@class='ConfirmBoughtModal_totalValue__qoUoG']").text
     insert_coupon = browser.find_element(By.ID, "coupon")
@@ -1762,7 +1797,8 @@ def test_create_discount_coupon_intent_id_valid_data():
     drop_but = browser.find_elements(By.XPATH, "//button[@class='Tables_dropDown__zineI']")
     drop_but[1].click()
     wait.until(ec.visibility_of_element_located((By.ID, "InfoModal_Delete_coupon_Delete_it")))
-    del_but = browser.find_element(By.ID, "InfoModal_Delete_coupon_Delete_it").click()
+    del_but = browser.find_element(By.ID, "InfoModal_Delete_coupon_Delete_it")
+    del_but.click()
     time.sleep(0.5)
     browser.quit()
 
@@ -1772,9 +1808,11 @@ def test_create_discount_coupon_intent_id_invalid_data_not_correct_item():
     browser.get(URL_ADMIN)
     wait = WebDriverWait(browser, 15, 0.3)
     wait.until(ec.visibility_of_element_located((By.ID, 'login')))
-    admin_login = browser.find_element(By.ID, 'login').send_keys('savchukura888@gmail.com')
+    admin_login = browser.find_element(By.ID, 'login')
+    admin_login.send_keys('savchukura888@gmail.com')
     wait.until(ec.visibility_of_element_located((By.ID, 'password')))
-    admin_password = browser.find_element(By.ID, 'password').send_keys('213456qaZ')
+    admin_password = browser.find_element(By.ID, 'password')
+    admin_password.send_keys('213456qaZ')
     wait.until(ec.visibility_of_element_located((By.XPATH, "//*[text() = 'Sign in']")))
     sign_in_button = browser.find_element(By.XPATH, "//*[text() = 'Sign in']")
     sign_in_button.click()
@@ -1786,11 +1824,10 @@ def test_create_discount_coupon_intent_id_invalid_data_not_correct_item():
     generate_button = browser.find_element(By.ID, "DiscountCoupon_generate")
     generate_button.click()
     time.sleep(2)
-    # coupon_name = browser.find_element(By.XPATH, "//div[@class='CustomInput_input__6p7Y2']").text
     wait.until(ec.visibility_of_element_located(
         (By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")))
-    discount_amount = browser.find_element(By.XPATH,
-                                           "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")
+    discount_amount = browser.find_element(
+        By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")
     discount_amount.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//span[@class='CustomSelect_titleOption__IiH1v USDC']")))
     type = browser.find_element(By.XPATH, "//span[@class='CustomSelect_titleOption__IiH1v USDC']")
@@ -1807,8 +1844,8 @@ def test_create_discount_coupon_intent_id_invalid_data_not_correct_item():
     create_button.click()
     wait.until(ec.visibility_of_element_located(
         (By.XPATH, "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']")))
-    creation_message = browser.find_element(By.XPATH,
-                                            "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']").text
+    creation_message = browser.find_element(
+        By.XPATH, "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']").text
     assert creation_message == "CREATION SUCCESSFUL!"
     browser.find_element(By.XPATH, "//*[text() = 'Contents']").click()
     wait.until(ec.visibility_of_element_located((By.ID, 'createCard_coupon')))
@@ -1823,11 +1860,7 @@ def test_create_discount_coupon_intent_id_invalid_data_not_correct_item():
     wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="password"]')))
     input_chronicle_password = browser.find_element(By.XPATH, '//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
-    wait.until(ec.visibility_of_element_located((By.XPATH,
-                                                 "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")))
-    check_box = browser.find_element(By.XPATH,
-                                     "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
+
     wait.until(
         ec.visibility_of_element_located((By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")))
     sign_in_button = browser.find_element(By.XPATH,
@@ -1837,6 +1870,7 @@ def test_create_discount_coupon_intent_id_invalid_data_not_correct_item():
                                                  "//*[text() = 'skip for now']")))
     pop_up_two_fa = browser.find_element(By.XPATH,
                                          "//*[text() = 'skip for now']")
+    time.sleep(2)
     pop_up_two_fa.click()
     browser.execute_script("window.scrollTo(0,1800)")
     wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='AllCollectionCard_collectionCard__zDgyu']")))
@@ -1847,8 +1881,9 @@ def test_create_discount_coupon_intent_id_invalid_data_not_correct_item():
     items_for_purchase_usd[0].click()
     wait.until(ec.visibility_of_element_located(
         (By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")))
-    buy_button = browser.find_element(By.XPATH,
-                                      "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']").click()
+    buy_button = browser.find_element(
+        By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")
+    buy_button.click()
     time.sleep(1)
     try:
         buy_anyway_button = browser.find_element(By.ID, 'Item_duplicate_Buy_anyway')
@@ -1858,7 +1893,8 @@ def test_create_discount_coupon_intent_id_invalid_data_not_correct_item():
     except NoSuchElementException:
         print("...")
     wait.until(ec.visibility_of_element_located((By.ID, 'confirmBoughtwallet')))
-    tab_wallet = browser.find_element(By.ID, 'confirmBoughtwallet').click()
+    tab_wallet = browser.find_element(By.ID, 'confirmBoughtwallet')
+    tab_wallet.click()
     wait.until(ec.visibility_of_element_located((By.ID, "coupon")))
     insert_coupon = browser.find_element(By.ID, "coupon")
     insert_coupon.send_keys(coupon_name)
@@ -1892,7 +1928,8 @@ def test_create_discount_coupon_intent_id_invalid_data_not_correct_item():
     drop_but = browser.find_elements(By.XPATH, "//button[@class='Tables_dropDown__zineI']")
     drop_but[1].click()
     wait.until(ec.visibility_of_element_located((By.ID, "InfoModal_Delete_coupon_Delete_it")))
-    del_but = browser.find_element(By.ID, "InfoModal_Delete_coupon_Delete_it").click()
+    del_but = browser.find_element(By.ID, "InfoModal_Delete_coupon_Delete_it")
+    del_but.click()
     time.sleep(0.5)
     browser.quit()
 
@@ -1902,9 +1939,11 @@ def test_create_discount_coupon_owner_valid_data():
     browser.get(URL_ADMIN)
     wait = WebDriverWait(browser, 15, 0.3)
     wait.until(ec.visibility_of_element_located((By.ID, 'login')))
-    admin_login = browser.find_element(By.ID, 'login').send_keys('savchukura888@gmail.com')
+    admin_login = browser.find_element(By.ID, 'login')
+    admin_login.send_keys('savchukura888@gmail.com')
     wait.until(ec.visibility_of_element_located((By.ID, 'password')))
-    admin_password = browser.find_element(By.ID, 'password').send_keys('213456qaZ')
+    admin_password = browser.find_element(By.ID, 'password')
+    admin_password.send_keys('213456qaZ')
     wait.until(ec.visibility_of_element_located((By.XPATH, "//*[text() = 'Sign in']")))
     sign_in_button = browser.find_element(By.XPATH, "//*[text() = 'Sign in']")
     sign_in_button.click()
@@ -1916,11 +1955,11 @@ def test_create_discount_coupon_owner_valid_data():
     generate_button = browser.find_element(By.ID, "DiscountCoupon_generate")
     generate_button.click()
     time.sleep(2)
-    # coupon_name = browser.find_element(By.XPATH, "//div[@class='CustomInput_input__6p7Y2']").text
+
     wait.until(ec.visibility_of_element_located(
         (By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")))
-    discount_amount = browser.find_element(By.XPATH,
-                                           "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")
+    discount_amount = browser.find_element(
+        By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")
     discount_amount.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//span[@class='CustomSelect_titleOption__IiH1v USDC']")))
     type = browser.find_element(By.XPATH, "//span[@class='CustomSelect_titleOption__IiH1v USDC']")
@@ -1937,8 +1976,8 @@ def test_create_discount_coupon_owner_valid_data():
     create_button.click()
     wait.until(ec.visibility_of_element_located(
         (By.XPATH, "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']")))
-    creation_message = browser.find_element(By.XPATH,
-                                            "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']").text
+    creation_message = browser.find_element(
+        By.XPATH, "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']").text
     assert creation_message == "CREATION SUCCESSFUL!"
     browser.find_element(By.XPATH, "//*[text() = 'Contents']").click()
     wait.until(ec.visibility_of_element_located((By.ID, 'createCard_coupon')))
@@ -1953,11 +1992,7 @@ def test_create_discount_coupon_owner_valid_data():
     wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="password"]')))
     input_chronicle_password = browser.find_element(By.XPATH, '//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
-    wait.until(ec.visibility_of_element_located((By.XPATH,
-                                                 "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")))
-    check_box = browser.find_element(By.XPATH,
-                                     "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
+
     wait.until(
         ec.visibility_of_element_located((By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")))
     sign_in_button = browser.find_element(By.XPATH,
@@ -1967,6 +2002,7 @@ def test_create_discount_coupon_owner_valid_data():
                                                  "//*[text() = 'skip for now']")))
     pop_up_two_fa = browser.find_element(By.XPATH,
                                          "//*[text() = 'skip for now']")
+    time.sleep(2)
     pop_up_two_fa.click()
     browser.execute_script("window.scrollTo(0,1800)")
     wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='AllCollectionCard_collectionCard__zDgyu']")))
@@ -1977,8 +2013,9 @@ def test_create_discount_coupon_owner_valid_data():
     items_for_purchase_usd[0].click()
     wait.until(ec.visibility_of_element_located(
         (By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")))
-    buy_button = browser.find_element(By.XPATH,
-                                      "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']").click()
+    buy_button = browser.find_element(
+        By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")
+    buy_button.click()
     time.sleep(1)
     try:
         buy_anyway_button = browser.find_element(By.ID, 'Item_duplicate_Buy_anyway')
@@ -1988,7 +2025,8 @@ def test_create_discount_coupon_owner_valid_data():
     except NoSuchElementException:
         print("...")
     wait.until(ec.visibility_of_element_located((By.ID, 'confirmBoughtwallet')))
-    tab_wallet = browser.find_element(By.ID, 'confirmBoughtwallet').click()
+    tab_wallet = browser.find_element(By.ID, 'confirmBoughtwallet')
+    tab_wallet.click()
     wait.until(ec.visibility_of_element_located((By.ID, "coupon")))
     price_before = browser.find_element(By.XPATH, "//div[@class='ConfirmBoughtModal_totalValue__qoUoG']").text
     insert_coupon = browser.find_element(By.ID, "coupon")
@@ -2021,7 +2059,8 @@ def test_create_discount_coupon_owner_valid_data():
     drop_but = browser.find_elements(By.XPATH, "//button[@class='Tables_dropDown__zineI']")
     drop_but[1].click()
     wait.until(ec.visibility_of_element_located((By.ID, "InfoModal_Delete_coupon_Delete_it")))
-    del_but = browser.find_element(By.ID, "InfoModal_Delete_coupon_Delete_it").click()
+    del_but = browser.find_element(By.ID, "InfoModal_Delete_coupon_Delete_it")
+    del_but.click()
     time.sleep(0.5)
     browser.quit()
 
@@ -2033,9 +2072,11 @@ def test_create_discount_coupon_owner_invalid_data_wrong_user():
     browser.get(URL_ADMIN)
     wait = WebDriverWait(browser, 15, 0.3)
     wait.until(ec.visibility_of_element_located((By.ID, 'login')))
-    admin_login = browser.find_element(By.ID, 'login').send_keys('savchukura888@gmail.com')
+    admin_login = browser.find_element(By.ID, 'login')
+    admin_login.send_keys('savchukura888@gmail.com')
     wait.until(ec.visibility_of_element_located((By.ID, 'password')))
-    admin_password = browser.find_element(By.ID, 'password').send_keys('213456qaZ')
+    admin_password = browser.find_element(By.ID, 'password')
+    admin_password.send_keys('213456qaZ')
     wait.until(ec.visibility_of_element_located((By.XPATH, "//*[text() = 'Sign in']")))
     sign_in_button = browser.find_element(By.XPATH, "//*[text() = 'Sign in']")
     sign_in_button.click()
@@ -2047,11 +2088,10 @@ def test_create_discount_coupon_owner_invalid_data_wrong_user():
     generate_button = browser.find_element(By.ID, "DiscountCoupon_generate")
     generate_button.click()
     time.sleep(2)
-    # coupon_name = browser.find_element(By.XPATH, "//div[@class='CustomInput_input__6p7Y2']").text
     wait.until(ec.visibility_of_element_located(
         (By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")))
-    discount_amount = browser.find_element(By.XPATH,
-                                           "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")
+    discount_amount = browser.find_element(
+        By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")
     discount_amount.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//span[@class='CustomSelect_titleOption__IiH1v USDC']")))
     type = browser.find_element(By.XPATH, "//span[@class='CustomSelect_titleOption__IiH1v USDC']")
@@ -2068,8 +2108,8 @@ def test_create_discount_coupon_owner_invalid_data_wrong_user():
     create_button.click()
     wait.until(ec.visibility_of_element_located(
         (By.XPATH, "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']")))
-    creation_message = browser.find_element(By.XPATH,
-                                            "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']").text
+    creation_message = browser.find_element(
+        By.XPATH, "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']").text
     assert creation_message == "CREATION SUCCESSFUL!"
     browser.find_element(By.XPATH, "//*[text() = 'Contents']").click()
     wait.until(ec.visibility_of_element_located((By.ID, 'createCard_coupon')))
@@ -2084,11 +2124,7 @@ def test_create_discount_coupon_owner_invalid_data_wrong_user():
     wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="password"]')))
     input_chronicle_password = browser.find_element(By.XPATH, '//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
-    wait.until(ec.visibility_of_element_located((By.XPATH,
-                                                 "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")))
-    check_box = browser.find_element(By.XPATH,
-                                     "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
+
     wait.until(
         ec.visibility_of_element_located((By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")))
     sign_in_button = browser.find_element(By.XPATH,
@@ -2108,8 +2144,9 @@ def test_create_discount_coupon_owner_invalid_data_wrong_user():
     items_for_purchase_usd[0].click()
     wait.until(ec.visibility_of_element_located(
         (By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")))
-    buy_button = browser.find_element(By.XPATH,
-                                      "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']").click()
+    buy_button = browser.find_element(
+        By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")
+    buy_button.click()
     time.sleep(1)
     try:
         buy_anyway_button = browser.find_element(By.ID, 'Item_duplicate_Buy_anyway')
@@ -2119,7 +2156,8 @@ def test_create_discount_coupon_owner_invalid_data_wrong_user():
     except NoSuchElementException:
         print("...")
     wait.until(ec.visibility_of_element_located((By.ID, 'confirmBoughtwallet')))
-    tab_wallet = browser.find_element(By.ID, 'confirmBoughtwallet').click()
+    tab_wallet = browser.find_element(By.ID, 'confirmBoughtwallet')
+    tab_wallet.click()
     wait.until(ec.visibility_of_element_located((By.ID, "coupon")))
     insert_coupon = browser.find_element(By.ID, "coupon")
     insert_coupon.send_keys(coupon_name)
@@ -2152,7 +2190,8 @@ def test_create_discount_coupon_owner_invalid_data_wrong_user():
     drop_but = browser.find_elements(By.XPATH, "//button[@class='Tables_dropDown__zineI']")
     drop_but[1].click()
     wait.until(ec.visibility_of_element_located((By.ID, "InfoModal_Delete_coupon_Delete_it")))
-    del_but = browser.find_element(By.ID, "InfoModal_Delete_coupon_Delete_it").click()
+    del_but = browser.find_element(By.ID, "InfoModal_Delete_coupon_Delete_it")
+    del_but.click()
     time.sleep(0.5)
     browser.quit()
 
@@ -2164,9 +2203,11 @@ def test_create_discount_coupon_circulation_one_valid_data():
     browser.get(URL_ADMIN)
     wait = WebDriverWait(browser, 15, 0.3)
     wait.until(ec.visibility_of_element_located((By.ID, 'login')))
-    admin_login = browser.find_element(By.ID, 'login').send_keys('savchukura888@gmail.com')
+    admin_login = browser.find_element(By.ID, 'login')
+    admin_login.send_keys('savchukura888@gmail.com')
     wait.until(ec.visibility_of_element_located((By.ID, 'password')))
-    admin_password = browser.find_element(By.ID, 'password').send_keys('213456qaZ')
+    admin_password = browser.find_element(By.ID, 'password')
+    admin_password.send_keys('213456qaZ')
     wait.until(ec.visibility_of_element_located((By.XPATH, "//*[text() = 'Sign in']")))
     sign_in_button = browser.find_element(By.XPATH, "//*[text() = 'Sign in']")
     sign_in_button.click()
@@ -2178,11 +2219,11 @@ def test_create_discount_coupon_circulation_one_valid_data():
     generate_button = browser.find_element(By.ID, "DiscountCoupon_generate")
     generate_button.click()
     time.sleep(2)
-    # coupon_name = browser.find_element(By.XPATH, "//div[@class='CustomInput_input__6p7Y2']").text
+
     wait.until(ec.visibility_of_element_located(
         (By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")))
-    discount_amount = browser.find_element(By.XPATH,
-                                           "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")
+    discount_amount = browser.find_element(
+        By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")
     discount_amount.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//span[@class='CustomSelect_titleOption__IiH1v USDC']")))
     type = browser.find_element(By.XPATH, "//span[@class='CustomSelect_titleOption__IiH1v USDC']")
@@ -2199,8 +2240,8 @@ def test_create_discount_coupon_circulation_one_valid_data():
     create_button.click()
     wait.until(ec.visibility_of_element_located(
         (By.XPATH, "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']")))
-    creation_message = browser.find_element(By.XPATH,
-                                            "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']").text
+    creation_message = browser.find_element(
+        By.XPATH, "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']").text
     assert creation_message == "CREATION SUCCESSFUL!"
     browser.find_element(By.XPATH, "//*[text() = 'Contents']").click()
     wait.until(ec.visibility_of_element_located((By.ID, 'createCard_coupon')))
@@ -2215,11 +2256,7 @@ def test_create_discount_coupon_circulation_one_valid_data():
     wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="password"]')))
     input_chronicle_password = browser.find_element(By.XPATH, '//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
-    wait.until(ec.visibility_of_element_located((By.XPATH,
-                                                 "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")))
-    check_box = browser.find_element(By.XPATH,
-                                     "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
+
     wait.until(
         ec.visibility_of_element_located((By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")))
     sign_in_button = browser.find_element(By.XPATH,
@@ -2229,6 +2266,7 @@ def test_create_discount_coupon_circulation_one_valid_data():
                                                  "//*[text() = 'skip for now']")))
     pop_up_two_fa = browser.find_element(By.XPATH,
                                          "//*[text() = 'skip for now']")
+    time.sleep(2)
     pop_up_two_fa.click()
     browser.execute_script("window.scrollTo(0,1800)")
     wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='AllCollectionCard_collectionCard__zDgyu']")))
@@ -2239,8 +2277,9 @@ def test_create_discount_coupon_circulation_one_valid_data():
     items_for_purchase_usd[0].click()
     wait.until(ec.visibility_of_element_located(
         (By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")))
-    buy_button = browser.find_element(By.XPATH,
-                                      "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']").click()
+    buy_button = browser.find_element(
+        By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")
+    buy_button.click()
     time.sleep(1)
     try:
         buy_anyway_button = browser.find_element(By.ID, 'Item_duplicate_Buy_anyway')
@@ -2250,7 +2289,8 @@ def test_create_discount_coupon_circulation_one_valid_data():
     except NoSuchElementException:
         print("...")
     wait.until(ec.visibility_of_element_located((By.ID, 'confirmBoughtwallet')))
-    tab_wallet = browser.find_element(By.ID, 'confirmBoughtwallet').click()
+    tab_wallet = browser.find_element(By.ID, 'confirmBoughtwallet')
+    tab_wallet.click()
     wait.until(ec.visibility_of_element_located((By.ID, "coupon")))
     price_before = browser.find_element(By.XPATH, "//div[@class='ConfirmBoughtModal_totalValue__qoUoG']").text
     insert_coupon = browser.find_element(By.ID, "coupon")
@@ -2283,7 +2323,8 @@ def test_create_discount_coupon_circulation_one_valid_data():
     drop_but = browser.find_elements(By.XPATH, "//button[@class='Tables_dropDown__zineI']")
     drop_but[1].click()
     wait.until(ec.visibility_of_element_located((By.ID, "InfoModal_Delete_coupon_Delete_it")))
-    del_but = browser.find_element(By.ID, "InfoModal_Delete_coupon_Delete_it").click()
+    del_but = browser.find_element(By.ID, "InfoModal_Delete_coupon_Delete_it")
+    del_but.click()
     time.sleep(0.5)
     browser.quit()
 
@@ -2295,9 +2336,11 @@ def test_create_discount_coupon_circulation_two_invalid_data():
     browser.get(URL_ADMIN)
     wait = WebDriverWait(browser, 15, 0.3)
     wait.until(ec.visibility_of_element_located((By.ID, 'login')))
-    admin_login = browser.find_element(By.ID, 'login').send_keys('savchukura888@gmail.com')
+    admin_login = browser.find_element(By.ID, 'login')
+    admin_login.send_keys('savchukura888@gmail.com')
     wait.until(ec.visibility_of_element_located((By.ID, 'password')))
-    admin_password = browser.find_element(By.ID, 'password').send_keys('213456qaZ')
+    admin_password = browser.find_element(By.ID, 'password')
+    admin_password.send_keys('213456qaZ')
     wait.until(ec.visibility_of_element_located((By.XPATH, "//*[text() = 'Sign in']")))
     sign_in_button = browser.find_element(By.XPATH, "//*[text() = 'Sign in']")
     sign_in_button.click()
@@ -2309,11 +2352,11 @@ def test_create_discount_coupon_circulation_two_invalid_data():
     generate_button = browser.find_element(By.ID, "DiscountCoupon_generate")
     generate_button.click()
     time.sleep(2)
-    # coupon_name = browser.find_element(By.XPATH, "//div[@class='CustomInput_input__6p7Y2']").text
+
     wait.until(ec.visibility_of_element_located(
         (By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")))
-    discount_amount = browser.find_element(By.XPATH,
-                                           "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")
+    discount_amount = browser.find_element(
+        By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")
     discount_amount.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//span[@class='CustomSelect_titleOption__IiH1v USDC']")))
     type = browser.find_element(By.XPATH, "//span[@class='CustomSelect_titleOption__IiH1v USDC']")
@@ -2330,8 +2373,8 @@ def test_create_discount_coupon_circulation_two_invalid_data():
     create_button.click()
     wait.until(ec.visibility_of_element_located(
         (By.XPATH, "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']")))
-    creation_message = browser.find_element(By.XPATH,
-                                            "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']").text
+    creation_message = browser.find_element(
+        By.XPATH, "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']").text
     assert creation_message == "CREATION SUCCESSFUL!"
     browser.find_element(By.XPATH, "//*[text() = 'Contents']").click()
     wait.until(ec.visibility_of_element_located((By.ID, 'createCard_coupon')))
@@ -2346,11 +2389,7 @@ def test_create_discount_coupon_circulation_two_invalid_data():
     wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="password"]')))
     input_chronicle_password = browser.find_element(By.XPATH, '//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
-    wait.until(ec.visibility_of_element_located((By.XPATH,
-                                                 "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")))
-    check_box = browser.find_element(By.XPATH,
-                                     "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
+
     wait.until(
         ec.visibility_of_element_located((By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")))
     sign_in_button = browser.find_element(By.XPATH,
@@ -2358,9 +2397,10 @@ def test_create_discount_coupon_circulation_two_invalid_data():
     sign_in_button.click()
     wait.until(ec.visibility_of_element_located((By.XPATH,
                                                  "//*[text() = 'skip for now']")))
-    time.sleep(1)
+
     pop_up_two_fa = browser.find_element(By.XPATH,
                                          "//*[text() = 'skip for now']")
+    time.sleep(2)
     pop_up_two_fa.click()
     browser.execute_script("window.scrollTo(0,1800)")
     wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='AllCollectionCard_collectionCard__zDgyu']")))
@@ -2371,8 +2411,9 @@ def test_create_discount_coupon_circulation_two_invalid_data():
     items_for_purchase_usd[0].click()
     wait.until(ec.visibility_of_element_located(
         (By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")))
-    buy_button = browser.find_element(By.XPATH,
-                                      "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']").click()
+    buy_button = browser.find_element(
+        By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")
+    buy_button.click()
     time.sleep(1)
     try:
         buy_anyway_button = browser.find_element(By.ID, 'Item_duplicate_Buy_anyway')
@@ -2382,7 +2423,8 @@ def test_create_discount_coupon_circulation_two_invalid_data():
     except NoSuchElementException:
         print("...")
     wait.until(ec.visibility_of_element_located((By.ID, 'confirmBoughtwallet')))
-    tab_wallet = browser.find_element(By.ID, 'confirmBoughtwallet').click()
+    tab_wallet = browser.find_element(By.ID, 'confirmBoughtwallet')
+    tab_wallet.click()
     wait.until(ec.visibility_of_element_located((By.ID, "coupon")))
     price_before = browser.find_element(By.XPATH, "//div[@class='ConfirmBoughtModal_totalValue__qoUoG']").text
     insert_coupon = browser.find_element(By.ID, "coupon")
@@ -2411,8 +2453,9 @@ def test_create_discount_coupon_circulation_two_invalid_data():
     items_for_purchase_usd[0].click()
     wait.until(ec.visibility_of_element_located(
         (By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")))
-    buy_button = browser.find_element(By.XPATH,
-                                      "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']").click()
+    buy_button = browser.find_element(
+        By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")
+    buy_button.click()
     time.sleep(1)
     try:
         buy_anyway_button = browser.find_element(By.ID, 'Item_duplicate_Buy_anyway')
@@ -2422,7 +2465,8 @@ def test_create_discount_coupon_circulation_two_invalid_data():
     except NoSuchElementException:
         print("...")
     wait.until(ec.visibility_of_element_located((By.ID, 'confirmBoughtwallet')))
-    tab_wallet = browser.find_element(By.ID, 'confirmBoughtwallet').click()
+    tab_wallet = browser.find_element(By.ID, 'confirmBoughtwallet')
+    tab_wallet.click()
     wait.until(ec.visibility_of_element_located((By.ID, "coupon")))
     price_before = browser.find_element(By.XPATH, "//div[@class='ConfirmBoughtModal_totalValue__qoUoG']").text
     insert_coupon = browser.find_element(By.ID, "coupon")
@@ -2452,8 +2496,9 @@ def test_create_discount_coupon_circulation_two_invalid_data():
     items_for_purchase_usd[0].click()
     wait.until(ec.visibility_of_element_located(
         (By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")))
-    buy_button = browser.find_element(By.XPATH,
-                                      "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']").click()
+    buy_button = browser.find_element(
+        By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")
+    buy_button.click()
     time.sleep(1)
     try:
         buy_anyway_button = browser.find_element(By.ID, 'Item_duplicate_Buy_anyway')
@@ -2463,7 +2508,8 @@ def test_create_discount_coupon_circulation_two_invalid_data():
     except NoSuchElementException:
         print("...")
     wait.until(ec.visibility_of_element_located((By.ID, 'confirmBoughtwallet')))
-    tab_wallet = browser.find_element(By.ID, 'confirmBoughtwallet').click()
+    tab_wallet = browser.find_element(By.ID, 'confirmBoughtwallet')
+    tab_wallet.click()
     wait.until(ec.visibility_of_element_located((By.ID, "coupon")))
     insert_coupon = browser.find_element(By.ID, "coupon")
     insert_coupon.send_keys(coupon_name)
@@ -2497,7 +2543,8 @@ def test_create_discount_coupon_circulation_two_invalid_data():
     drop_but = browser.find_elements(By.XPATH, "//button[@class='Tables_dropDown__zineI']")
     drop_but[1].click()
     wait.until(ec.visibility_of_element_located((By.ID, "InfoModal_Delete_coupon_Delete_it")))
-    del_but = browser.find_element(By.ID, "InfoModal_Delete_coupon_Delete_it").click()
+    del_but = browser.find_element(By.ID, "InfoModal_Delete_coupon_Delete_it")
+    del_but.click()
     time.sleep(0.5)
     browser.quit()
 
@@ -2509,9 +2556,11 @@ def test_create_discount_coupon_full_options_valid_data():
     browser.get(URL_ADMIN)
     wait = WebDriverWait(browser, 15, 0.3)
     wait.until(ec.visibility_of_element_located((By.ID, 'login')))
-    admin_login = browser.find_element(By.ID, 'login').send_keys('savchukura888@gmail.com')
+    admin_login = browser.find_element(By.ID, 'login')
+    admin_login.send_keys('savchukura888@gmail.com')
     wait.until(ec.visibility_of_element_located((By.ID, 'password')))
-    admin_password = browser.find_element(By.ID, 'password').send_keys('213456qaZ')
+    admin_password = browser.find_element(By.ID, 'password')
+    admin_password.send_keys('213456qaZ')
     wait.until(ec.visibility_of_element_located((By.XPATH, "//*[text() = 'Sign in']")))
     sign_in_button = browser.find_element(By.XPATH, "//*[text() = 'Sign in']")
     sign_in_button.click()
@@ -2523,11 +2572,10 @@ def test_create_discount_coupon_full_options_valid_data():
     generate_button = browser.find_element(By.ID, "DiscountCoupon_generate")
     generate_button.click()
     time.sleep(2)
-    # coupon_name = browser.find_element(By.XPATH, "//div[@class='CustomInput_input__6p7Y2']").text
     wait.until(ec.visibility_of_element_located(
         (By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")))
-    discount_amount = browser.find_element(By.XPATH,
-                                           "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")
+    discount_amount = browser.find_element(
+        By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[2]/label/div[2]/div/div/div/h5")
     discount_amount.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//span[@class='CustomSelect_titleOption__IiH1v USDC']")))
     type = browser.find_element(By.XPATH, "//span[@class='CustomSelect_titleOption__IiH1v USDC']")
@@ -2542,8 +2590,8 @@ def test_create_discount_coupon_full_options_valid_data():
     intent_model.click()
     wait.until(ec.visibility_of_element_located(
         (By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[3]/div/div[2]/div/div/div[2]")))
-    intent_item = browser.find_element(By.XPATH,
-                                       "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[3]/div/div[2]/div/div/div[2]")
+    intent_item = browser.find_element(
+        By.XPATH, "//div[@id='root']/div[2]/div[2]/div/div[3]/div/div/form/div[3]/div/div[2]/div/div/div[2]")
     intent_item.click()
     wait.until(ec.visibility_of_element_located((By.ID, 'intent id')))
     intent_id = browser.find_element(By.ID, "intent id")
@@ -2551,19 +2599,16 @@ def test_create_discount_coupon_full_options_valid_data():
     wait.until(ec.visibility_of_element_located((By.ID, 'owner')))
     owner = browser.find_element(By.ID, "owner")
     owner.send_keys('chronicletest5@ukr.net')
-
-
     wait.until(ec.visibility_of_element_located((By.ID, 'circulation')))
     circulation = browser.find_element(By.ID, "circulation")
     circulation.send_keys('1')
-
     wait.until(ec.visibility_of_element_located((By.ID, 'DiscountCoupon_create')))
     create_button = browser.find_element(By.ID, "DiscountCoupon_create")
     create_button.click()
     wait.until(ec.visibility_of_element_located(
         (By.XPATH, "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']")))
-    creation_message = browser.find_element(By.XPATH,
-                                            "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']").text
+    creation_message = browser.find_element(
+        By.XPATH, "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']").text
     assert creation_message == "CREATION SUCCESSFUL!"
     browser.find_element(By.XPATH, "//*[text() = 'Contents']").click()
     wait.until(ec.visibility_of_element_located((By.ID, 'createCard_coupon')))
@@ -2586,11 +2631,6 @@ def test_create_discount_coupon_full_options_valid_data():
     wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="password"]')))
     input_chronicle_password = browser.find_element(By.XPATH, '//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
-    wait.until(ec.visibility_of_element_located((By.XPATH,
-                                                 "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")))
-    check_box = browser.find_element(By.XPATH,
-                                     "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
     wait.until(
         ec.visibility_of_element_located((By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")))
     sign_in_button = browser.find_element(By.XPATH,
@@ -2598,9 +2638,9 @@ def test_create_discount_coupon_full_options_valid_data():
     sign_in_button.click()
     wait.until(ec.visibility_of_element_located((By.XPATH,
                                                  "//*[text() = 'skip for now']")))
-    time.sleep(1)
     pop_up_two_fa = browser.find_element(By.XPATH,
                                          "//*[text() = 'skip for now']")
+    time.sleep(2)
     pop_up_two_fa.click()
     browser.execute_script("window.scrollTo(0,1800)")
     wait.until(ec.visibility_of_element_located((By.XPATH, "//div[@class='AllCollectionCard_collectionCard__zDgyu']")))
@@ -2611,8 +2651,9 @@ def test_create_discount_coupon_full_options_valid_data():
     items_for_purchase_usd[0].click()
     wait.until(ec.visibility_of_element_located(
         (By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")))
-    buy_button = browser.find_element(By.XPATH,
-                                      "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']").click()
+    buy_button = browser.find_element(
+        By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")
+    buy_button.click()
     time.sleep(1)
     try:
         buy_anyway_button = browser.find_element(By.ID, 'Item_duplicate_Buy_anyway')
@@ -2622,7 +2663,8 @@ def test_create_discount_coupon_full_options_valid_data():
     except NoSuchElementException:
         print("...")
     wait.until(ec.visibility_of_element_located((By.ID, 'confirmBoughtwallet')))
-    tab_wallet = browser.find_element(By.ID, 'confirmBoughtwallet').click()
+    tab_wallet = browser.find_element(By.ID, 'confirmBoughtwallet')
+    tab_wallet.click()
     wait.until(ec.visibility_of_element_located((By.ID, "coupon")))
     price_before = browser.find_element(By.XPATH, "//div[@class='ConfirmBoughtModal_totalValue__qoUoG']").text
     insert_coupon = browser.find_element(By.ID, "coupon")
@@ -2643,7 +2685,7 @@ def test_create_discount_coupon_full_options_valid_data():
     browser.find_element(By.ID, "login").send_keys("savchukura888@gmail.com")
     browser.find_element(By.ID, "password").send_keys("213456qaZ")
     browser.find_element(By.ID, "LoginPage_Sign_in").click()
-    # time.sleep(4)
+
     wait.until(ec.visibility_of_element_located((By.XPATH, "//a[@href='/contents']")))
     side_menu = browser.find_element(By.XPATH, "//a[@href='/contents']")
     side_menu.click()
@@ -2655,7 +2697,8 @@ def test_create_discount_coupon_full_options_valid_data():
     drop_but = browser.find_elements(By.XPATH, "//button[@class='Tables_dropDown__zineI']")
     drop_but[1].click()
     wait.until(ec.visibility_of_element_located((By.ID, "InfoModal_Delete_coupon_Delete_it")))
-    del_but = browser.find_element(By.ID, "InfoModal_Delete_coupon_Delete_it").click()
+    del_but = browser.find_element(By.ID, "InfoModal_Delete_coupon_Delete_it")
+    del_but.click()
     time.sleep(0.5)
     browser.quit()
 
@@ -2667,9 +2710,11 @@ def test_create_redemption_coupon_circulation_one_valid_data():
     browser.get(URL_ADMIN)
     wait = WebDriverWait(browser, 15, 0.3)
     wait.until(ec.visibility_of_element_located((By.ID, 'login')))
-    admin_login = browser.find_element(By.ID, 'login').send_keys('savchukura888@gmail.com')
+    admin_login = browser.find_element(By.ID, 'login')
+    admin_login.send_keys('savchukura888@gmail.com')
     wait.until(ec.visibility_of_element_located((By.ID, 'password')))
-    admin_password = browser.find_element(By.ID, 'password').send_keys('213456qaZ')
+    admin_password = browser.find_element(By.ID, 'password')
+    admin_password.send_keys('213456qaZ')
     wait.until(ec.visibility_of_element_located((By.XPATH, "//*[text() = 'Sign in']")))
     sign_in_button = browser.find_element(By.XPATH, "//*[text() = 'Sign in']")
     sign_in_button.click()
@@ -2701,8 +2746,8 @@ def test_create_redemption_coupon_circulation_one_valid_data():
     generate_code_button.click()
     wait.until(ec.visibility_of_element_located(
         (By.XPATH, "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']")))
-    creation_message = browser.find_element(By.XPATH,
-                                            "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']").text
+    creation_message = browser.find_element(
+        By.XPATH, "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success']").text
     assert creation_message == "CREATION SUCCESSFUL!"
     browser.find_element(By.XPATH, "//*[text() = 'Contents']").click()
     wait.until(ec.visibility_of_element_located((By.ID, 'createCard_coupon')))
@@ -2717,11 +2762,7 @@ def test_create_redemption_coupon_circulation_one_valid_data():
     wait.until(ec.visibility_of_element_located((By.XPATH, '//input[@name="password"]')))
     input_chronicle_password = browser.find_element(By.XPATH, '//input[@name="password"]')
     input_chronicle_password.send_keys("213456qaZ")
-    wait.until(ec.visibility_of_element_located((By.XPATH,
-                                                 "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")))
-    check_box = browser.find_element(By.XPATH,
-                                     "//div[@class='LoginForm_input__ZZfRr LoginForm_checkbox__KEUgt']//label[@class='Input_checkbox__cuH_e']")
-    check_box.click()
+
     wait.until(
         ec.visibility_of_element_located((By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")))
     sign_in_button = browser.find_element(By.XPATH,
@@ -2729,9 +2770,10 @@ def test_create_redemption_coupon_circulation_one_valid_data():
     sign_in_button.click()
     wait.until(ec.visibility_of_element_located((By.XPATH,
                                                  "//*[text() = 'skip for now']")))
-    time.sleep(1)
+
     pop_up_two_fa = browser.find_element(By.XPATH,
                                          "//*[text() = 'skip for now']")
+    time.sleep(2)
     pop_up_two_fa.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//*[text() = 'Redeem Code']")))
     redeem_code_button = browser.find_element(By.XPATH, "//*[text() = 'Redeem Code']")
@@ -2739,8 +2781,10 @@ def test_create_redemption_coupon_circulation_one_valid_data():
     wait.until(ec.visibility_of_element_located((By.ID, "RRedeem_Code")))
     redeem_input = browser.find_element(By.ID, "RRedeem_Code")
     redeem_input.send_keys(coupon_name)
-    wait.until(ec.visibility_of_element_located((By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")))
-    redeem_button = browser.find_element(By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")
+    wait.until(ec.visibility_of_element_located(
+        (By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")))
+    redeem_button = browser.find_element(
+        By.XPATH, "//button[@class='Button_btn__JyuE1 Button_violet__5aLbL Button_withIcon__1TgpF']")
     redeem_button.click()
     wait.until(ec.visibility_of_element_located((By.XPATH, "//h2[@class='Review_h2__p7QZX']")))
     congratulations = browser.find_element(By.XPATH, "//h2[@class='Review_h2__p7QZX']").text
@@ -2750,7 +2794,7 @@ def test_create_redemption_coupon_circulation_one_valid_data():
     browser.find_element(By.ID, "login").send_keys("savchukura888@gmail.com")
     browser.find_element(By.ID, "password").send_keys("213456qaZ")
     browser.find_element(By.ID, "LoginPage_Sign_in").click()
-    # time.sleep(4)
+
     wait.until(ec.visibility_of_element_located((By.XPATH, "//a[@href='/contents']")))
     side_menu = browser.find_element(By.XPATH, "//a[@href='/contents']")
     side_menu.click()
@@ -2762,7 +2806,8 @@ def test_create_redemption_coupon_circulation_one_valid_data():
     drop_but = browser.find_elements(By.XPATH, "//button[@class='Tables_dropDown__zineI']")
     drop_but[1].click()
     wait.until(ec.visibility_of_element_located((By.ID, "InfoModal_Delete_coupon_Delete_it")))
-    del_but = browser.find_element(By.ID, "InfoModal_Delete_coupon_Delete_it").click()
+    del_but = browser.find_element(By.ID, "InfoModal_Delete_coupon_Delete_it")
+    del_but.click()
     time.sleep(0.5)
     browser.quit()
 
