@@ -27,14 +27,13 @@ def test_log_in_valid_data():
     wait.until(ec.visibility_of_element_located(
         (By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")))
     sign_in_button = browser.find_element(
-       By.XPATH, "//div[@class='LoginForm_button__tiE3C']//button[@type='button']")
+       By.XPATH, "//div[@class='LoginForm_button__tiE3C']")
     sign_in_button.click()
     wait.until(ec.visibility_of_element_located(
         (By.XPATH,
          "//*[text() = 'skip for now']")))
     pop_up_two_fa = browser.find_element(
-       By.XPATH,
-        "//*[text() = 'skip for now']")
+       By.XPATH, "//*[text() = 'skip for now']")
     time.sleep(2)
     pop_up_two_fa.click()
     time.sleep(1)
